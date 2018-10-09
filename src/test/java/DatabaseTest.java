@@ -1,19 +1,21 @@
 import com.shilko.ru.wither.database.*;
 import org.junit.After;
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.slf4j.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.annotation.Rollback;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.io.IOException;
+import java.util.logging.*;
 import java.util.List;
 import java.util.NoSuchElementException;
 import java.util.Optional;
+import java.util.logging.FileHandler;
+import java.util.logging.SimpleFormatter;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = {"/ApplicationConfig.xml"})
@@ -31,7 +33,13 @@ public class DatabaseTest {
     private String userStatusStatus;
 
     static {
-        LOG = LoggerFactory.getLogger(DatabaseTest.class);
+        LOG = Logger.getLogger("databaseTest");
+        try {
+            FileHandler fileHandler = new FileHandler("log.txt");
+            LOG.addHandler(fileHandler);
+        } catch (IOException e) {
+            LOG.warning("File logging isn't available!");
+        }
         LOG.info("Log init.");
     }
 
@@ -53,11 +61,11 @@ public class DatabaseTest {
         Optional<Users> user = usersCrudRepository.findByLogin("123");
         if (!user.isPresent())
             throw new NoSuchElementException();
-        System.out.println(user.get());
+        LOG.info(user.get().toString());
         List<UserStatus> userStatuses = userStatusCrudRepository.findAll();
         if (!userStatuses.get(0).getStatus().equals(userStatusStatus))
             throw new NoSuchElementException();
-        System.out.println(userStatuses.get(0));
+        LOG.info(userStatuses.get(0).toString());
         LOG.info("Save method end.");
     }
 
