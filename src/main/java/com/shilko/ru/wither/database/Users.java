@@ -12,6 +12,8 @@ import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
 
+//@Type(type="text")
+
 @Entity
 @Data
 public class Users implements Serializable {
@@ -46,8 +48,8 @@ public class Users implements Serializable {
     private String email;
 
     @NotNull
-    @ManyToOne
-    @JoinColumn(name = "userStatus_id", nullable = false)
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "userstatus_id", nullable = false)
     private UserStatus userStatus;
 
     public static int getMinPasswordSize() {

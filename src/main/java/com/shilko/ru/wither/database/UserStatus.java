@@ -26,7 +26,7 @@ public class UserStatus implements Serializable {
     private String status;
 
     @NotNull
-    @OneToMany(cascade=CascadeType.ALL, targetEntity=Users.class)
+    @OneToMany(targetEntity=Users.class, fetch = FetchType.LAZY)
     @JoinColumn(name="id")
     private Set<Users> users = new HashSet<>();
 
