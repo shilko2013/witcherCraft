@@ -1,5 +1,4 @@
-package com.shilko.ru.wither.database;
-
+package com.shilko.ru.wither.entity;
 import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotNull;
@@ -48,7 +47,7 @@ public class Users implements Serializable {
     private String email;
 
     @NotNull
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne//(fetch = FetchType.LAZY)
     @JoinColumn(name = "userstatus_id", nullable = false)
     private UserStatus userStatus;
 

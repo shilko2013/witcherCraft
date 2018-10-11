@@ -1,5 +1,4 @@
-package com.shilko.ru.wither.database;
-
+package com.shilko.ru.wither.entity;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -26,8 +25,7 @@ public class UserStatus implements Serializable {
     private String status;
 
     @NotNull
-    @OneToMany(targetEntity=Users.class, fetch = FetchType.LAZY)
-    @JoinColumn(name="id")
+    @OneToMany(mappedBy = "id")//, fetch = FetchType.LAZY)
     private Set<Users> users = new HashSet<>();
 
     public long getId() {

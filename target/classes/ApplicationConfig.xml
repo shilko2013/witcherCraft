@@ -7,7 +7,7 @@
      http://www.springframework.org/schema/data/jpa
      http://www.springframework.org/schema/data/jpa/spring-jpa.xsd">
 
-    <jpa:repositories base-package="com.shilko.ru.wither.database"/>
+    <jpa:repositories base-package="com.shilko.ru.wither.repository"/>
 
     <bean id="psqlDataSource"
           class="org.springframework.jdbc.datasource.DriverManagerDataSource">
@@ -25,7 +25,7 @@
     <bean id="entityManagerFactory"
           class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
         <property name="dataSource" ref="psqlDataSource" />
-        <property name="packagesToScan" value="com.shilko.ru.wither.database" />
+        <property name="packagesToScan" value="com.shilko.ru.wither.entity" />
         <property name="jpaVendorAdapter">
             <bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter" />
         </property>

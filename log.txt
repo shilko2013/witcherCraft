@@ -1,9 +1,9 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<?xml version="1.0" encoding="windows-1251" standalone="no"?>
 <!DOCTYPE log SYSTEM "logger.dtd">
 <log>
 <record>
-  <date>2018-10-10T20:50:58</date>
-  <millis>1539193858474</millis>
+  <date>2018-10-11T19:07:58</date>
+  <millis>1539274078159</millis>
   <sequence>0</sequence>
   <logger>databaseTest</logger>
   <level>INFO</level>
@@ -11,96 +11,5 @@
   <method>&lt;clinit&gt;</method>
   <thread>1</thread>
   <message>Log init.</message>
-</record>
-<record>
-  <date>2018-10-10T20:51:03</date>
-  <millis>1539193863924</millis>
-  <sequence>1</sequence>
-  <logger>databaseTest</logger>
-  <level>INFO</level>
-  <class>DatabaseTest</class>
-  <method>setUp</method>
-  <thread>1</thread>
-  <message>Test's starting...</message>
-</record>
-<record>
-  <date>2018-10-10T20:51:04</date>
-  <millis>1539193864008</millis>
-  <sequence>2</sequence>
-  <logger>databaseTest</logger>
-  <level>INFO</level>
-  <class>DatabaseTest</class>
-  <method>setUp</method>
-  <thread>1</thread>
-  <message>Before method end.</message>
-</record>
-<record>
-  <date>2018-10-10T20:51:04</date>
-  <millis>1539193864085</millis>
-  <sequence>3</sequence>
-  <logger>databaseTest</logger>
-  <level>INFO</level>
-  <class>DatabaseTest</class>
-  <method>setUp</method>
-  <thread>1</thread>
-  <message>Test's starting...</message>
-</record>
-<record>
-  <date>2018-10-10T20:51:04</date>
-  <millis>1539193864103</millis>
-  <sequence>4</sequence>
-  <logger>databaseTest</logger>
-  <level>INFO</level>
-  <class>DatabaseTest</class>
-  <method>setUp</method>
-  <thread>1</thread>
-  <message>Before method end.</message>
-</record>
-<record>
-  <date>2018-10-10T20:51:04</date>
-  <millis>1539193864104</millis>
-  <sequence>5</sequence>
-  <logger>databaseTest</logger>
-  <level>INFO</level>
-  <class>DatabaseTest</class>
-  <method>save</method>
-  <thread>1</thread>
-  <message>Save method's starting...</message>
-</record>
-<record>
-  <date>2018-10-10T20:51:04</date>
-  <millis>1539193864461</millis>
-  <sequence>6</sequence>
-  <logger>databaseTest</logger>
-  <level>INFO</level>
-  <class>DatabaseTest</class>
-  <method>save</method>
-  <thread>1</thread>
-  <message>com.shilko.ru.wither.database.Users@21id = 2; login = 123; password = 123123123; email = 123; userStatus = com.shilko.ru.wither.database.UserStatus@21id = 2; status = 1;
-;
-</message>
-</record>
-<record>
-  <date>2018-10-10T20:51:04</date>
-  <millis>1539193864476</millis>
-  <sequence>7</sequence>
-  <logger>databaseTest</logger>
-  <level>INFO</level>
-  <class>DatabaseTest</class>
-  <method>save</method>
-  <thread>1</thread>
-  <message>com.shilko.ru.wither.database.UserStatus@21id = 2; status = 1;
-</message>
-</record>
-<record>
-  <date>2018-10-10T20:51:04</date>
-  <millis>1539193864476</millis>
-  <sequence>8</sequence>
-  <logger>databaseTest</logger>
-  <level>INFO</level>
-  <class>DatabaseTest</class>
-  <method>save</method>
-  <thread>1</thread>
-  <message>Save method end.</message>
 </record>
 </log>

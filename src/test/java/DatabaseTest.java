@@ -1,6 +1,8 @@
-import com.shilko.ru.wither.database.*;
+import com.shilko.ru.wither.entity.*;
+import com.shilko.ru.wither.repository.*;
 import org.junit.After;
 import org.junit.Before;
+import org.junit.BeforeClass;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,6 +11,7 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.transaction.annotation.Transactional;
 
+import javax.persistence.EntityManager;
 import java.io.IOException;
 import java.util.logging.*;
 import java.util.List;
@@ -28,8 +31,8 @@ public class DatabaseTest {
     private UserStatusCrudRepository userStatusCrudRepository;
 
     private static final Logger LOG;
-
-    private String userStatusStatus;
+    private static boolean beforeWorked;
+    private static final String userStatusStatus = "1";
 
     static {
         LOG = Logger.getLogger("databaseTest");
@@ -40,16 +43,19 @@ public class DatabaseTest {
             LOG.warning("File logging isn't available!");
         }
         LOG.info("Log init.");
+        beforeWorked = false;
     }
 
     @Before
     @Rollback(false)
     public void setUp() {
+        if (beforeWorked)
+            return;
+        beforeWorked = true;
         LOG.info("Test's starting...");
-        UserStatus userStatus = new UserStatus("1");
-        userStatusStatus = userStatus.getStatus();
+        UserStatus userStatus = new UserStatus(userStatusStatus);
         userStatusCrudRepository.save(userStatus);
-        Users users = new Users("123", "123123123", "123", userStatus);
+        Users users = new Users("a", "123123123", "a@mail.ru", userStatus);
         usersCrudRepository.save(users);
         LOG.info("Before method end.");
     }
@@ -57,7 +63,7 @@ public class DatabaseTest {
     @Test
     public void save() {
         LOG.info("Save method's starting...");
-        Optional<Users> user = usersCrudRepository.findByLogin("123");
+        Optional<Users> user = usersCrudRepository.findByLogin("a");
         if (!user.isPresent())
             throw new NoSuchElementException();
         LOG.info(user.get().toString());
