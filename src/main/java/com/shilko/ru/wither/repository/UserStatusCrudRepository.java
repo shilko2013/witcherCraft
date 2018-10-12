@@ -1,6 +1,7 @@
 package com.shilko.ru.wither.repository;
 
 import com.shilko.ru.wither.entity.UserStatus;
+import com.shilko.ru.wither.entity.Users;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
@@ -20,4 +21,6 @@ public interface UserStatusCrudRepository extends CrudRepository<UserStatus, Lon
 
     @Override
     List<UserStatus> findAll();
+
+    UserStatus findByUsers(Users users);
 }

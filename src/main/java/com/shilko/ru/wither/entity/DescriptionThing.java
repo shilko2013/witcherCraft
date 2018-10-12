@@ -24,7 +24,7 @@ public class DescriptionThing {
 
     @NotNull
     @OneToOne(mappedBy = "descriptionThing")
-    private Component component;
+    private Thing thing;
 
     public long getId() {
         return id;
@@ -42,11 +42,11 @@ public class DescriptionThing {
         this.description = description;
     }
 
-    public Component getComponent() {
-        return component;
+    public Thing getThing() {
+        return thing;
     }
 
-    public void setComponent(Component component) {
-        this.component = component;
+    public void setThing(Thing thing) {
+        this.thing = thing;
     }
 }
