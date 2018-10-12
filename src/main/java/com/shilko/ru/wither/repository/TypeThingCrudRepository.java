@@ -4,6 +4,7 @@ import com.shilko.ru.wither.entity.Thing;
 import com.shilko.ru.wither.entity.TypeThing;
 import org.springframework.data.repository.CrudRepository;
 
+import java.util.List;
 import java.util.Optional;
 
 public interface TypeThingCrudRepository extends CrudRepository<TypeThing, Long> {
@@ -18,5 +19,5 @@ public interface TypeThingCrudRepository extends CrudRepository<TypeThing, Long>
     @Override
     void deleteById(Long id);
 
-    TypeThing findByThing(Thing thing);
+    List<Thing> findByThingsContains(Thing thing);
 }

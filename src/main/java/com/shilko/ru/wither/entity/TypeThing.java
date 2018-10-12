@@ -1,32 +1,35 @@
 package com.shilko.ru.wither.entity;
 
+import lombok.Data;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import java.util.List;
 
 @Entity
+@Data
 public class TypeThing {
 
     public TypeThing() {}
 
-    public TypeThing(@NotNull String name, @NotNull String information, @NotNull Thing thing) {
+    public TypeThing(@NotNull String name, String information, @NotNull List<Thing> things) {
         this.name = name;
         this.information = information;
-        this.thing = thing;
+        this.things = things;
     }
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    @NotNull
+    @Column(nullable = false)
     private String name;
 
-    @NotNull
     private String information;
 
-    @NotNull
-    @OneToMany(mappedBy = "typeThing")
-    private Thing thing;
+    @Column(nullable = false)
+    @OneToMany(mappedBy = "typeThing", fetch = FetchType.LAZY)
+    private List<Thing> things;
 
     public long getId() {
         return id;
@@ -52,11 +55,11 @@ public class TypeThing {
         this.information = information;
     }
 
-    public Thing getThing() {
-        return thing;
+    public List<Thing> getThings() {
+        return things;
     }
 
-    public void setThing(Thing thing) {
-        this.thing = thing;
+    public void setThings(List<Thing> things) {
+        this.things = things;
     }
 }

@@ -1,4 +1,6 @@
 package com.shilko.ru.wither.entity;
+import lombok.Data;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.PositiveOrZero;
@@ -6,6 +8,7 @@ import java.io.Serializable;
 import java.util.List;
 
 @Entity
+@Data
 public class Thing implements Serializable {
 
     public Thing() {}
@@ -24,33 +27,31 @@ public class Thing implements Serializable {
     private long id;
 
     @NotNull
-    @Column(unique = true)
+    @Column(unique = true, nullable = false)
     private String name;
 
-    @NotNull
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "typething_id", nullable = false)
     private TypeThing typeThing;
 
-    @NotNull
+    @Column(nullable = false)
     @PositiveOrZero
     private int price;
 
-    @NotNull
+    @Column(nullable = false)
     @PositiveOrZero
     private double weight;
 
-    @NotNull
-    @OneToOne
+    @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "descriptionthing_id", nullable = false)
     private DescriptionThing descriptionThing;
 
-    @NotNull
-    @OneToMany(mappedBy = "thing")
+    @Column(nullable = false)
+    @OneToMany(mappedBy = "thing", fetch = FetchType.LAZY)
     private List<EffectThing> effects;
 
-    @NotNull
-    @OneToMany(mappedBy = "thing")
+    @Column(nullable = false)
+    @OneToMany(mappedBy = "thing", fetch = FetchType.LAZY)
     private List<Draft> drafts;
 
     public long getId() {

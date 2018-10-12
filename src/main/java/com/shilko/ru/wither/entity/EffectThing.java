@@ -1,11 +1,13 @@
 package com.shilko.ru.wither.entity;
 
+import lombok.Data;
 import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
 @Entity
+@Data
 public class EffectThing {
 
     public EffectThing() {}
@@ -20,16 +22,15 @@ public class EffectThing {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    @NotNull
+    @Column(nullable = false)
     private String name;
 
-    @NotNull
+    @Column(nullable = false)
     @Type(type = "text")
     private String information;
 
-    @NotNull
-    @ManyToOne
-    @JoinColumn(name = "effects", nullable = false)
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "thing_id", nullable = false)
     private Thing thing;
 
     public long getId() {

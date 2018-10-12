@@ -1,9 +1,7 @@
 import com.shilko.ru.wither.entity.*;
 import com.shilko.ru.wither.repository.*;
-import org.junit.After;
-import org.junit.Before;
-import org.junit.BeforeClass;
-import org.junit.Test;
+import org.hibernate.annotations.Type;
+import org.junit.*;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.annotation.Rollback;
@@ -11,7 +9,6 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.transaction.annotation.Transactional;
 
-import javax.persistence.EntityManager;
 import java.io.IOException;
 import java.util.logging.*;
 import java.util.List;
@@ -24,20 +21,54 @@ import java.util.logging.FileHandler;
 @Transactional
 public class DatabaseTest {
 
+    private static class testException {
+        private static void test(Runnable runnable) {
+            try {
+                runnable.run();
+                System.exit(-1);
+            } catch (Exception ignore) { }
+        }
+    }
+
     @Autowired
     private UsersCrudRepository usersCrudRepository;
 
     @Autowired
     private UserStatusCrudRepository userStatusCrudRepository;
 
+    @Autowired
+    private CategoryComponentCrudRepository categoryComponentCrudRepository;
+
+    @Autowired
+    private ComponentCrudRepository componentCrudRepository;
+
+    @Autowired
+    private DescriptionComponentCrudRepository descriptionComponentCrudRepository;
+
+    @Autowired
+    private DescriptionThingCrudRepository descriptionThingCrudRepository;
+
+    @Autowired
+    private DraftCrudRepository draftCrudRepository;
+
+    @Autowired
+    private EffectThingCrudRepository effectThingCrudRepository;
+
+    @Autowired
+    private ThingCrudRepository thingCrudRepository;
+
+    @Autowired
+    private TypeThingCrudRepository typeThingCrudRepository;
+
     private static final Logger LOG;
     private static boolean beforeWorked;
-    private static final String userStatusStatus = "1";
+
+    private UserStatus reader;
 
     static {
         LOG = Logger.getLogger("databaseTest");
         try {
-            FileHandler fileHandler = new FileHandler("log.txt");
+            FileHandler fileHandler = new FileHandler("LogDatabase.txt");
             LOG.addHandler(fileHandler);
         } catch (IOException e) {
             LOG.warning("File logging isn't available!");
@@ -46,22 +77,75 @@ public class DatabaseTest {
         beforeWorked = false;
     }
 
+    @BeforeClass
+    public static void logStart() {
+        LOG.info("Test's starting...");
+    }
+
     @Before
     @Rollback(false)
-    public void setUp() {
+    public void init() {
         if (beforeWorked)
             return;
         beforeWorked = true;
-        LOG.info("Test's starting...");
-        UserStatus userStatus = new UserStatus(userStatusStatus);
-        userStatusCrudRepository.save(userStatus);
-        Users users = new Users("a", "123123123", "a@mail.ru", userStatus);
+        LOG.info("Before method's starting...");
+
+        LOG.info("Init user status's starting...");
+        UserStatus admin = new UserStatus("admin");
+        userStatusCrudRepository.save(admin);
+        UserStatus editor = new UserStatus("editor");
+        userStatusCrudRepository.save(editor);
+        reader = new UserStatus("reader");
+        userStatusCrudRepository.save(reader);
+        LOG.info("Init user status ends.");
+
+        LOG.info("Init user's starting...");
+        Users users = new Users("admin", "123123123", "admin@mail.ru", admin);
         usersCrudRepository.save(users);
-        LOG.info("Before method end.");
+        users = new Users("editor", "123123123", "editor@mail.ru", editor);
+        usersCrudRepository.save(users);
+        users = new Users("reader", "123123123", "reader@mail.ru", reader);
+        usersCrudRepository.save(users);
+        LOG.info("Init user's ends.");
+
+
+
+        LOG.info("Before method ends.");
     }
 
     @Test
-    public void save() {
+    public void nullUserStatus() {
+        LOG.info("nullUserStatus method's starting...");
+        testException.test(() -> {
+            UserStatus userStatus = new UserStatus(null);
+            userStatusCrudRepository.save(userStatus);
+        });
+        LOG.info("nullUserStatus method ends.");
+    }
+
+    @Test
+    public void notUniqueLoginUser() {
+        LOG.info("notUniqueLoginUser method's starting...");
+        testException.test(() -> {
+            Users user = new Users("reader", "123123123", "@mail.ru", reader);
+            usersCrudRepository.save(user);
+        });
+        LOG.info("notUniqueLoginUser method ends.");
+    }
+
+    @Test
+    public void notUniqueEmailUser() {
+        LOG.info("notUniqueEmailUser method's starting...");
+        testException.test(() -> {
+            Users user = new Users("reader2", "123123123", "reader@mail.ru", reader);
+            usersCrudRepository.save(user);
+        });
+        LOG.info("notUniqueEmailUser method ends.");
+
+    }
+
+    /*@Test
+    public void find() {
         LOG.info("Save method's starting...");
         Optional<Users> user = usersCrudRepository.findByLogin("a");
         if (!user.isPresent())
@@ -71,8 +155,8 @@ public class DatabaseTest {
         if (!userStatuses.get(0).getStatus().equals(userStatusStatus))
             throw new NoSuchElementException();
         LOG.info(userStatuses.get(0).toString());
-        LOG.info("Save method end.");
-    }
+        LOG.info("Save method ends.");
+    }*/
 
     @Test
     public void count() {
@@ -82,5 +166,10 @@ public class DatabaseTest {
     @After
     public void delete() {
 
+    }
+
+    @AfterClass
+    public static void logEnd() {
+        LOG.info("Test ends.");
     }
 }

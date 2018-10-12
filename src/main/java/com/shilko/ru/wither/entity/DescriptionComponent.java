@@ -1,11 +1,13 @@
 package com.shilko.ru.wither.entity;
 
+import lombok.Data;
 import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
 @Entity
+@Data
 public class DescriptionComponent {
 
     public DescriptionComponent() {}
@@ -19,12 +21,11 @@ public class DescriptionComponent {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    @NotNull
+    @Column(nullable = false)
     @Type(type = "text")
     private String description;
 
-    @NotNull
-    @OneToOne(mappedBy = "descriptionComponent")
+    @OneToOne(mappedBy = "descriptionComponent", fetch = FetchType.LAZY)
     private Component component;
 
     public long getId() {

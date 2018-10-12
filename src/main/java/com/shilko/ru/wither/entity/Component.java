@@ -1,10 +1,13 @@
 package com.shilko.ru.wither.entity;
+import lombok.Data;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.PositiveOrZero;
 import java.util.List;
 
 @Entity
+@Data
 public class Component {
 
     public Component() {}
@@ -22,29 +25,27 @@ public class Component {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    @NotNull
+    @Column(nullable = false, unique = true)
     private String name;
 
-    @NotNull
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "category_id", nullable = false)
     private CategoryComponent categoryComponent;
 
-    @NotNull
+    @Column(nullable = false)
     @PositiveOrZero
     private int price;
 
-    @NotNull
+    @Column(nullable = false)
     @PositiveOrZero
     private double weight;
 
-    @NotNull
-    @OneToOne
+    @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "descriptioncomponent_id", nullable = false)
     private DescriptionComponent descriptionComponent;
 
-    @NotNull
-    @ManyToMany(mappedBy = "components")
+    @Column(nullable = false)
+    @ManyToMany(mappedBy = "components", fetch = FetchType.LAZY)
     private List<Draft> drafts;
 
     public long getId() {

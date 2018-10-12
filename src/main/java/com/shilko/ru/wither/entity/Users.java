@@ -33,21 +33,18 @@ public class Users implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    @NotNull
-    @Column(unique=true)
+    @Column(unique=true, nullable = false)
     private String login;
 
-    @NotNull
+    @Column(nullable = false)
     @Size(min = minPasswordSize)
     private String password;
 
-    @NotNull
-    @Column(unique=true)
+    @Column(unique=true, nullable = false)
     @Email
     private String email;
 
-    @NotNull
-    @ManyToOne//(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "userstatus_id", nullable = false)
     private UserStatus userStatus;
 

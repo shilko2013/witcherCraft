@@ -1,4 +1,5 @@
 package com.shilko.ru.wither.entity;
+import lombok.Data;
 import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
@@ -7,6 +8,7 @@ import java.io.Serializable;
 import java.util.List;
 
 @Entity
+@Data
 public class Draft implements Serializable {
 
     public Draft() { }
@@ -21,20 +23,19 @@ public class Draft implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    @NotNull
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "thing_id", nullable = false)
     private Thing thing;
 
     @Type(type = "text")
     private String information;
 
-    @NotNull
-    @ManyToMany(cascade = CascadeType.ALL)
+    @Column(nullable = false)
+    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JoinTable(
-            name = "draft_thing",
+            name = "draft_component",
             joinColumns = { @JoinColumn(name = "draft_id")},
-            inverseJoinColumns = { @JoinColumn(name = "thing_id")}
+            inverseJoinColumns = { @JoinColumn(name = "component_id")}
     )
     private List<Component> components;
 

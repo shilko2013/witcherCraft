@@ -21,11 +21,11 @@ public class UserStatus implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    @NotNull
+    @Column(nullable = false)
     private String status;
 
-    @NotNull
-    @OneToMany(mappedBy = "id")//, fetch = FetchType.LAZY)
+    @Column(nullable = false)
+    @OneToMany(mappedBy = "id", fetch = FetchType.LAZY)
     private Set<Users> users = new HashSet<>();
 
     public long getId() {

@@ -1,5 +1,6 @@
 package com.shilko.ru.wither.entity;
 
+import lombok.Data;
 import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
@@ -7,6 +8,7 @@ import javax.validation.constraints.NotNull;
 import java.util.List;
 
 @Entity
+@Data
 public class CategoryComponent {
 
     public CategoryComponent() {}
@@ -21,14 +23,14 @@ public class CategoryComponent {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    @NotNull
+    @Column(nullable = false)
     private String name;
 
     @Type(type = "text")
     private String information;
 
-    @NotNull
-    @OneToMany(mappedBy = "categoryComponent")
+    @Column(nullable = false)
+    @OneToMany(mappedBy = "categoryComponent", fetch = FetchType.LAZY)
     private List<Component> components;
 
     public long getId() {
