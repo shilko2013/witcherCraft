@@ -67,6 +67,20 @@ public class DatabaseTest {
     private static final Logger LOG;
     private static FileHandler fileHandler;
 
+    private UserStatus admin;
+    private UserStatus editor;
+    private UserStatus reader;
+
+    private List<Users> users = new ArrayList<>();
+    private List<DescriptionComponent> descriptionComponent = new ArrayList<>();
+    private List<CategoryComponent> categoryComponent = new ArrayList<>();
+    private List<Component> component = new ArrayList<>();
+    private List<DescriptionThing> descriptionThing = new ArrayList<>();
+    private List<EffectThing> effectThing = new ArrayList<>();
+    private List<TypeThing> typeThing = new ArrayList<>();
+    private List<Thing> thing = new ArrayList<>();
+    private List<Draft> draft = new ArrayList<>();
+
     static {
         LOG = Logger.getLogger("databaseTest");
         try {
@@ -83,124 +97,128 @@ public class DatabaseTest {
         LOG.info("Test's starting...");
     }
 
-
-
-    @Test
-    public void test() {
-        LOG.info("Test method's starting...");
-
+    private void initUserStatus() {
         LOG.info("Init user status's starting...");
-        UserStatus admin = new UserStatus("admin");
-        UserStatus editor = new UserStatus("editor");
-        UserStatus reader = new UserStatus("reader");
+        admin = new UserStatus("admin");
+        editor = new UserStatus("editor");
+        reader = new UserStatus("reader");
         userStatusCrudRepository.save(admin);
         userStatusCrudRepository.save(editor);
         userStatusCrudRepository.save(reader);
         LOG.info("Init user status ends.");
+    }
 
+    private void initUsers() {
         LOG.info("Init user's starting...");
-        Users users1 = new Users("admin", "123123123", "admin@mail.ru", admin);
-        Users users2 = new Users("editor", "123123123", "editor@mail.ru", editor);
-        Users users3 = new Users("reader", "123123123", "reader@mail.ru", reader);
-        usersCrudRepository.save(users1);
-        usersCrudRepository.save(users2);
-        usersCrudRepository.save(users3);
+        users.add(new Users("admin", "123123123", "admin@mail.ru", admin));
+        users.add(new Users("editor", "123123123", "editor@mail.ru", editor));
+        users.add(new Users("reader", "123123123", "reader@mail.ru", reader));
+        users.forEach(usersCrudRepository::save);
         LOG.info("Init user ends.");
+    }
 
+    private void initDescriptionComponent() {
         LOG.info("Init description component's starting...");
-        DescriptionComponent descriptionComponent1 = new DescriptionComponent("information1");
-        DescriptionComponent descriptionComponent2 = new DescriptionComponent("information2");
-        DescriptionComponent descriptionComponent3 = new DescriptionComponent("information3");
-        DescriptionComponent descriptionComponent4 = new DescriptionComponent("information4");
-        descriptionComponentCrudRepository.save(descriptionComponent1);
-        descriptionComponentCrudRepository.save(descriptionComponent2);
-        descriptionComponentCrudRepository.save(descriptionComponent3);
-        descriptionComponentCrudRepository.save(descriptionComponent4);
+        descriptionComponent.add(new DescriptionComponent("information1"));
+        descriptionComponent.add(new DescriptionComponent("information2"));
+        descriptionComponent.add(new DescriptionComponent("information3"));
+        descriptionComponent.add(new DescriptionComponent("information4"));
+        descriptionComponent.forEach(descriptionComponentCrudRepository::save);
         LOG.info("Init description component ends.");
+    }
 
+    private void initCategoryComponent() {
         LOG.info("Init category component's starting...");
-        CategoryComponent categoryComponent1 = new CategoryComponent("usual", "info");
-        CategoryComponent categoryComponent2 = new CategoryComponent("unusual", "info");
-        categoryComponentCrudRepository.save(categoryComponent1);
-        categoryComponentCrudRepository.save(categoryComponent2);
+        categoryComponent.add(new CategoryComponent("usual", "info"));
+        categoryComponent.add(new CategoryComponent("unusual", "info"));
+        categoryComponent.forEach(categoryComponentCrudRepository::save);
         LOG.info("Init category component ends.");
+    }
 
+    private void initComponent() {
         LOG.info("Init description component's starting...");
-        Component component1 = new Component("wood", 1, 1.2, descriptionComponent1, categoryComponent1);
-        Component component2 = new Component("plastic", 5, 0.1, descriptionComponent2, categoryComponent2);
-        Component component3 = new Component("pen", 500, 1.4, descriptionComponent3, categoryComponent1);
-        Component component4 = new Component("steak", 10, 0.0, descriptionComponent4, categoryComponent1);
-        componentCrudRepository.save(component1);
-        componentCrudRepository.save(component2);
-        componentCrudRepository.save(component3);
-        componentCrudRepository.save(component4);
+        component.add(new Component("wood", 1, 1.2, descriptionComponent.get(0), categoryComponent.get(0)));
+        component.add(new Component("plastic", 5, 0.1, descriptionComponent.get(1), categoryComponent.get(1)));
+        component.add(new Component("pen", 500, 1.4, descriptionComponent.get(2), categoryComponent.get(2)));
+        component.add(new Component("steak", 10, 0.0, descriptionComponent.get(3), categoryComponent.get(3)));
+        component.forEach(componentCrudRepository::save);
         LOG.info("Init component ends.");
+    }
 
+    private void initDescriptionThing() {
         LOG.info("Init description thing's starting...");
-        DescriptionThing descriptionThing1 = new DescriptionThing("desc1");
-        DescriptionThing descriptionThing2 = new DescriptionThing("desc2");
-        DescriptionThing descriptionThing3 = new DescriptionThing("desc3");
-        DescriptionThing descriptionThing4 = new DescriptionThing("desc4");
-        descriptionThingCrudRepository.save(descriptionThing1);
-        descriptionThingCrudRepository.save(descriptionThing2);
-        descriptionThingCrudRepository.save(descriptionThing3);
-        descriptionThingCrudRepository.save(descriptionThing4);
+        descriptionThing.add(new DescriptionThing("desc1"));
+        descriptionThing.add(new DescriptionThing("desc2"));
+        descriptionThing.add(new DescriptionThing("desc3"));
+        descriptionThing.add(new DescriptionThing("desc4"));
+        descriptionThing.forEach(descriptionThingCrudRepository::save);
         LOG.info("Init description thing ends.");
+    }
 
+    private void initEffectThing() {
         LOG.info("Init effect thing's starting...");
-        EffectThing effectThing1 = new EffectThing("burning", "desc1", "info1");
-        EffectThing effectThing2 = new EffectThing("burning", "desc2", "info2");
-        EffectThing effectThing3 = new EffectThing("burning", "desc3", "info3");
-        EffectThing effectThing4 = new EffectThing("burning", "desc4", "info4");
-        EffectThing effectThing5 = new EffectThing("burning", "desc5", "info5");
-        effectThingCrudRepository.save(effectThing1);
-        effectThingCrudRepository.save(effectThing2);
-        effectThingCrudRepository.save(effectThing3);
-        effectThingCrudRepository.save(effectThing4);
-        effectThingCrudRepository.save(effectThing5);
+        effectThing.add(new EffectThing("burning", "desc1", "info1"));
+        effectThing.add(new EffectThing("burning", "desc2", "info2"));
+        effectThing.add(new EffectThing("burning", "desc3", "info3"));
+        effectThing.add(new EffectThing("burning", "desc4", "info4"));
+        effectThing.add(new EffectThing("burning", "desc5", "info5"));
+       effectThing.forEach(effectThingCrudRepository::save);
         LOG.info("Init effect thing ends.");
+    }
 
+    private void initTypeThing() {
         LOG.info("Init type thing's starting...");
-        TypeThing typeThing1 = new TypeThing("usual", null);
-        TypeThing typeThing2 = new TypeThing("unusual", "fantastic!");
-        typeThingCrudRepository.save(typeThing1);
-        typeThingCrudRepository.save(typeThing2);
+        typeThing.add(new TypeThing("usual", null));
+        typeThing.add(new TypeThing("unusual", "fantastic!"));
+        typeThing.forEach(typeThingCrudRepository::save);
         LOG.info("Init type thing ends.");
+    }
 
+    private void initThing() {
         LOG.info("Init thing's starting...");
-        Thing thing1 = new Thing("sword", 800, 5, typeThing1, descriptionThing1, Arrays.asList(effectThing1));
-        Thing thing2 = new Thing("armor", 1, 0.1, typeThing2, descriptionThing2, Arrays.asList(effectThing2));
-        Thing thing3 = new Thing("cap", 10, 3, typeThing1, descriptionThing3, Arrays.asList(effectThing3,effectThing4));
-        Thing thing4 = new Thing("ticket", 830, 4, typeThing2, descriptionThing4, Arrays.asList(effectThing5));
-        thingCrudRepository.save(thing1);
-        thingCrudRepository.save(thing2);
-        thingCrudRepository.save(thing3);
-        thingCrudRepository.save(thing4);
+        thing.add(new Thing("sword", 800, 5, typeThing.get(0), descriptionThing.get(0), Arrays.asList(effectThing.get(0))));
+        thing.add(new Thing("armor", 1, 0.1, typeThing.get(1), descriptionThing.get(1), Arrays.asList(effectThing.get(1))));
+        thing.add(new Thing("cap", 10, 3, typeThing.get(0), descriptionThing.get(2), Arrays.asList(effectThing.get(2), effectThing.get(3))));
+        thing.add(new Thing("ticket", 830, 4, typeThing.get(1), descriptionThing.get(3), Arrays.asList(effectThing.get(4))));
+        thing.forEach(thingCrudRepository::save);
         LOG.info("Init thing ends.");
+    }
 
+    private void initDraft() {
         LOG.info("Init draft's starting...");
-        Draft draft1 = new Draft(thing1,null, Arrays.asList(component1,component2,component3,component4));
-        Draft draft2 = new Draft(thing2,"info", Arrays.asList(component1,component2,component4));
-        Draft draft3 = new Draft(thing3,"inf1", Arrays.asList(component1,component3,component4));
-        Draft draft4 = new Draft(thing1,"inf2", Arrays.asList(component4));
-        draftCrudRepository.save(draft1);
-        draftCrudRepository.save(draft2);
-        draftCrudRepository.save(draft3);
-        draftCrudRepository.save(draft4);
+        draft.add(new Draft(thing.get(0), null, component));
+        draft.add(new Draft(thing.get(1), "info", Arrays.asList(component.get(0), component.get(1), component.get(3))));
+        draft.add(new Draft(thing.get(2), "inf1", Arrays.asList(component.get(1), component.get(2), component.get(3))));
+        draft.add(new Draft(thing.get(0), "inf2", Arrays.asList(component.get(3))));
+        draft.forEach(draftCrudRepository::save);
         LOG.info("Init draft ends.");
+    }
 
-        LOG.info("Test method ends.");
+    @Test
+    public void test() {
+        LOG.info("Test method's starting...");
+        initUserStatus();
+        initUsers();
+        initDescriptionComponent();
+        initCategoryComponent();
+        initComponent();
+        initDescriptionThing();
+        initEffectThing();
+        initTypeThing();
+        initThing();
+        initDraft();
 
         LOG.info("CategoryComponentFindById method's starting...");
-        assertEquals(categoryComponent1,(categoryComponentCrudRepository.findById(categoryComponent1.getId()).get()));
-        assertEquals(categoryComponent2,(categoryComponentCrudRepository.findById(categoryComponent2.getId()).get()));
+        assertEquals(categoryComponent.get(0), (categoryComponentCrudRepository.findById(categoryComponent.get(0).getId()).get()));
+        assertEquals(categoryComponent.get(1), (categoryComponentCrudRepository.findById(categoryComponent.get(1).getId()).get()));
         LOG.info("CategoryComponentFindById method ends.");
 
         LOG.info("CategoryComponentFindByName method's starting...");
-        assertEquals(categoryComponent1.getName(),categoryComponentCrudRepository.findByName("usual").getName());
-        assertEquals(categoryComponent2.getName(),categoryComponentCrudRepository.findByName("unusual").getName());
+        assertEquals(categoryComponent.get(0).getName(), categoryComponentCrudRepository.findByName("usual").getName());
+        assertEquals(categoryComponent.get(1).getName(), categoryComponentCrudRepository.findByName("unusual").getName());
         LOG.info("CategoryComponentFindByName method ends.");
 
+        LOG.info("Test method ends.");
     }
 
     /*@Test

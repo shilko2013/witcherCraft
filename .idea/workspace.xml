@@ -3,18 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="678ca382-2f1f-4b50-a17d-25d8060134e3" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/shilko/ru/wither/entity/CategoryComponent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/shilko/ru/wither/entity/CategoryComponent.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/shilko/ru/wither/entity/Component.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/shilko/ru/wither/entity/Component.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/shilko/ru/wither/entity/DescriptionComponent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/shilko/ru/wither/entity/DescriptionComponent.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/shilko/ru/wither/entity/DescriptionThing.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/shilko/ru/wither/entity/DescriptionThing.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/shilko/ru/wither/entity/Draft.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/shilko/ru/wither/entity/Draft.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/shilko/ru/wither/entity/EffectThing.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/shilko/ru/wither/entity/EffectThing.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/shilko/ru/wither/entity/Thing.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/shilko/ru/wither/entity/Thing.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/shilko/ru/wither/entity/TypeThing.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/shilko/ru/wither/entity/TypeThing.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/shilko/ru/wither/entity/UserStatus.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/shilko/ru/wither/entity/UserStatus.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/shilko/ru/wither/entity/Users.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/shilko/ru/wither/entity/Users.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/DatabaseTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/DatabaseTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/DatabaseTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/DatabaseTest.class" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -112,16 +101,16 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="dummy" value="14" />
-          <entry key="java" value="8048" />
+          <entry key="java" value="8748" />
           <entry key="properties" value="21" />
-          <entry key="txt" value="210" />
+          <entry key="txt" value="234" />
           <entry key="xml" value="621" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="8048" />
-          <entry key="PLAIN_TEXT" value="224" />
+          <entry key="JAVA" value="8748" />
+          <entry key="PLAIN_TEXT" value="248" />
           <entry key="Properties" value="21" />
           <entry key="XML" value="621" />
         </counts>
@@ -133,8 +122,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/test/java/DatabaseTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="51">
-              <caret line="85" column="4" selection-start-line="85" selection-start-column="4" selection-end-line="85" selection-end-column="4" />
+            <state relative-caret-position="425">
+              <caret line="213" column="59" lean-forward="true" selection-start-line="213" selection-start-column="59" selection-end-line="213" selection-end-column="59" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -225,6 +214,7 @@
       <find>ER</find>
       <find>frf</find>
       <find>save</find>
+      <find>Arrays.asList</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -473,7 +463,7 @@
     <property name="SearchEverywhereHistoryKey" value="maven&#9;ACTION&#9;ActivateMavenProjectsToolWindow" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1539452424124" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1539454043921" />
     <property name="database.console.LAST_STATE" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
@@ -620,7 +610,14 @@
       <option name="project" value="LOCAL" />
       <updated>1539341618898</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Version 0.0.4.3. Junit ont beg test method.">
+      <created>1539452640026</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1539452640026</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -656,7 +653,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="86559000" />
+    <option name="totallyTimeSpent" value="88250000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -743,7 +740,8 @@
     <MESSAGE value="Version 0.0.4. Entity ends, template for crudrepositories ready." />
     <MESSAGE value="Version 0.0.4.1. CrudRepositories's done." />
     <MESSAGE value="Version 0.0.4.2. Junit init test start writing." />
-    <option name="LAST_COMMIT_MESSAGE" value="Version 0.0.4.2. Junit init test start writing." />
+    <MESSAGE value="Version 0.0.4.3. Junit ont beg test method." />
+    <option name="LAST_COMMIT_MESSAGE" value="Version 0.0.4.3. Junit ont beg test method." />
   </component>
   <component name="XDebuggerManager">
     <watches-manager>
@@ -1346,8 +1344,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/DatabaseTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="85" column="4" selection-start-line="85" selection-start-column="4" selection-end-line="85" selection-end-column="4" />
+        <state relative-caret-position="425">
+          <caret line="213" column="59" lean-forward="true" selection-start-line="213" selection-start-column="59" selection-end-line="213" selection-end-column="59" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
