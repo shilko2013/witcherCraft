@@ -73,16 +73,6 @@ public class Users implements Serializable {
     }
 
     @Override
-    public String toString() {
-        return super.toString() +
-                "id = " + getId() + "; " +
-                "login = " + getLogin() + "; " +
-                "password = " + getPassword() + "; " +
-                "email = " + getEmail() + "; " +
-                "userStatus = " + getUserStatus() + ";\n";
-    }
-
-    @Override
     public boolean equals(Object o) {
         if (o == null)
             return false;

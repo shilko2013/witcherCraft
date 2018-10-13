@@ -5,6 +5,7 @@ import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.PositiveOrZero;
 import java.util.List;
+import java.util.Objects;
 
 @Entity
 @Data
@@ -12,13 +13,12 @@ public class Component {
 
     public Component() {}
 
-    public Component(@NotNull String name, @NotNull CategoryComponent categoryComponent, @NotNull @PositiveOrZero int price, @NotNull @PositiveOrZero double weight, @NotNull DescriptionComponent descriptionComponent, @NotNull List<Draft> drafts) {
+    public Component(@NotNull String name, @NotNull @PositiveOrZero int price, @NotNull @PositiveOrZero double weight, @NotNull DescriptionComponent descriptionComponent, @NotNull CategoryComponent categoryComponent) {
         this.name = name;
         this.categoryComponent = categoryComponent;
         this.price = price;
         this.weight = weight;
         this.descriptionComponent = descriptionComponent;
-        this.drafts = drafts;
     }
 
     @Id
@@ -102,5 +102,24 @@ public class Component {
 
     public void setDrafts(List<Draft> drafts) {
         this.drafts = drafts;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Component component = (Component) o;
+        return id == component.id &&
+                price == component.price &&
+                Double.compare(component.weight, weight) == 0 &&
+                Objects.equals(name, component.name) &&
+                Objects.equals(categoryComponent, component.categoryComponent) &&
+                Objects.equals(descriptionComponent, component.descriptionComponent) &&
+                Objects.equals(drafts, component.drafts);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, name, categoryComponent, price, weight, descriptionComponent, drafts);
     }
 }

@@ -6,6 +6,7 @@ import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 import java.util.List;
+import java.util.Objects;
 
 @Entity
 @Data
@@ -69,5 +70,21 @@ public class Draft implements Serializable {
 
     public void setComponents(List<Component> components) {
         this.components = components;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Draft draft = (Draft) o;
+        return id == draft.id &&
+                Objects.equals(thing, draft.thing) &&
+                Objects.equals(information, draft.information) &&
+                Objects.equals(components, draft.components);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, thing, information, components);
     }
 }

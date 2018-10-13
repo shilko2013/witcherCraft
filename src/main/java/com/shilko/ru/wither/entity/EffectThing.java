@@ -5,6 +5,7 @@ import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import java.util.Objects;
 
 @Entity
 @Data
@@ -12,10 +13,9 @@ public class EffectThing {
 
     public EffectThing() {}
 
-    public EffectThing(@NotNull String name, @NotNull String description, String information, @NotNull Thing thing) {
+    public EffectThing(@NotNull String name, @NotNull String description, String information) {
         this.name = name;
         this.information = information;
-        this.thing = thing;
     }
 
     @Id
@@ -30,7 +30,7 @@ public class EffectThing {
     private String information;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "thing_id", nullable = false)
+    @JoinColumn(name = "thing_id")
     private Thing thing;
 
     public long getId() {
@@ -63,5 +63,21 @@ public class EffectThing {
 
     public void setThing(Thing thing) {
         this.thing = thing;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        EffectThing that = (EffectThing) o;
+        return id == that.id &&
+                Objects.equals(name, that.name) &&
+                Objects.equals(information, that.information) &&
+                Objects.equals(thing, that.thing);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, name, information, thing);
     }
 }

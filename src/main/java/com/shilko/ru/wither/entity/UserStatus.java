@@ -4,9 +4,7 @@ import lombok.Data;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.io.Serializable;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
+import java.util.*;
 
 @Entity
 @Data
@@ -26,7 +24,7 @@ public class UserStatus implements Serializable {
 
     @Column(nullable = false)
     @OneToMany(mappedBy = "id", fetch = FetchType.LAZY)
-    private Set<Users> users = new HashSet<>();
+    private List<Users> users;
 
     public long getId() {
         return id;
@@ -36,27 +34,34 @@ public class UserStatus implements Serializable {
         return status;
     }
 
-    @Override
-    public String toString() {
-        return super.toString() +
-                "id = " + getId() + "; " +
-                "status = " + getStatus() + ";\n";
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public List<Users> getUsers() {
+        return users;
+    }
+
+    public void setUsers(List<Users> users) {
+        this.users = users;
     }
 
     @Override
     public boolean equals(Object o) {
-        if (o == null)
-            return false;
-        if (this == o)
-            return true;
-        if (getClass() != o.getClass())
-            return false;
-        UserStatus userStatus = (UserStatus) o;
-        return id == userStatus.id;
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        UserStatus that = (UserStatus) o;
+        return id == that.id &&
+                Objects.equals(status, that.status) &&
+                Objects.equals(users, that.users);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id);
+        return Objects.hash(id, status, users);
     }
 }

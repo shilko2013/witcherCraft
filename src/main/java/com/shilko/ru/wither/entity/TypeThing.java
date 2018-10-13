@@ -5,6 +5,7 @@ import lombok.Data;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.util.List;
+import java.util.Objects;
 
 @Entity
 @Data
@@ -12,10 +13,9 @@ public class TypeThing {
 
     public TypeThing() {}
 
-    public TypeThing(@NotNull String name, String information, @NotNull List<Thing> things) {
+    public TypeThing(@NotNull String name, String information) {
         this.name = name;
         this.information = information;
-        this.things = things;
     }
 
     @Id
@@ -61,5 +61,21 @@ public class TypeThing {
 
     public void setThings(List<Thing> things) {
         this.things = things;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        TypeThing typeThing = (TypeThing) o;
+        return id == typeThing.id &&
+                Objects.equals(name, typeThing.name) &&
+                Objects.equals(information, typeThing.information) &&
+                Objects.equals(things, typeThing.things);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, name, information, things);
     }
 }

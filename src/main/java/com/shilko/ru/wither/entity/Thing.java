@@ -1,4 +1,5 @@
 package com.shilko.ru.wither.entity;
+
 import lombok.Data;
 
 import javax.persistence.*;
@@ -6,20 +7,21 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.PositiveOrZero;
 import java.io.Serializable;
 import java.util.List;
+import java.util.Objects;
 
 @Entity
 @Data
 public class Thing implements Serializable {
 
-    public Thing() {}
+    public Thing() { }
 
-    public Thing(@NotNull String name, @NotNull TypeThing typeThing, @NotNull @PositiveOrZero int price, @NotNull @PositiveOrZero double weight, @NotNull DescriptionThing descriptionThing, @NotNull List<Draft> drafts) {
+    public Thing(@NotNull String name, @NotNull @PositiveOrZero int price, @NotNull @PositiveOrZero double weight, @NotNull TypeThing typeThing, @NotNull DescriptionThing descriptionThing, @NotNull List<EffectThing> effects) {
         this.name = name;
-        this.typeThing = typeThing;
         this.price = price;
         this.weight = weight;
         this.descriptionThing = descriptionThing;
-        this.drafts = drafts;
+        this.typeThing = typeThing;
+        this.effects = effects;
     }
 
     @Id
@@ -116,5 +118,25 @@ public class Thing implements Serializable {
 
     public void setDrafts(List<Draft> drafts) {
         this.drafts = drafts;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Thing thing = (Thing) o;
+        return id == thing.id &&
+                price == thing.price &&
+                Double.compare(thing.weight, weight) == 0 &&
+                Objects.equals(name, thing.name) &&
+                Objects.equals(typeThing, thing.typeThing) &&
+                Objects.equals(descriptionThing, thing.descriptionThing) &&
+                Objects.equals(effects, thing.effects) &&
+                Objects.equals(drafts, thing.drafts);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, name, typeThing, price, weight, descriptionThing, effects, drafts);
     }
 }

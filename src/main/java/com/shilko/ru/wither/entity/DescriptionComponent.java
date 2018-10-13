@@ -5,6 +5,7 @@ import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import java.util.Objects;
 
 @Entity
 @Data
@@ -12,9 +13,8 @@ public class DescriptionComponent {
 
     public DescriptionComponent() {}
 
-    public DescriptionComponent(@NotNull String description, @NotNull Component component) {
+    public DescriptionComponent(@NotNull String description) {
         this.description = description;
-        this.component = component;
     }
 
     @Id
@@ -50,5 +50,20 @@ public class DescriptionComponent {
 
     public void setComponent(Component component) {
         this.component = component;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        DescriptionComponent that = (DescriptionComponent) o;
+        return id == that.id &&
+                Objects.equals(description, that.description) &&
+                Objects.equals(component, that.component);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, description, component);
     }
 }

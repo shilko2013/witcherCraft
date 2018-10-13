@@ -2,8 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="678ca382-2f1f-4b50-a17d-25d8060134e3" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/020d3505-7b1a-4b58-9383-2ea0c6a9a8fd.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/020d3505-7b1a-4b58-9383-2ea0c6a9a8fd.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/020d3505-7b1a-4b58-9383-2ea0c6a9a8fd/storage_v2/_src_/database/postgres.edMnLQ/schema/public.abK9xQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/020d3505-7b1a-4b58-9383-2ea0c6a9a8fd/storage_v2/_src_/database/postgres.edMnLQ/schema/public.abK9xQ.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/shilko/ru/wither/entity/CategoryComponent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/shilko/ru/wither/entity/CategoryComponent.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/shilko/ru/wither/entity/Component.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/shilko/ru/wither/entity/Component.java" afterDir="false" />
@@ -15,8 +13,8 @@
       <change beforePath="$PROJECT_DIR$/src/main/java/com/shilko/ru/wither/entity/TypeThing.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/shilko/ru/wither/entity/TypeThing.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/shilko/ru/wither/entity/UserStatus.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/shilko/ru/wither/entity/UserStatus.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/shilko/ru/wither/entity/Users.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/shilko/ru/wither/entity/Users.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/shilko/ru/wither/repository/TypeThingCrudRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/shilko/ru/wither/repository/TypeThingCrudRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/DatabaseTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/DatabaseTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/DatabaseTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/DatabaseTest.class" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -88,11 +86,11 @@
           <entry key="DATABASE/020d3505-7b1a-4b58-9383-2ea0c6a9a8fd" value="1" />
           <entry key="MODULES/mdl-witcherCraft" value="1" />
           <entry key="SpringLocalModels/module=witcherCraft" value="1" />
-          <entry key="class" value="72" />
-          <entry key="java" value="84" />
+          <entry key="class" value="120" />
+          <entry key="java" value="99" />
           <entry key="properties" value="1" />
           <entry key="sql" value="1" />
-          <entry key="txt" value="2" />
+          <entry key="txt" value="3" />
           <entry key="users" value="19" />
           <entry key="userstatus" value="4" />
           <entry key="xml" value="10" />
@@ -101,10 +99,10 @@
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="CLASS" value="72" />
+          <entry key="CLASS" value="120" />
           <entry key="Database Element" value="23" />
-          <entry key="JAVA" value="84" />
-          <entry key="PLAIN_TEXT" value="2" />
+          <entry key="JAVA" value="99" />
+          <entry key="PLAIN_TEXT" value="3" />
           <entry key="Properties" value="1" />
           <entry key="Scratch" value="1" />
           <entry key="UML" value="3" />
@@ -114,16 +112,16 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="dummy" value="14" />
-          <entry key="java" value="6482" />
+          <entry key="java" value="8048" />
           <entry key="properties" value="21" />
-          <entry key="txt" value="165" />
+          <entry key="txt" value="210" />
           <entry key="xml" value="621" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="6482" />
-          <entry key="PLAIN_TEXT" value="179" />
+          <entry key="JAVA" value="8048" />
+          <entry key="PLAIN_TEXT" value="224" />
           <entry key="Properties" value="21" />
           <entry key="XML" value="621" />
         </counts>
@@ -132,85 +130,13 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/shilko/ru/wither/entity/Component.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="53" lean-forward="true" selection-start-line="53" selection-end-line="53" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/shilko/ru/wither/entity/CategoryComponent.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="302">
-              <caret line="46" lean-forward="true" selection-start-line="46" selection-end-line="46" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/shilko/ru/wither/entity/DescriptionComponent.java">
+        <entry file="file://$PROJECT_DIR$/src/test/java/DatabaseTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="81">
-              <caret line="27" column="71" selection-start-line="27" selection-start-column="71" selection-end-line="27" selection-end-column="71" />
+            <state relative-caret-position="51">
+              <caret line="85" column="4" selection-start-line="85" selection-start-column="4" selection-end-line="85" selection-end-column="4" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#747#748#0" expanded="true" />
-                <element signature="e#775#776#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/shilko/ru/wither/entity/DescriptionThing.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="340">
-              <caret line="27" column="43" lean-forward="true" selection-start-line="27" selection-start-column="43" selection-end-line="27" selection-end-column="43" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/shilko/ru/wither/entity/Draft.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="24" selection-start-line="24" selection-end-line="24" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/shilko/ru/wither/entity/EffectThing.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="30" selection-start-line="30" selection-end-line="30" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#1182#1183#0" expanded="true" />
-                <element signature="e#1210#1211#0" expanded="true" />
-                <element signature="e#1251#1252#0" expanded="true" />
-                <element signature="e#1285#1286#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/shilko/ru/wither/entity/Thing.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="43" selection-start-line="43" selection-end-line="43" />
-              <folding>
-                <element signature="e#2525#2526#0" expanded="true" />
-                <element signature="e#2554#2555#0" expanded="true" />
-                <element signature="e#2603#2604#0" expanded="true" />
-                <element signature="e#2639#2640#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -219,22 +145,12 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/shilko/ru/wither/entity/TypeThing.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="319">
-              <caret line="30" column="61" selection-start-line="30" selection-start-column="61" selection-end-line="30" selection-end-column="61" />
+            <state relative-caret-position="404">
+              <caret line="66" column="37" selection-start-line="66" selection-start-column="37" selection-end-line="66" selection-end-column="37" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#643#644#0" expanded="true" />
-                <element signature="e#668#669#0" expanded="true" />
-                <element signature="e#702#703#0" expanded="true" />
-                <element signature="e#730#731#0" expanded="true" />
-                <element signature="e#761#762#0" expanded="true" />
-                <element signature="e#788#789#0" expanded="true" />
-                <element signature="e#828#829#0" expanded="true" />
-                <element signature="e#860#861#0" expanded="true" />
-                <element signature="e#898#899#0" expanded="true" />
-                <element signature="e#932#933#0" expanded="true" />
-                <element signature="e#986#987#0" expanded="true" />
-                <element signature="e#1032#1033#0" expanded="true" />
+                <element signature="e#1724#1725#0" expanded="true" />
+                <element signature="e#1790#1791#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -243,8 +159,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/shilko/ru/wither/entity/Users.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="51">
-              <caret line="45" selection-start-line="45" selection-end-line="45" />
+            <state relative-caret-position="183">
+              <caret line="72" column="5" selection-start-line="72" selection-start-column="5" selection-end-line="72" selection-end-column="5" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -255,12 +171,35 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/shilko/ru/wither/entity/UserStatus.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3">
-              <caret line="29" lean-forward="true" selection-start-line="29" selection-end-line="29" />
+            <state relative-caret-position="-438">
+              <caret line="12" column="29" selection-start-line="12" selection-start-column="29" selection-end-line="12" selection-end-column="29" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#345#346#0" expanded="true" />
-                <element signature="e#381#382#0" expanded="true" />
+                <element signature="e#291#292#0" expanded="true" />
+                <element signature="e#327#328#0" expanded="true" />
+                <element signature="e#835#836#0" expanded="true" />
+                <element signature="e#863#864#0" expanded="true" />
+                <element signature="e#907#908#0" expanded="true" />
+                <element signature="e#943#944#0" expanded="true" />
+                <element signature="e#979#980#0" expanded="true" />
+                <element signature="e#1007#1008#0" expanded="true" />
+                <element signature="e#1053#1054#0" expanded="true" />
+                <element signature="e#1087#1088#0" expanded="true" />
+                <element signature="e#1472#1473#0" expanded="true" />
+                <element signature="e#1526#1527#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/shilko/ru/wither/entity/Draft.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="174">
+              <caret line="75" column="37" selection-start-line="75" selection-start-column="37" selection-end-line="75" selection-end-column="37" />
+              <folding>
+                <element signature="e#2190#2191#0" expanded="true" />
+                <element signature="e#2261#2262#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -284,6 +223,8 @@
       <find>ERR</find>
       <find>WA</find>
       <find>ER</find>
+      <find>frf</find>
+      <find>save</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -319,7 +260,6 @@
         <option value="$PROJECT_DIR$/src/main/resources/ApplicationConfig.xml" />
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/shilko/ru/wither/main/WitcherApplication.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/shilko/ru/wither/repository/CategoryComponentCrudRepository.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/shilko/ru/wither/repository/ComponentCrudRepository.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/shilko/ru/wither/repository/DescriptionComponentCrudRepository.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/shilko/ru/wither/repository/DescriptionThingCrudRepository.java" />
@@ -330,17 +270,18 @@
         <option value="$PROJECT_DIR$/src/main/java/com/shilko/ru/wither/repository/UsersCrudRepository.java" />
         <option value="$PROJECT_DIR$/src/test/java/CategoryComponentCrudRepositoryTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/shilko/ru/wither/repository/TypeThingCrudRepository.java" />
-        <option value="$PROJECT_DIR$/src/test/java/DatabaseTest.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/shilko/ru/wither/entity/UserStatus.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/shilko/ru/wither/entity/TypeThing.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/shilko/ru/wither/entity/DescriptionThing.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/shilko/ru/wither/entity/CategoryComponent.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/shilko/ru/wither/entity/Component.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/shilko/ru/wither/entity/DescriptionComponent.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/shilko/ru/wither/entity/DescriptionThing.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/shilko/ru/wither/entity/Draft.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/shilko/ru/wither/entity/EffectThing.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/shilko/ru/wither/entity/Thing.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/shilko/ru/wither/entity/TypeThing.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/shilko/ru/wither/repository/CategoryComponentCrudRepository.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/shilko/ru/wither/entity/UserStatus.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/shilko/ru/wither/entity/Users.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/shilko/ru/wither/entity/Component.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/shilko/ru/wither/entity/DescriptionComponent.java" />
+        <option value="$PROJECT_DIR$/src/test/java/DatabaseTest.java" />
       </list>
     </option>
   </component>
@@ -396,10 +337,10 @@
     </treeState>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-12" />
-    <option name="y" value="-12" />
-    <option name="width" value="1944" />
-    <option name="height" value="1044" />
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
+    <option name="width" value="1296" />
+    <option name="height" value="696" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -532,7 +473,7 @@
     <property name="SearchEverywhereHistoryKey" value="maven&#9;ACTION&#9;ActivateMavenProjectsToolWindow" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1539341550510" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1539452424124" />
     <property name="database.console.LAST_STATE" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
@@ -581,11 +522,31 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="DatabaseTest.notUniqueLoginUser" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="witcherCraft" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="DatabaseTest" />
+      <option name="METHOD_NAME" value="notUniqueLoginUser" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="DatabaseTest.nullUserStatus" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="witcherCraft" />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="DatabaseTest" />
       <option name="METHOD_NAME" value="nullUserStatus" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="DatabaseTest.test" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="witcherCraft" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="DatabaseTest" />
+      <option name="METHOD_NAME" value="test" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -603,10 +564,14 @@
       <item itemvalue="Application.WitcherApplication" />
       <item itemvalue="JUnit.DatabaseTest" />
       <item itemvalue="JUnit.DatabaseTest.nullUserStatus" />
+      <item itemvalue="JUnit.DatabaseTest.notUniqueLoginUser" />
+      <item itemvalue="JUnit.DatabaseTest.test" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="JUnit.DatabaseTest" />
+        <item itemvalue="JUnit.DatabaseTest.test" />
+        <item itemvalue="JUnit.DatabaseTest.notUniqueLoginUser" />
         <item itemvalue="JUnit.DatabaseTest.nullUserStatus" />
         <item itemvalue="Application.WitcherApplication" />
       </list>
@@ -648,49 +613,56 @@
       <option name="project" value="LOCAL" />
       <updated>1539324734639</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Version 0.0.4.2. Junit init test start writing.">
+      <created>1539341618898</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1539341618898</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="DatabaseTest_nullUserStatus - 2018.10.12 at 12h 43m 45s.xml">
-      <configuration name="DatabaseTest.nullUserStatus" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="DatabaseTest - 2018.10.12 at 12h 45m 49s.xml">
+    <history-entry file="DatabaseTest - 2018.10.13 at 20h 30m 38s.xml">
       <configuration name="DatabaseTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="DatabaseTest - 2018.10.12 at 12h 46m 03s.xml">
+    <history-entry file="DatabaseTest - 2018.10.13 at 20h 30m 59s.xml">
       <configuration name="DatabaseTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="DatabaseTest - 2018.10.12 at 12h 46m 45s.xml">
+    <history-entry file="DatabaseTest - 2018.10.13 at 20h 32m 36s.xml">
       <configuration name="DatabaseTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="DatabaseTest - 2018.10.12 at 12h 48m 08s.xml">
+    <history-entry file="DatabaseTest - 2018.10.13 at 20h 33m 24s.xml">
       <configuration name="DatabaseTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="DatabaseTest - 2018.10.12 at 12h 52m 42s.xml">
+    <history-entry file="DatabaseTest - 2018.10.13 at 20h 34m 41s.xml">
       <configuration name="DatabaseTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="DatabaseTest - 2018.10.12 at 12h 53m 00s.xml">
+    <history-entry file="DatabaseTest - 2018.10.13 at 20h 34m 51s.xml">
       <configuration name="DatabaseTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="DatabaseTest - 2018.10.12 at 13h 43m 51s.xml">
+    <history-entry file="DatabaseTest - 2018.10.13 at 20h 35m 02s.xml">
       <configuration name="DatabaseTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="DatabaseTest - 2018.10.12 at 13h 49m 27s.xml">
+    <history-entry file="DatabaseTest - 2018.10.13 at 20h 35m 45s.xml">
       <configuration name="DatabaseTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="DatabaseTest - 2018.10.12 at 13h 51m 04s.xml">
+    <history-entry file="DatabaseTest - 2018.10.13 at 20h 39m 31s.xml">
+      <configuration name="DatabaseTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="DatabaseTest - 2018.10.13 at 20h 40m 21s.xml">
       <configuration name="DatabaseTest" configurationId="JUnit" />
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="69609000" />
+    <option name="totallyTimeSpent" value="86559000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1295" height="695" extended-state="6" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.18704453" />
+      <window_info content_ui="combo" id="Project" order="0" weight="0.12313433" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -701,14 +673,14 @@
       <window_info anchor="bottom" id="Database Console" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3288889" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49946696" visible="true" weight="0.06481481" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.40185186" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49959514" visible="true" weight="0.2688889" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.35333332" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Spring" order="7" weight="0.32962963" />
       <window_info anchor="bottom" id="Terminal" order="8" />
-      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.50053304" side_tool="true" weight="0.48666668" />
+      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.50040483" side_tool="true" weight="0.32962963" />
       <window_info anchor="bottom" id="Messages" order="10" weight="0.3288889" />
       <window_info anchor="bottom" id="Java Enterprise" order="11" />
       <window_info anchor="bottom" id="Database Changes" order="12" />
@@ -718,7 +690,7 @@
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="right" id="Capture Analysis" order="4" />
-      <window_info anchor="right" id="Maven Projects" order="5" weight="0.32995737" />
+      <window_info anchor="right" id="Maven Projects" order="5" weight="0.32955465" />
       <window_info anchor="right" id="Database" order="6" weight="0.50121456" />
       <window_info anchor="right" id="Palette&#9;" order="7" />
       <window_info anchor="right" id="Theme Preview" order="8" />
@@ -736,14 +708,14 @@
       <window_info anchor="bottom" id="Database Console" order="0" />
       <window_info anchor="bottom" id="Message" order="1" />
       <window_info anchor="bottom" id="Find" order="2" weight="0.3288889" />
-      <window_info anchor="bottom" id="Run" order="3" visible="true" weight="0.48666668" />
-      <window_info anchor="bottom" id="Debug" order="4" weight="0.40222222" />
+      <window_info anchor="bottom" id="Run" order="3" sideWeight="0.49959514" weight="0.2688889" />
+      <window_info anchor="bottom" id="Debug" order="4" visible="true" weight="0.35333332" />
       <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="6" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="7" />
       <window_info anchor="bottom" id="Spring" order="8" weight="0.32962963" />
       <window_info anchor="bottom" id="Terminal" order="9" />
-      <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
+      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.50040483" side_tool="true" weight="0.32962963" />
       <window_info anchor="bottom" id="Messages" order="11" weight="0.3288889" />
       <window_info anchor="bottom" id="Java Enterprise" order="12" />
       <window_info anchor="bottom" id="Database Changes" order="13" />
@@ -753,8 +725,8 @@
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="right" id="Capture Analysis" order="4" />
-      <window_info anchor="right" id="Maven Projects" order="5" weight="0.32995737" />
-      <window_info anchor="right" id="Database" order="6" visible="true" weight="0.32995737" />
+      <window_info anchor="right" id="Maven Projects" order="5" weight="0.32955465" />
+      <window_info anchor="right" id="Database" order="6" weight="0.50121456" />
       <window_info anchor="right" id="Palette&#9;" order="7" />
       <window_info anchor="right" id="Theme Preview" order="8" />
       <window_info anchor="right" id="Bean Validation" order="9" weight="0.32995737" />
@@ -770,23 +742,17 @@
     <MESSAGE value="Version 0.0.2. Update of db is available." />
     <MESSAGE value="Version 0.0.4. Entity ends, template for crudrepositories ready." />
     <MESSAGE value="Version 0.0.4.1. CrudRepositories's done." />
-    <option name="LAST_COMMIT_MESSAGE" value="Version 0.0.4.1. CrudRepositories's done." />
+    <MESSAGE value="Version 0.0.4.2. Junit init test start writing." />
+    <option name="LAST_COMMIT_MESSAGE" value="Version 0.0.4.2. Junit init test start writing." />
+  </component>
+  <component name="XDebuggerManager">
+    <watches-manager>
+      <configuration name="JUnit">
+        <watch expression="descriptionComponent1" />
+      </configuration>
+    </watches-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar://$MAVEN_REPOSITORY$/org/hibernate/hibernate-core/5.3.6.Final/hibernate-core-5.3.6.Final.jar!/org/hibernate/dialect/PostgreSQL95Dialect.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="61">
-          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/log.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-629">
-          <caret line="5" column="32" selection-start-line="5" selection-start-column="32" selection-end-line="5" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-tx/5.1.0.RELEASE/spring-tx-5.1.0.RELEASE.jar!/org/springframework/transaction/annotation/Transactional.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
@@ -998,16 +964,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/shilko/ru/wither/repository/DescriptionThingCrudRepository.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="13" column="59" selection-start-line="13" selection-start-column="59" selection-end-line="13" selection-end-column="59" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/shilko/ru/wither/repository/DraftCrudRepository.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="272">
@@ -1055,16 +1011,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/shilko/ru/wither/repository/CategoryComponentCrudRepository.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="17" column="62" selection-start-line="17" selection-start-column="62" selection-end-line="17" selection-end-column="62" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/CategoryComponentCrudRepositoryTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="696">
@@ -1082,49 +1028,6 @@
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/junit/junit/4.4/junit-4.4.jar!/org/junit/internal/runners/ClassRoadie.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="47" selection-start-line="47" selection-end-line="47" />
-          <folding>
-            <element signature="e#941#942#0" expanded="true" />
-            <element signature="e#977#978#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/junit/junit/4.4/junit-4.4.jar!/org/junit/runner/JUnitCore.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="100" selection-start-line="100" selection-end-line="100" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/junit/junit/4.4/junit-4.4.jar!/org/junit/internal/runners/JUnit4ClassRunner.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="49" selection-start-line="49" selection-end-line="49" />
-          <folding>
-            <element signature="e#1580#1713#0" expanded="true" />
-            <element signature="e#1712#1713#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-test/2.5/spring-test-2.5.jar!/org/springframework/test/context/junit4/SpringJUnit4ClassRunner.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="376">
-          <caret line="64" selection-start-line="64" selection-end-line="64" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-test/2.5/spring-test-2.5.jar!/org/springframework/test/context/junit4/SpringMethodRoadie.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="208" selection-start-line="208" selection-end-line="208" />
         </state>
       </provider>
     </entry>
@@ -1212,36 +1115,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-aop/5.1.0.RELEASE/spring-aop-5.1.0.RELEASE.jar!/org/springframework/aop/framework/JdkDynamicAopProxy.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="81">
-          <caret line="132" selection-start-line="132" selection-end-line="132" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-test/2.5/spring-test-2.5.jar!/org/springframework/test/context/junit4/SpringTestMethod.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="192">
-          <caret line="82" selection-start-line="82" selection-end-line="82" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$MAVEN_REPOSITORY$/javax/persistence/javax.persistence-api/2.2/javax.persistence-api-2.2.jar!/javax/persistence/Column.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
           <caret line="14" column="18" selection-start-line="14" selection-start-column="18" selection-end-line="14" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/DatabaseTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="512">
-          <caret line="117" selection-start-line="117" selection-end-line="117" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#5201#5202#0" expanded="true" />
-            <element signature="e#5239#5240#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1252,116 +1129,227 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/shilko/ru/wither/entity/DescriptionThing.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/shilko/ru/wither/repository/DescriptionThingCrudRepository.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="27" column="43" lean-forward="true" selection-start-line="27" selection-start-column="43" selection-end-line="27" selection-end-column="43" />
+        <state relative-caret-position="221">
+          <caret line="13" column="59" selection-start-line="13" selection-start-column="59" selection-end-line="13" selection-end-column="59" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/shilko/ru/wither/entity/Draft.java">
+    <entry file="jar://$MAVEN_REPOSITORY$/junit/junit/4.4/junit-4.4.jar!/junit/framework/Assert.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="24" selection-start-line="24" selection-end-line="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/shilko/ru/wither/entity/EffectThing.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="30" selection-start-line="30" selection-end-line="30" />
+        <state relative-caret-position="472">
+          <caret line="169" column="23" selection-start-line="169" selection-start-column="23" selection-end-line="169" selection-end-column="23" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1182#1183#0" expanded="true" />
-            <element signature="e#1210#1211#0" expanded="true" />
-            <element signature="e#1251#1252#0" expanded="true" />
-            <element signature="e#1285#1286#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/shilko/ru/wither/entity/Thing.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="43" selection-start-line="43" selection-end-line="43" />
-          <folding>
-            <element signature="e#2525#2526#0" expanded="true" />
-            <element signature="e#2554#2555#0" expanded="true" />
-            <element signature="e#2603#2604#0" expanded="true" />
-            <element signature="e#2639#2640#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/shilko/ru/wither/entity/TypeThing.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="319">
-          <caret line="30" column="61" selection-start-line="30" selection-start-column="61" selection-end-line="30" selection-end-column="61" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#643#644#0" expanded="true" />
-            <element signature="e#668#669#0" expanded="true" />
-            <element signature="e#702#703#0" expanded="true" />
-            <element signature="e#730#731#0" expanded="true" />
-            <element signature="e#761#762#0" expanded="true" />
-            <element signature="e#788#789#0" expanded="true" />
-            <element signature="e#828#829#0" expanded="true" />
-            <element signature="e#860#861#0" expanded="true" />
-            <element signature="e#898#899#0" expanded="true" />
-            <element signature="e#932#933#0" expanded="true" />
-            <element signature="e#986#987#0" expanded="true" />
-            <element signature="e#1032#1033#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/shilko/ru/wither/entity/Users.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="45" selection-start-line="45" selection-end-line="45" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/shilko/ru/wither/entity/UserStatus.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3">
-          <caret line="29" lean-forward="true" selection-start-line="29" selection-end-line="29" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#345#346#0" expanded="true" />
-            <element signature="e#381#382#0" expanded="true" />
+            <element signature="e#5542#5543#0" expanded="true" />
+            <element signature="e#5603#5604#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/shilko/ru/wither/entity/CategoryComponent.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="302">
-          <caret line="46" lean-forward="true" selection-start-line="46" selection-end-line="46" />
+        <state relative-caret-position="78">
+          <caret line="68" column="37" selection-start-line="68" selection-start-column="37" selection-end-line="68" selection-end-column="37" />
+          <folding>
+            <element signature="e#1859#1860#0" expanded="true" />
+            <element signature="e#1929#1930#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/shilko/ru/wither/entity/Component.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="53" lean-forward="true" selection-start-line="53" selection-end-line="53" />
+        <state relative-caret-position="390">
+          <caret line="107" column="37" selection-start-line="107" selection-start-column="37" selection-end-line="107" selection-end-column="37" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/shilko/ru/wither/entity/DescriptionComponent.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="81">
-          <caret line="27" column="71" selection-start-line="27" selection-start-column="71" selection-end-line="27" selection-end-column="71" />
+        <state relative-caret-position="404">
+          <caret line="55" column="37" selection-start-line="55" selection-start-column="37" selection-end-line="55" selection-end-column="37" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#322#323#0" expanded="true" />
+            <element signature="e#368#369#0" expanded="true" />
             <element signature="e#747#748#0" expanded="true" />
             <element signature="e#775#776#0" expanded="true" />
+            <element signature="e#1550#1551#0" expanded="true" />
+            <element signature="e#1613#1614#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/shilko/ru/wither/entity/DescriptionThing.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="404">
+          <caret line="55" column="37" selection-start-line="55" selection-start-column="37" selection-end-line="55" selection-end-column="37" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#310#311#0" expanded="true" />
+            <element signature="e#356#357#0" expanded="true" />
+            <element signature="e#1478#1479#0" expanded="true" />
+            <element signature="e#1537#1538#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/shilko/ru/wither/entity/EffectThing.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="404">
+          <caret line="68" column="37" selection-start-line="68" selection-start-column="37" selection-end-line="68" selection-end-column="37" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1763#1764#0" expanded="true" />
+            <element signature="e#1828#1829#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/shilko/ru/wither/repository/CategoryComponentCrudRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="14" column="12" selection-start-line="14" selection-start-column="12" selection-end-line="14" selection-end-column="12" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/LogDatabase.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-561" />
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-test/2.5/spring-test-2.5.jar!/org/springframework/test/context/junit4/SpringTestMethod.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="290">
+          <caret line="82" selection-start-line="82" selection-end-line="82" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/shilko/ru/wither/entity/Thing.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1257">
+          <caret line="123" column="37" selection-start-line="123" selection-start-column="37" selection-end-line="123" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-aop/5.1.0.RELEASE/spring-aop-5.1.0.RELEASE.jar!/org/springframework/aop/framework/JdkDynamicAopProxy.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="253">
+          <caret line="142" selection-start-line="142" selection-end-line="142" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/shilko/ru/wither/entity/Draft.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="174">
+          <caret line="75" column="37" selection-start-line="75" selection-start-column="37" selection-end-line="75" selection-end-column="37" />
+          <folding>
+            <element signature="e#2190#2191#0" expanded="true" />
+            <element signature="e#2261#2262#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/shilko/ru/wither/entity/UserStatus.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-438">
+          <caret line="12" column="29" selection-start-line="12" selection-start-column="29" selection-end-line="12" selection-end-column="29" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#291#292#0" expanded="true" />
+            <element signature="e#327#328#0" expanded="true" />
+            <element signature="e#835#836#0" expanded="true" />
+            <element signature="e#863#864#0" expanded="true" />
+            <element signature="e#907#908#0" expanded="true" />
+            <element signature="e#943#944#0" expanded="true" />
+            <element signature="e#979#980#0" expanded="true" />
+            <element signature="e#1007#1008#0" expanded="true" />
+            <element signature="e#1053#1054#0" expanded="true" />
+            <element signature="e#1087#1088#0" expanded="true" />
+            <element signature="e#1472#1473#0" expanded="true" />
+            <element signature="e#1526#1527#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/shilko/ru/wither/entity/Users.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="183">
+          <caret line="72" column="5" selection-start-line="72" selection-start-column="5" selection-end-line="72" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/shilko/ru/wither/entity/TypeThing.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="404">
+          <caret line="66" column="37" selection-start-line="66" selection-start-column="37" selection-end-line="66" selection-end-column="37" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1724#1725#0" expanded="true" />
+            <element signature="e#1790#1791#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-test/2.5/spring-test-2.5.jar!/org/springframework/test/context/junit4/SpringJUnit4ClassRunner.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="440">
+          <caret line="64" selection-start-line="64" selection-end-line="64" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/junit/junit/4.4/junit-4.4.jar!/org/junit/internal/runners/ClassRoadie.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="168">
+          <caret line="47" selection-start-line="47" selection-end-line="47" />
+          <folding>
+            <element signature="e#941#942#0" expanded="true" />
+            <element signature="e#977#978#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/junit/junit/4.4/junit-4.4.jar!/org/junit/internal/runners/JUnit4ClassRunner.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="107">
+          <caret line="49" selection-start-line="49" selection-end-line="49" />
+          <folding>
+            <element signature="e#1580#1713#0" expanded="true" />
+            <element signature="e#1712#1713#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/junit/junit/4.4/junit-4.4.jar!/org/junit/runner/JUnitCore.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="249">
+          <caret line="100" selection-start-line="100" selection-end-line="100" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-test/2.5/spring-test-2.5.jar!/org/springframework/test/context/junit4/SpringMethodRoadie.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="156" selection-start-line="156" selection-end-line="156" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/DatabaseTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="85" column="4" selection-start-line="85" selection-start-column="4" selection-end-line="85" selection-end-column="4" />
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>

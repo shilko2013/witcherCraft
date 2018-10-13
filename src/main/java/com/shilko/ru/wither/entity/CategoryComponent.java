@@ -6,6 +6,7 @@ import org.hibernate.annotations.Type;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.util.List;
+import java.util.Objects;
 
 @Entity
 @Data
@@ -13,10 +14,9 @@ public class CategoryComponent {
 
     public CategoryComponent() {}
 
-    public CategoryComponent(@NotNull String name, String information, @NotNull List<Component> components) {
+    public CategoryComponent(@NotNull String name, String information) {
         this.name = name;
         this.information = information;
-        this.components = components;
     }
 
     @Id
@@ -63,5 +63,21 @@ public class CategoryComponent {
 
     public void setComponents(List<Component> components) {
         this.components = components;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        CategoryComponent that = (CategoryComponent) o;
+        return id == that.id &&
+                Objects.equals(name, that.name) &&
+                Objects.equals(information, that.information) &&
+                Objects.equals(components, that.components);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, name, information, components);
     }
 }
