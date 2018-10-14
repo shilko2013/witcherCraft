@@ -8,6 +8,9 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 import java.util.Optional;
 
+/**
+ * The interface User status crud repository.
+ */
 @Repository
 public interface UserStatusCrudRepository extends CrudRepository<UserStatus, Long> {
 
@@ -22,5 +25,11 @@ public interface UserStatusCrudRepository extends CrudRepository<UserStatus, Lon
     @Override
     List<UserStatus> findAll();
 
+    /**
+     * Find by users user status.
+     *
+     * @param users the users
+     * @return the user status
+     */
     UserStatus findByUsers(Users users);
 }

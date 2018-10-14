@@ -7,6 +7,9 @@ import org.springframework.data.repository.CrudRepository;
 import java.util.List;
 import java.util.Optional;
 
+/**
+ * The interface Effect thing crud repository.
+ */
 public interface EffectThingCrudRepository extends CrudRepository<EffectThing, Long> {
 
     @Override
@@ -21,7 +24,19 @@ public interface EffectThingCrudRepository extends CrudRepository<EffectThing, L
     @Override
     List<EffectThing> findAll();
 
+    /**
+     * Find all by name list.
+     *
+     * @param name the name
+     * @return the list
+     */
     List<EffectThing> findAllByName(String name);
 
+    /**
+     * Find all by thing list.
+     *
+     * @param thing the thing
+     * @return the list
+     */
     List<EffectThing> findAllByThing(Thing thing);
 }

@@ -7,12 +7,26 @@ import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.util.Objects;
 
+/**
+ * The type Effect thing keeps some effects for thing.
+ */
 @Entity
 @Data
 public class EffectThing {
 
+    /**
+     * Instantiates a new Effect thing.
+     */
     public EffectThing() {}
 
+    /**
+     * Instantiates a new Effect thing.
+     *
+     * @param name        the name
+     * @param description the description
+     * @param information the information
+     * @param thing       the thing
+     */
     public EffectThing(@NotNull String name, @NotNull String description, String information, @NotNull Thing thing) {
         this.name = name;
         this.information = information;
@@ -34,34 +48,74 @@ public class EffectThing {
     @JoinColumn(name = "thing_id", nullable = false)
     private Thing thing;
 
+    /**
+     * Gets id.
+     *
+     * @return the id
+     */
     public long getId() {
         return id;
     }
 
+    /**
+     * Sets id.
+     *
+     * @param id the id
+     */
     public void setId(long id) {
         this.id = id;
     }
 
+    /**
+     * Gets name.
+     *
+     * @return the name
+     */
     public String getName() {
         return name;
     }
 
+    /**
+     * Sets name.
+     *
+     * @param name the name
+     */
     public void setName(String name) {
         this.name = name;
     }
 
+    /**
+     * Gets information.
+     *
+     * @return the information
+     */
     public String getInformation() {
         return information;
     }
 
+    /**
+     * Sets information.
+     *
+     * @param information the information
+     */
     public void setInformation(String information) {
         this.information = information;
     }
 
+    /**
+     * Gets thing.
+     *
+     * @return the thing
+     */
     public Thing getThing() {
         return thing;
     }
 
+    /**
+     * Sets thing.
+     *
+     * @param thing the thing
+     */
     public void setThing(Thing thing) {
         this.thing = thing;
     }

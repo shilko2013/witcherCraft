@@ -6,13 +6,24 @@ import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 import java.util.*;
 
+/**
+ * The type User status - statuses of users.
+ */
 @Entity
 @Data
 public class UserStatus implements Serializable {
+    /**
+     * Instantiates a new User status.
+     *
+     * @param status the status
+     */
     public UserStatus(@NotNull String status) {
         this.status = status;
     }
 
+    /**
+     * Instantiates a new User status.
+     */
     public UserStatus(){}
 
     @Id
@@ -26,26 +37,56 @@ public class UserStatus implements Serializable {
     @OneToMany(mappedBy = "id", fetch = FetchType.LAZY)
     private List<Users> users;
 
+    /**
+     * Gets id.
+     *
+     * @return the id
+     */
     public long getId() {
         return id;
     }
 
+    /**
+     * Gets status.
+     *
+     * @return the status
+     */
     public String getStatus() {
         return status;
     }
 
+    /**
+     * Sets id.
+     *
+     * @param id the id
+     */
     public void setId(long id) {
         this.id = id;
     }
 
+    /**
+     * Sets status.
+     *
+     * @param status the status
+     */
     public void setStatus(String status) {
         this.status = status;
     }
 
+    /**
+     * Gets users.
+     *
+     * @return the users
+     */
     public List<Users> getUsers() {
         return users;
     }
 
+    /**
+     * Sets users.
+     *
+     * @param users the users
+     */
     public void setUsers(List<Users> users) {
         this.users = users;
     }

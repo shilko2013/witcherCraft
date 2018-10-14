@@ -8,6 +8,9 @@ import org.springframework.data.repository.CrudRepository;
 import java.util.List;
 import java.util.Optional;
 
+/**
+ * The interface Draft crud repository.
+ */
 public interface DraftCrudRepository extends CrudRepository<Draft, Long> {
 
     @Override
@@ -22,7 +25,19 @@ public interface DraftCrudRepository extends CrudRepository<Draft, Long> {
     @Override
     List<Draft> findAll();
 
+    /**
+     * Find all by components contains list.
+     *
+     * @param component the component
+     * @return the list
+     */
     List<Draft> findAllByComponentsContains(Component component);
 
+    /**
+     * Find all by thing list.
+     *
+     * @param thing the thing
+     * @return the list
+     */
     List<Draft> findAllByThing(Thing thing);
 }

@@ -7,12 +7,27 @@ import javax.validation.constraints.PositiveOrZero;
 import java.util.List;
 import java.util.Objects;
 
+/**
+ * The type Component is a component for craft things.
+ */
 @Entity
 @Data
 public class Component {
 
+    /**
+     * Instantiates a new Component.
+     */
     public Component() {}
 
+    /**
+     * Instantiates a new Component.
+     *
+     * @param name                 the name
+     * @param price                the price
+     * @param weight               the weight
+     * @param descriptionComponent the description component
+     * @param categoryComponent    the category component
+     */
     public Component(@NotNull String name, @NotNull @PositiveOrZero int price, @NotNull @PositiveOrZero double weight, @NotNull DescriptionComponent descriptionComponent, @NotNull CategoryComponent categoryComponent) {
         this.name = name;
         this.categoryComponent = categoryComponent;
@@ -48,58 +63,128 @@ public class Component {
     @ManyToMany(mappedBy = "components", fetch = FetchType.LAZY)
     private List<Draft> drafts;
 
+    /**
+     * Gets id.
+     *
+     * @return the id
+     */
     public long getId() {
         return id;
     }
 
+    /**
+     * Sets id.
+     *
+     * @param id the id
+     */
     public void setId(long id) {
         this.id = id;
     }
 
+    /**
+     * Gets name.
+     *
+     * @return the name
+     */
     public String getName() {
         return name;
     }
 
+    /**
+     * Sets name.
+     *
+     * @param name the name
+     */
     public void setName(String name) {
         this.name = name;
     }
 
+    /**
+     * Gets category component.
+     *
+     * @return the category component
+     */
     public CategoryComponent getCategoryComponent() {
         return categoryComponent;
     }
 
+    /**
+     * Sets category.
+     *
+     * @param categoryComponent the category component
+     */
     public void setCategory(CategoryComponent categoryComponent) {
         this.categoryComponent = categoryComponent;
     }
 
+    /**
+     * Gets price.
+     *
+     * @return the price
+     */
     public int getPrice() {
         return price;
     }
 
+    /**
+     * Sets price.
+     *
+     * @param price the price
+     */
     public void setPrice(int price) {
         this.price = price;
     }
 
+    /**
+     * Gets weight.
+     *
+     * @return the weight
+     */
     public double getWeight() {
         return weight;
     }
 
+    /**
+     * Sets weight.
+     *
+     * @param weight the weight
+     */
     public void setWeight(double weight) {
         this.weight = weight;
     }
 
+    /**
+     * Gets description component.
+     *
+     * @return the description component
+     */
     public DescriptionComponent getDescriptionComponent() {
         return descriptionComponent;
     }
 
+    /**
+     * Sets description component.
+     *
+     * @param descriptionComponent the description component
+     */
     public void setDescriptionComponent(DescriptionComponent descriptionComponent) {
         this.descriptionComponent = descriptionComponent;
     }
 
+    /**
+     * Gets drafts.
+     *
+     * @return the drafts
+     */
     public List<Draft> getDrafts() {
         return drafts;
     }
 
+    /**
+     * Sets drafts.
+     *
+     * @param drafts the drafts
+     */
     public void setDrafts(List<Draft> drafts) {
         this.drafts = drafts;
     }

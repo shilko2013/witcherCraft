@@ -1,10 +1,8 @@
 import com.shilko.ru.wither.entity.*;
 import com.shilko.ru.wither.repository.*;
-import org.hibernate.annotations.Type;
 import org.junit.*;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.test.annotation.Rollback;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.transaction.annotation.Transactional;
@@ -16,20 +14,14 @@ import java.util.logging.FileHandler;
 
 import static org.junit.Assert.*;
 
+
+/**
+ * Test class DatabaseTest includes one test method {@link DatabaseTest#test()} for testing entities.
+ */
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = {"/ApplicationConfig.xml"})
 @Transactional
 public class DatabaseTest {
-
-    private static class testException {
-        private static void test(Runnable runnable) {
-            try {
-                runnable.run();
-                System.exit(-1);
-            } catch (Exception ignore) {
-            }
-        }
-    }
 
     @Autowired
     private UsersCrudRepository usersCrudRepository;
@@ -89,6 +81,9 @@ public class DatabaseTest {
         LOG.info("Log init.");
     }
 
+    /**
+     * Log start.
+     */
     @BeforeClass
     public static void logStart() {
         LOG.info("Test's starting...");
@@ -364,6 +359,9 @@ public class DatabaseTest {
         assertEquals(usersCrudRepository.findAll().size(),0);
     }
 
+    /**
+     * Test.
+     */
     @Test
     public void test() {
         LOG.info("Test method's starting...");
@@ -416,60 +414,9 @@ public class DatabaseTest {
         LOG.info("Test method ends.");
     }
 
-    /*@Test
-    public void nullUserStatus() {
-        LOG.info("nullUserStatus method's starting...");
-        testException.test(() -> {
-            UserStatus userStatus = new UserStatus(null);
-            userStatusCrudRepository.save(userStatus);
-        });
-        LOG.info("nullUserStatus method ends.");
-    }
-
-    @Test
-    public void notUniqueLoginUser() {
-        LOG.info("notUniqueLoginUser method's starting...");
-        testException.test(() -> {
-            Users user = new Users("reader", "123123123", "@mail.ru", reader);
-            usersCrudRepository.save(user);
-        });
-        LOG.info("notUniqueLoginUser method ends.");
-    }
-
-    @Test
-    public void notUniqueEmailUser() {
-        LOG.info("notUniqueEmailUser method's starting...");
-        testException.test(() -> {
-            Users user = new Users("reader2", "123123123", "reader@mail.ru", reader);
-            usersCrudRepository.save(user);
-        });
-        LOG.info("notUniqueEmailUser method ends.");
-    }*/
-
-    /*@Test
-    public void find() {
-        LOG.info("Save method's starting...");
-        Optional<Users> user = usersCrudRepository.findByLogin("a");
-        if (!user.isPresent())
-            throw new NoSuchElementException();
-        LOG.info(user.get().toString());
-        List<UserStatus> userStatuses = userStatusCrudRepository.findAll();
-        if (!userStatuses.get(0).getStatus().equals(userStatusStatus))
-            throw new NoSuchElementException();
-        LOG.info(userStatuses.get(0).toString());
-        LOG.info("Save method ends.");
-    }*/
-
-    /*@Test
-    public void count() {
-
-    }
-
-    @After
-    public void delete() {
-
-    }*/
-
+    /**
+     * Log end.
+     */
     @AfterClass
     public static void logEnd() {
         LOG.info("Test ends.");

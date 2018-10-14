@@ -8,12 +8,25 @@ import java.io.Serializable;
 import java.util.List;
 import java.util.Objects;
 
+/**
+ * The type Draft keeps drafts of things.
+ */
 @Entity
 @Data
 public class Draft implements Serializable {
 
+    /**
+     * Instantiates a new Draft.
+     */
     public Draft() { }
 
+    /**
+     * Instantiates a new Draft.
+     *
+     * @param thing       the thing
+     * @param information the information
+     * @param components  the components
+     */
     public Draft(@NotNull Thing thing, String information, @NotNull List<Component> components) {
         this.thing = thing;
         this.information = information;
@@ -40,34 +53,74 @@ public class Draft implements Serializable {
     )
     private List<Component> components;
 
+    /**
+     * Gets id.
+     *
+     * @return the id
+     */
     public long getId() {
         return id;
     }
 
+    /**
+     * Sets id.
+     *
+     * @param id the id
+     */
     public void setId(long id) {
         this.id = id;
     }
 
+    /**
+     * Gets thing.
+     *
+     * @return the thing
+     */
     public Thing getThing() {
         return thing;
     }
 
+    /**
+     * Sets thing.
+     *
+     * @param thing the thing
+     */
     public void setThing(Thing thing) {
         this.thing = thing;
     }
 
+    /**
+     * Gets information.
+     *
+     * @return the information
+     */
     public String getInformation() {
         return information;
     }
 
+    /**
+     * Sets information.
+     *
+     * @param information the information
+     */
     public void setInformation(String information) {
         this.information = information;
     }
 
+    /**
+     * Gets components.
+     *
+     * @return the components
+     */
     public List<Component> getComponents() {
         return components;
     }
 
+    /**
+     * Sets components.
+     *
+     * @param components the components
+     */
     public void setComponents(List<Component> components) {
         this.components = components;
     }

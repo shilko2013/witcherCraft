@@ -13,10 +13,21 @@ import java.util.Set;
 
 //@Type(type="text")
 
+/**
+ * The type Users.
+ */
 @Entity
 @Data
 public class Users implements Serializable {
 
+    /**
+     * Instantiates a new Users.
+     *
+     * @param login      the login
+     * @param password   the password
+     * @param email      the email
+     * @param userStatus the user status
+     */
     public Users(@NotNull String login, @NotNull @Size(min = minPasswordSize) String password, @NotNull @Email String email, @NotNull UserStatus userStatus) {
         this.login = login;
         this.password = password;
@@ -24,6 +35,9 @@ public class Users implements Serializable {
         this.userStatus = userStatus;
     }
 
+    /**
+     * Instantiates a new Users.
+     */
     public Users(){}
 
     @Transient
@@ -48,26 +62,56 @@ public class Users implements Serializable {
     @JoinColumn(name = "userstatus_id", nullable = false)
     private UserStatus userStatus;
 
+    /**
+     * Gets min password size.
+     *
+     * @return the min password size
+     */
     public static int getMinPasswordSize() {
         return minPasswordSize;
     }
 
+    /**
+     * Gets id.
+     *
+     * @return the id
+     */
     public long getId() {
         return id;
     }
 
+    /**
+     * Gets login.
+     *
+     * @return the login
+     */
     public String getLogin() {
         return login;
     }
 
+    /**
+     * Gets password.
+     *
+     * @return the password
+     */
     public String getPassword() {
         return password;
     }
 
+    /**
+     * Gets email.
+     *
+     * @return the email
+     */
     public String getEmail() {
         return email;
     }
 
+    /**
+     * Gets user status.
+     *
+     * @return the user status
+     */
     public UserStatus getUserStatus() {
         return userStatus;
     }

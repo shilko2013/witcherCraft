@@ -7,12 +7,23 @@ import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.util.Objects;
 
+/**
+ * The type Description thing keeps description for each thing.
+ */
 @Entity
 @Data
 public class DescriptionThing {
 
+    /**
+     * Instantiates a new Description thing.
+     */
     public DescriptionThing() {}
 
+    /**
+     * Instantiates a new Description thing.
+     *
+     * @param description the description
+     */
     public DescriptionThing(@NotNull String description) {
         this.description = description;
     }
@@ -28,26 +39,56 @@ public class DescriptionThing {
     @OneToOne(mappedBy = "descriptionThing", fetch = FetchType.LAZY)
     private Thing thing;
 
+    /**
+     * Gets id.
+     *
+     * @return the id
+     */
     public long getId() {
         return id;
     }
 
+    /**
+     * Sets id.
+     *
+     * @param id the id
+     */
     public void setId(long id) {
         this.id = id;
     }
 
+    /**
+     * Gets description.
+     *
+     * @return the description
+     */
     public String getDescription() {
         return description;
     }
 
+    /**
+     * Sets description.
+     *
+     * @param description the description
+     */
     public void setDescription(String description) {
         this.description = description;
     }
 
+    /**
+     * Gets thing.
+     *
+     * @return the thing
+     */
     public Thing getThing() {
         return thing;
     }
 
+    /**
+     * Sets thing.
+     *
+     * @param thing the thing
+     */
     public void setThing(Thing thing) {
         this.thing = thing;
     }
