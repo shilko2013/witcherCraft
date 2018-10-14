@@ -13,9 +13,10 @@ public class EffectThing {
 
     public EffectThing() {}
 
-    public EffectThing(@NotNull String name, @NotNull String description, String information) {
+    public EffectThing(@NotNull String name, @NotNull String description, String information, @NotNull Thing thing) {
         this.name = name;
         this.information = information;
+        this.thing = thing;
     }
 
     @Id
@@ -30,7 +31,7 @@ public class EffectThing {
     private String information;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "thing_id")
+    @JoinColumn(name = "thing_id", nullable = false)
     private Thing thing;
 
     public long getId() {

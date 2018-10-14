@@ -32,7 +32,7 @@ public class Draft implements Serializable {
     private String information;
 
     @Column(nullable = false)
-    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(
             name = "draft_component",
             joinColumns = { @JoinColumn(name = "draft_id")},

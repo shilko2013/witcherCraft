@@ -10,12 +10,9 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.io.IOException;
-import java.lang.reflect.Array;
 import java.util.*;
 import java.util.logging.*;
 import java.util.logging.FileHandler;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 import static org.junit.Assert.*;
 
@@ -139,8 +136,8 @@ public class DatabaseTest {
         LOG.info("Init description component's starting...");
         component.add(new Component("wood", 1, 1.2, descriptionComponent.get(0), categoryComponent.get(0)));
         component.add(new Component("plastic", 5, 0.1, descriptionComponent.get(1), categoryComponent.get(1)));
-        component.add(new Component("pen", 500, 1.4, descriptionComponent.get(2), categoryComponent.get(2)));
-        component.add(new Component("steak", 10, 0.0, descriptionComponent.get(3), categoryComponent.get(3)));
+        component.add(new Component("pen", 500, 1.4, descriptionComponent.get(2), categoryComponent.get(0)));
+        component.add(new Component("steak", 10, 0.0, descriptionComponent.get(3), categoryComponent.get(1)));
         component.forEach(componentCrudRepository::save);
         LOG.info("Init component ends.");
     }
@@ -155,17 +152,6 @@ public class DatabaseTest {
         LOG.info("Init description thing ends.");
     }
 
-    private void initEffectThing() {
-        LOG.info("Init effect thing's starting...");
-        effectThing.add(new EffectThing("burning", "desc1", "info1"));
-        effectThing.add(new EffectThing("burning", "desc2", "info2"));
-        effectThing.add(new EffectThing("burning", "desc3", "info3"));
-        effectThing.add(new EffectThing("burning", "desc4", "info4"));
-        effectThing.add(new EffectThing("burning", "desc5", "info5"));
-       effectThing.forEach(effectThingCrudRepository::save);
-        LOG.info("Init effect thing ends.");
-    }
-
     private void initTypeThing() {
         LOG.info("Init type thing's starting...");
         typeThing.add(new TypeThing("usual", null));
@@ -176,12 +162,23 @@ public class DatabaseTest {
 
     private void initThing() {
         LOG.info("Init thing's starting...");
-        thing.add(new Thing("sword", 800, 5, typeThing.get(0), descriptionThing.get(0), Arrays.asList(effectThing.get(0))));
-        thing.add(new Thing("armor", 1, 0.1, typeThing.get(1), descriptionThing.get(1), Arrays.asList(effectThing.get(1))));
-        thing.add(new Thing("cap", 10, 3, typeThing.get(0), descriptionThing.get(2), Arrays.asList(effectThing.get(2), effectThing.get(3))));
-        thing.add(new Thing("ticket", 830, 4, typeThing.get(1), descriptionThing.get(3), Arrays.asList(effectThing.get(4))));
+        thing.add(new Thing("sword", 800, 5, typeThing.get(0), descriptionThing.get(0)));
+        thing.add(new Thing("armor", 1, 0.1, typeThing.get(1), descriptionThing.get(1)));
+        thing.add(new Thing("cap", 10, 3, typeThing.get(0), descriptionThing.get(2)));
+        thing.add(new Thing("ticket", 830, 4, typeThing.get(1), descriptionThing.get(3)));
         thing.forEach(thingCrudRepository::save);
         LOG.info("Init thing ends.");
+    }
+
+    private void initEffectThing() {
+        LOG.info("Init effect thing's starting...");
+        effectThing.add(new EffectThing("burning", "desc1", "info1", thing.get(0)));
+        effectThing.add(new EffectThing("burning", "desc2", "info2", thing.get(1)));
+        effectThing.add(new EffectThing("burning", "desc3", "info3", thing.get(2)));
+        effectThing.add(new EffectThing("burning", "desc4", "info4", thing.get(0)));
+        effectThing.add(new EffectThing("burning", "desc5", "info5", thing.get(3)));
+        effectThing.forEach(effectThingCrudRepository::save);
+        LOG.info("Init effect thing ends.");
     }
 
     private void initDraft() {
@@ -194,29 +191,227 @@ public class DatabaseTest {
         LOG.info("Init draft ends.");
     }
 
+    private void categoryComponentFindById() {
+        LOG.info("CategoryComponentFindById method's starting...");
+        assertEquals(categoryComponent.get(0), (categoryComponentCrudRepository.findById(categoryComponent.get(0).getId()).get()));
+        assertEquals(categoryComponent.get(1), (categoryComponentCrudRepository.findById(categoryComponent.get(1).getId()).get()));
+        LOG.info("CategoryComponentFindById method ends.");
+
+    }
+
+    private void categoryComponentFindByName() {
+        LOG.info("CategoryComponentFindByName method's starting...");
+        assertEquals(categoryComponent.get(0), categoryComponentCrudRepository.findByName("usual"));
+        assertEquals(categoryComponent.get(1), categoryComponentCrudRepository.findByName("unusual"));
+        LOG.info("CategoryComponentFindByName method ends.");
+    }
+
+    private void categoryComponentCount() {
+        LOG.info("categoryComponentCount method's starting...");
+        assertEquals(componentCrudRepository.findAll().size(), 4);
+        LOG.info("categoryComponentCount method ends.");
+    }
+
+    private void componentFindByName() {
+        LOG.info("componentFindByName method's starting...");
+        assertEquals(component.get(0).getName(), componentCrudRepository.findByName("wood").getName());
+        assertEquals(component.get(3).getName(), componentCrudRepository.findByName("steak").getName());
+        LOG.info("componentFindByName method ends.");
+    }
+
+    private void componentFindAllByCategoryComponentEquals() {
+        LOG.info("componentFindAllByCategoryComponentEquals method's starting...");
+        assertEquals(componentCrudRepository.findAllByCategoryComponentEquals(categoryComponent.get(0)).size(), 2);
+        assertEquals(componentCrudRepository.findAllByCategoryComponentEquals(categoryComponent.get(1)).size(), 2);
+        LOG.info("componentFindAllByCategoryComponentEquals method ends.");
+    }
+
+    private void componentFindAllByDraftsContains() {
+        LOG.info("componentFindAllByDraftsContains method's starting...");
+        assertEquals(componentCrudRepository.findAllByDraftsContains(draft.get(0)).size(), component.size());
+        assertEquals(componentCrudRepository.findAllByDraftsContains(draft.get(1)).size(), 3);
+        assertEquals(componentCrudRepository.findAllByDraftsContains(draft.get(2)).size(), 3);
+        assertEquals(componentCrudRepository.findAllByDraftsContains(draft.get(3)).size(), 1);
+        LOG.info("componentFindAllByDraftsContains method ends.");
+    }
+
+    private void descriptionComponentFindByComponent() {
+        LOG.info("descriptionComponentFindByComponent method's starting...");
+        assertEquals(descriptionComponentCrudRepository.findByComponent(component.get(0)), component.get(0).getDescriptionComponent());
+        assertEquals(descriptionComponentCrudRepository.findByComponent(component.get(1)), component.get(1).getDescriptionComponent());
+        assertEquals(descriptionComponentCrudRepository.findByComponent(component.get(2)), component.get(2).getDescriptionComponent());
+        assertEquals(descriptionComponentCrudRepository.findByComponent(component.get(3)), component.get(3).getDescriptionComponent());
+        LOG.info("descriptionComponentFindByComponent method ends.");
+    }
+
+    private void descriptionThingFindByThing() {
+        LOG.info("descriptionThingFindByThing method's starting...");
+        assertEquals(descriptionThingCrudRepository.findByThing(thing.get(0)), descriptionThing.get(0));
+        assertEquals(descriptionThingCrudRepository.findByThing(thing.get(1)), descriptionThing.get(1));
+        assertEquals(descriptionThingCrudRepository.findByThing(thing.get(2)), descriptionThing.get(2));
+        assertEquals(descriptionThingCrudRepository.findByThing(thing.get(3)), descriptionThing.get(3));
+        LOG.info("descriptionThingFindByThing method ends.");
+    }
+
+    private void draftFindAllByComponentsContains() {
+        LOG.info("draftFindAllByComponentsContains method's starting...");
+        assertEquals(draftCrudRepository.findAllByComponentsContains(component.get(0)).size(), 2);
+        assertEquals(draftCrudRepository.findAllByComponentsContains(component.get(1)).size(), 3);
+        assertEquals(draftCrudRepository.findAllByComponentsContains(component.get(2)).size(), 2);
+        assertEquals(draftCrudRepository.findAllByComponentsContains(component.get(3)).size(), component.size());
+        LOG.info("draftFindAllByComponentsContains method ends.");
+    }
+
+    private void draftFindAllByThing() {
+        LOG.info("draftFindAllByThing method's starting...");
+        assertEquals(draftCrudRepository.findAllByThing(thing.get(0)).size(), 2);
+        assertEquals(draftCrudRepository.findAllByThing(thing.get(1)).get(0), draft.get(1));
+        assertEquals(draftCrudRepository.findAllByThing(thing.get(2)).get(0), draft.get(2));
+        LOG.info("draftFindAllByThing method ends.");
+    }
+
+    private void effectThingFindAllByName() {
+        LOG.info("effectThingFindByName method's starting...");
+        assertEquals(effectThingCrudRepository.findAllByName("burning").size(), 5);
+        LOG.info("effectThingFindByName method ends.");
+    }
+
+    private void effectThingFindAllByThing() {
+        LOG.info("effectThingFindAllByThing method's starting...");
+        assertEquals(effectThingCrudRepository.findAllByThing(thing.get(0)).get(0), effectThing.get(0));
+        assertEquals(effectThingCrudRepository.findAllByThing(thing.get(1)).get(0), effectThing.get(1));
+        assertEquals(effectThingCrudRepository.findAllByThing(thing.get(0)).size(), 2);
+        assertEquals(effectThingCrudRepository.findAllByThing(thing.get(3)).get(0), effectThing.get(4));
+        LOG.info("effectThingFindAllByThing method ends.");
+    }
+
+    private void thingFindByDraftsContains() {
+        LOG.info("thingFindByDraftsContains method's starting...");
+        assertEquals(thingCrudRepository.findByDraftsContains(draft.get(0)), thing.get(0));
+        assertEquals(thingCrudRepository.findByDraftsContains(draft.get(1)), thing.get(1));
+        assertEquals(thingCrudRepository.findByDraftsContains(draft.get(2)), thing.get(2));
+        assertEquals(thingCrudRepository.findByDraftsContains(draft.get(3)), thing.get(0));
+        LOG.info("thingFindByDraftsContains method ends.");
+    }
+
+    private void thingFindAllByTypeThing() {
+        LOG.info("thingFindAllByTypeThing method's starting...");
+        assertEquals(thingCrudRepository.findAllByTypeThing(typeThing.get(0)).size(), 2);
+        assertEquals(thingCrudRepository.findAllByTypeThing(typeThing.get(1)).size(), 2);
+        LOG.info("thingFindAllByTypeThing method ends.");
+    }
+
+    private void typeThingFindByName() {
+        LOG.info("typeThingFindByName method's starting...");
+        assertEquals(typeThingCrudRepository.findByName("usual"), typeThing.get(0));
+        assertEquals(typeThingCrudRepository.findByName("unusual"), typeThing.get(1));
+        LOG.info("typeThingFindByName method ends.");
+    }
+
+    private void typeThingFindByThingsContains() {
+        LOG.info("typeThingFindByThingsContains method's starting...");
+        assertEquals(typeThingCrudRepository.findByThingsContains(thing.get(0)).get(0), typeThing.get(0));
+        assertEquals(typeThingCrudRepository.findByThingsContains(thing.get(1)).get(0), typeThing.get(1));
+        assertEquals(typeThingCrudRepository.findByThingsContains(thing.get(2)).get(0), typeThing.get(0));
+        assertEquals(typeThingCrudRepository.findByThingsContains(thing.get(3)).get(0), typeThing.get(1));
+        LOG.info("typeThingFindByThingsContains method ends.");
+    }
+
+    private void usersFindByEmail() {
+        LOG.info("usersFindByEmail method's starting...");
+        assertEquals(usersCrudRepository.findByEmail("admin@mail.ru").get(),users.get(0));
+        assertEquals(usersCrudRepository.findByEmail("editor@mail.ru").get(),users.get(1));
+        assertEquals(usersCrudRepository.findByEmail("reader@mail.ru").get(),users.get(2));
+        LOG.info("usersFindByEmail method ends.");
+    }
+
+    private void usersFindByLogin() {
+        LOG.info("usersFindByLogin method's starting...");
+        assertEquals(usersCrudRepository.findByLogin("admin").get(),users.get(0));
+        assertEquals(usersCrudRepository.findByLogin("editor").get(),users.get(1));
+        assertEquals(usersCrudRepository.findByLogin("reader").get(),users.get(2));
+        LOG.info("usersFindByLogin method ends.");
+    }
+
+    private void usersFindAllByUserStatus() {
+        LOG.info("usersFindAllByUserStatus method's starting...");
+        assertEquals(usersCrudRepository.findAllByUserStatus(admin).size(),1);
+        assertEquals(usersCrudRepository.findAllByUserStatus(editor).size(),1);
+        assertEquals(usersCrudRepository.findAllByUserStatus(reader).get(0),users.get(2));
+        LOG.info("usersFindAllByUserStatus method ends.");
+    }
+
+    private void usersStatusFindByUsers() {
+        LOG.info("usersStatusFindByUsers method's starting...");
+        assertEquals(userStatusCrudRepository.findByUsers(users.get(0)),admin);
+        assertEquals(userStatusCrudRepository.findByUsers(users.get(1)),editor);
+        assertEquals(userStatusCrudRepository.findByUsers(users.get(2)),reader);
+        LOG.info("usersStatusFindByUsers method ends.");
+    }
+
+    private void usersDeleteById() {
+        usersCrudRepository.deleteById(users.get(0).getId());
+        assertFalse(usersCrudRepository.findById(users.get(0).getId()).isPresent());
+    }
+
+    private void usersDelete() {
+        usersCrudRepository.delete(users.get(1));
+        assertFalse(usersCrudRepository.findById(users.get(1).getId()).isPresent());
+    }
+
+    private void usersDeleteAll() {
+        usersCrudRepository.deleteAll();
+        assertEquals(usersCrudRepository.findAll().size(),0);
+    }
+
     @Test
     public void test() {
         LOG.info("Test method's starting...");
+
         initUserStatus();
         initUsers();
         initDescriptionComponent();
         initCategoryComponent();
         initComponent();
         initDescriptionThing();
-        initEffectThing();
         initTypeThing();
         initThing();
+        initEffectThing();
         initDraft();
 
-        LOG.info("CategoryComponentFindById method's starting...");
-        assertEquals(categoryComponent.get(0), (categoryComponentCrudRepository.findById(categoryComponent.get(0).getId()).get()));
-        assertEquals(categoryComponent.get(1), (categoryComponentCrudRepository.findById(categoryComponent.get(1).getId()).get()));
-        LOG.info("CategoryComponentFindById method ends.");
+        categoryComponentFindById();
+        categoryComponentFindByName();
+        categoryComponentCount();
 
-        LOG.info("CategoryComponentFindByName method's starting...");
-        assertEquals(categoryComponent.get(0).getName(), categoryComponentCrudRepository.findByName("usual").getName());
-        assertEquals(categoryComponent.get(1).getName(), categoryComponentCrudRepository.findByName("unusual").getName());
-        LOG.info("CategoryComponentFindByName method ends.");
+        componentFindByName();
+        componentFindAllByCategoryComponentEquals();
+        componentFindAllByDraftsContains();
+
+        descriptionComponentFindByComponent();
+
+        descriptionThingFindByThing();
+
+        draftFindAllByComponentsContains();
+        draftFindAllByThing();
+
+        effectThingFindAllByName();
+        effectThingFindAllByThing();
+
+        thingFindByDraftsContains();
+        thingFindAllByTypeThing();
+
+        typeThingFindByName();
+        typeThingFindByThingsContains();
+
+        usersFindByEmail();
+        usersFindByLogin();
+        usersFindAllByUserStatus();
+
+        usersStatusFindByUsers();
+
+        usersDeleteById();
+        usersDelete();
+        usersDeleteAll();
 
         LOG.info("Test method ends.");
     }
@@ -250,25 +445,6 @@ public class DatabaseTest {
         });
         LOG.info("notUniqueEmailUser method ends.");
     }*/
-
-    /*@Test
-    public void CategoryComponentFindById() {
-        LOG.info("CategoryComponentFindById method's starting...");
-        assertEquals(categoryComponent1,(categoryComponentCrudRepository.findById(categoryComponent1.getId()).get()));
-        assertEquals(categoryComponent2,(categoryComponentCrudRepository.findById(categoryComponent2.getId()).get()));
-        LOG.info("CategoryComponentFindById method ends.");
-
-    }
-
-    @Test
-    public void CategoryComponentFindByName() {
-        LOG.info("CategoryComponentFindByName method's starting...");
-        assertEquals(categoryComponent1.getName(),categoryComponentCrudRepository.findByName("usual").getName());
-        assertEquals(categoryComponent2.getName(),categoryComponentCrudRepository.findByName("unusual").getName());
-        LOG.info("CategoryComponentFindByName method ends.");
-    }*/
-
-
 
     /*@Test
     public void find() {

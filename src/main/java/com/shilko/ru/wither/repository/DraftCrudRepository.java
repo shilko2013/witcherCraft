@@ -24,5 +24,5 @@ public interface DraftCrudRepository extends CrudRepository<Draft, Long> {
 
     List<Draft> findAllByComponentsContains(Component component);
 
-    Draft findByThing(Thing thing);
+    List<Draft> findAllByThing(Thing thing);
 }

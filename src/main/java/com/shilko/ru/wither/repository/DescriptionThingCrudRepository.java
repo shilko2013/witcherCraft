@@ -1,6 +1,7 @@
 package com.shilko.ru.wither.repository;
 
 import com.shilko.ru.wither.entity.DescriptionThing;
+import com.shilko.ru.wither.entity.Thing;
 import org.springframework.data.repository.CrudRepository;
 
 import java.util.List;
@@ -19,6 +20,6 @@ public interface DescriptionThingCrudRepository extends CrudRepository<Descripti
     @Override
     List<DescriptionThing> findAll();
 
-    DescriptionThing findByThing(DescriptionThing component);
+    DescriptionThing findByThing(Thing component);
 
 }

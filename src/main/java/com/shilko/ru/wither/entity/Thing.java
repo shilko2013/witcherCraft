@@ -15,13 +15,12 @@ public class Thing implements Serializable {
 
     public Thing() { }
 
-    public Thing(@NotNull String name, @NotNull @PositiveOrZero int price, @NotNull @PositiveOrZero double weight, @NotNull TypeThing typeThing, @NotNull DescriptionThing descriptionThing, @NotNull List<EffectThing> effects) {
+    public Thing(@NotNull String name, @NotNull @PositiveOrZero int price, @NotNull @PositiveOrZero double weight, @NotNull TypeThing typeThing, @NotNull DescriptionThing descriptionThing) {
         this.name = name;
         this.price = price;
         this.weight = weight;
         this.descriptionThing = descriptionThing;
         this.typeThing = typeThing;
-        this.effects = effects;
     }
 
     @Id

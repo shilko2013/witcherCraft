@@ -27,5 +27,5 @@ public interface UsersCrudRepository extends CrudRepository<Users, Long> {
     @Override
     List<Users> findAll();
 
-    List<Users> findAllByUserStatusContains(UserStatus userStatus);
+    List<Users> findAllByUserStatus(UserStatus userStatus);
 }

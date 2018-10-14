@@ -21,7 +21,7 @@ public interface EffectThingCrudRepository extends CrudRepository<EffectThing, L
     @Override
     List<EffectThing> findAll();
 
-    EffectThing findByName(String name);
+    List<EffectThing> findAllByName(String name);
 
     List<EffectThing> findAllByThing(Thing thing);
 }

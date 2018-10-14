@@ -19,5 +19,5 @@ public interface TypeThingCrudRepository extends CrudRepository<TypeThing, Long>
     @Override
     void deleteById(Long id);
 
-    List<Thing> findByThingsContains(Thing thing);
+    List<TypeThing> findByThingsContains(Thing thing);
 }
