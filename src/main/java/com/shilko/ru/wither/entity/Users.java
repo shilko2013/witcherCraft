@@ -58,7 +58,7 @@ public class Users implements Serializable {
     @Email
     private String email;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "userstatus_id", nullable = false)
     private UserStatus userStatus;
 

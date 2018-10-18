@@ -44,7 +44,7 @@ public class EffectThing {
     @Type(type = "text")
     private String information;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "thing_id", nullable = false)
     private Thing thing;
 

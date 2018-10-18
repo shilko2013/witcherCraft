@@ -46,7 +46,7 @@ public class Thing implements Serializable {
     @Column(unique = true, nullable = false)
     private String name;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "typething_id", nullable = false)
     private TypeThing typeThing;
 
@@ -58,7 +58,7 @@ public class Thing implements Serializable {
     @PositiveOrZero
     private double weight;
 
-    @OneToOne(fetch = FetchType.LAZY)
+    @OneToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "descriptionthing_id", nullable = false)
     private DescriptionThing descriptionThing;
 

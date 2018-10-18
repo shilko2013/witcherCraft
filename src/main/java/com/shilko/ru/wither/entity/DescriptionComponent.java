@@ -36,7 +36,7 @@ public class DescriptionComponent {
     @Type(type = "text")
     private String description;
 
-    @OneToOne(mappedBy = "descriptionComponent", fetch = FetchType.LAZY)
+    @OneToOne(mappedBy = "descriptionComponent", fetch = FetchType.EAGER)
     private Component component;
 
     /**

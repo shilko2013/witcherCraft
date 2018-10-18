@@ -43,7 +43,7 @@ public class Component {
     @Column(nullable = false, unique = true)
     private String name;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "category_id", nullable = false)
     private CategoryComponent categoryComponent;
 
@@ -55,7 +55,7 @@ public class Component {
     @PositiveOrZero
     private double weight;
 
-    @OneToOne(fetch = FetchType.LAZY)
+    @OneToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "descriptioncomponent_id", nullable = false)
     private DescriptionComponent descriptionComponent;
 

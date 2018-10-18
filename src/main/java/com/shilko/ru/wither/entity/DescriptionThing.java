@@ -36,7 +36,7 @@ public class DescriptionThing {
     @Type(type = "text")
     private String description;
 
-    @OneToOne(mappedBy = "descriptionThing", fetch = FetchType.LAZY)
+    @OneToOne(mappedBy = "descriptionThing", fetch = FetchType.EAGER)
     private Thing thing;
 
     /**
