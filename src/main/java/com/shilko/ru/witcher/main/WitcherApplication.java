@@ -1,10 +1,7 @@
-package com.shilko.ru.wither.main;
+package com.shilko.ru.witcher.main;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.*;
-import com.shilko.ru.wither.config.ApplicationConfigController;
-import org.springframework.stereotype.Component;
-import org.springframework.transaction.annotation.Transactional;
+import com.shilko.ru.witcher.config.ApplicationConfigController;
 
 /*import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -20,3 +17,5 @@ public class WitcherApplication {
     }
 
 }
+//TODO How separate alch & craft?
+//TODO DB for redaction changes?

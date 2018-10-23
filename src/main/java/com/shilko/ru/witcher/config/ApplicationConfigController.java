@@ -1,4 +1,4 @@
-package com.shilko.ru.wither.config;
+package com.shilko.ru.witcher.config;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;

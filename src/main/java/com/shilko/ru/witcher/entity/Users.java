@@ -1,4 +1,4 @@
-package com.shilko.ru.wither.entity;
+package com.shilko.ru.witcher.entity;
 import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotNull;
@@ -7,9 +7,7 @@ import javax.validation.constraints.Size;
 import lombok.Data;
 
 import java.io.Serializable;
-import java.util.HashSet;
 import java.util.Objects;
-import java.util.Set;
 
 //@Type(type="text")
 

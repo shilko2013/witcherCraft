@@ -1,36 +1,33 @@
-package com.shilko.ru.wither.entity;
+package com.shilko.ru.witcher.entity;
 
 import lombok.Data;
-import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import java.util.List;
 import java.util.Objects;
 
 /**
- * The type Effect thing keeps some effects for thing.
+ * The type Type thing keeps types of things(like usual, magic, etc)
  */
 @Entity
 @Data
-public class EffectThing {
+public class TypeThing {
 
     /**
-     * Instantiates a new Effect thing.
+     * Instantiates a new Type thing.
      */
-    public EffectThing() {}
+    public TypeThing() {}
 
     /**
-     * Instantiates a new Effect thing.
+     * Instantiates a new Type thing.
      *
      * @param name        the name
-     * @param description the description
      * @param information the information
-     * @param thing       the thing
      */
-    public EffectThing(@NotNull String name, @NotNull String description, String information, @NotNull Thing thing) {
+    public TypeThing(@NotNull String name, String information) {
         this.name = name;
         this.information = information;
-        this.thing = thing;
     }
 
     @Id
@@ -40,13 +37,11 @@ public class EffectThing {
     @Column(nullable = false)
     private String name;
 
-    @Column(nullable = false)
-    @Type(type = "text")
     private String information;
 
-    @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "thing_id", nullable = false)
-    private Thing thing;
+    @Column(nullable = false)
+    @OneToMany(mappedBy = "typeThing", fetch = FetchType.LAZY)
+    private List<Thing> things;
 
     /**
      * Gets id.
@@ -103,36 +98,36 @@ public class EffectThing {
     }
 
     /**
-     * Gets thing.
+     * Gets things.
      *
-     * @return the thing
+     * @return the things
      */
-    public Thing getThing() {
-        return thing;
+    public List<Thing> getThings() {
+        return things;
     }
 
     /**
-     * Sets thing.
+     * Sets things.
      *
-     * @param thing the thing
+     * @param things the things
      */
-    public void setThing(Thing thing) {
-        this.thing = thing;
+    public void setThings(List<Thing> things) {
+        this.things = things;
     }
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        EffectThing that = (EffectThing) o;
-        return id == that.id &&
-                Objects.equals(name, that.name) &&
-                Objects.equals(information, that.information) &&
-                Objects.equals(thing, that.thing);
+        TypeThing typeThing = (TypeThing) o;
+        return id == typeThing.id &&
+                Objects.equals(name, typeThing.name) &&
+                Objects.equals(information, typeThing.information) &&
+                Objects.equals(things, typeThing.things);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name, information, thing);
+        return Objects.hash(id, name, information, things);
     }
 }

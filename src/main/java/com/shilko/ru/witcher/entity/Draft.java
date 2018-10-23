@@ -1,48 +1,56 @@
-package com.shilko.ru.wither.entity;
-
+package com.shilko.ru.witcher.entity;
 import lombok.Data;
 import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import java.io.Serializable;
 import java.util.List;
 import java.util.Objects;
 
 /**
- * The type Category component used for keeping possible categories of components.
+ * The type Draft keeps drafts of things.
  */
 @Entity
 @Data
-public class CategoryComponent {
+public class Draft implements Serializable {
 
     /**
-     * Instantiates a new Category component.
+     * Instantiates a new Draft.
      */
-    public CategoryComponent() {}
+    public Draft() { }
 
     /**
-     * Instantiates a new Category component.
+     * Instantiates a new Draft.
      *
-     * @param name        the name
+     * @param thing       the thing
      * @param information the information
+     * @param components  the components
      */
-    public CategoryComponent(@NotNull String name, String information) {
-        this.name = name;
+    public Draft(@NotNull Thing thing, String information, @NotNull List<Component> components) {
+        this.thing = thing;
         this.information = information;
+        this.components = components;
     }
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    @Column(nullable = false)
-    private String name;
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "thing_id", nullable = false)
+    private Thing thing;
 
     @Type(type = "text")
     private String information;
 
     @Column(nullable = false)
-    @OneToMany(mappedBy = "categoryComponent", fetch = FetchType.LAZY)
+    @ManyToMany(fetch = FetchType.LAZY)
+    @JoinTable(
+            name = "draft_component",
+            joinColumns = { @JoinColumn(name = "draft_id")},
+            inverseJoinColumns = { @JoinColumn(name = "component_id")}
+    )
     private List<Component> components;
 
     /**
@@ -64,21 +72,21 @@ public class CategoryComponent {
     }
 
     /**
-     * Gets name.
+     * Gets thing.
      *
-     * @return the name
+     * @return the thing
      */
-    public String getName() {
-        return name;
+    public Thing getThing() {
+        return thing;
     }
 
     /**
-     * Sets name.
+     * Sets thing.
      *
-     * @param name the name
+     * @param thing the thing
      */
-    public void setName(String name) {
-        this.name = name;
+    public void setThing(Thing thing) {
+        this.thing = thing;
     }
 
     /**
@@ -121,15 +129,15 @@ public class CategoryComponent {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        CategoryComponent that = (CategoryComponent) o;
-        return id == that.id &&
-                Objects.equals(name, that.name) &&
-                Objects.equals(information, that.information) &&
-                Objects.equals(components, that.components);
+        Draft draft = (Draft) o;
+        return id == draft.id &&
+                Objects.equals(thing, draft.thing) &&
+                Objects.equals(information, draft.information) &&
+                Objects.equals(components, draft.components);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name, information, components);
+        return Objects.hash(id, thing, information, components);
     }
 }

@@ -1,4 +1,4 @@
-package com.shilko.ru.wither.entity;
+package com.shilko.ru.witcher.entity;
 
 import lombok.Data;
 

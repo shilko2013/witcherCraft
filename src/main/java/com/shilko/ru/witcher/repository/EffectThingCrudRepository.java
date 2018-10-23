@@ -1,7 +1,7 @@
-package com.shilko.ru.wither.repository;
+package com.shilko.ru.witcher.repository;
 
-import com.shilko.ru.wither.entity.EffectThing;
-import com.shilko.ru.wither.entity.Thing;
+import com.shilko.ru.witcher.entity.EffectThing;
+import com.shilko.ru.witcher.entity.Thing;
 import org.springframework.data.repository.CrudRepository;
 
 import java.util.List;

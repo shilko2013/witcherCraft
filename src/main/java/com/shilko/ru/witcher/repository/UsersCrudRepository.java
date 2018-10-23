@@ -1,7 +1,7 @@
-package com.shilko.ru.wither.repository;
+package com.shilko.ru.witcher.repository;
 
-import com.shilko.ru.wither.entity.UserStatus;
-import com.shilko.ru.wither.entity.Users;
+import com.shilko.ru.witcher.entity.UserStatus;
+import com.shilko.ru.witcher.entity.Users;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 

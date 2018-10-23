@@ -1,5 +1,5 @@
-import com.shilko.ru.wither.entity.*;
-import com.shilko.ru.wither.repository.*;
+import com.shilko.ru.witcher.entity.*;
+import com.shilko.ru.witcher.repository.*;
 import org.junit.*;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;

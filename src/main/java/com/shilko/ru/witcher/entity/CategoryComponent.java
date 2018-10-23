@@ -1,6 +1,7 @@
-package com.shilko.ru.wither.entity;
+package com.shilko.ru.witcher.entity;
 
 import lombok.Data;
+import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
@@ -8,24 +9,24 @@ import java.util.List;
 import java.util.Objects;
 
 /**
- * The type Type thing keeps types of things(like usual, magic, etc)
+ * The type Category component used for keeping possible categories of components.
  */
 @Entity
 @Data
-public class TypeThing {
+public class CategoryComponent {
 
     /**
-     * Instantiates a new Type thing.
+     * Instantiates a new Category component.
      */
-    public TypeThing() {}
+    public CategoryComponent() {}
 
     /**
-     * Instantiates a new Type thing.
+     * Instantiates a new Category component.
      *
      * @param name        the name
      * @param information the information
      */
-    public TypeThing(@NotNull String name, String information) {
+    public CategoryComponent(@NotNull String name, String information) {
         this.name = name;
         this.information = information;
     }
@@ -37,11 +38,12 @@ public class TypeThing {
     @Column(nullable = false)
     private String name;
 
+    @Type(type = "text")
     private String information;
 
     @Column(nullable = false)
-    @OneToMany(mappedBy = "typeThing", fetch = FetchType.LAZY)
-    private List<Thing> things;
+    @OneToMany(mappedBy = "categoryComponent", fetch = FetchType.LAZY)
+    private List<Component> components;
 
     /**
      * Gets id.
@@ -98,36 +100,36 @@ public class TypeThing {
     }
 
     /**
-     * Gets things.
+     * Gets components.
      *
-     * @return the things
+     * @return the components
      */
-    public List<Thing> getThings() {
-        return things;
+    public List<Component> getComponents() {
+        return components;
     }
 
     /**
-     * Sets things.
+     * Sets components.
      *
-     * @param things the things
+     * @param components the components
      */
-    public void setThings(List<Thing> things) {
-        this.things = things;
+    public void setComponents(List<Component> components) {
+        this.components = components;
     }
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        TypeThing typeThing = (TypeThing) o;
-        return id == typeThing.id &&
-                Objects.equals(name, typeThing.name) &&
-                Objects.equals(information, typeThing.information) &&
-                Objects.equals(things, typeThing.things);
+        CategoryComponent that = (CategoryComponent) o;
+        return id == that.id &&
+                Objects.equals(name, that.name) &&
+                Objects.equals(information, that.information) &&
+                Objects.equals(components, that.components);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name, information, things);
+        return Objects.hash(id, name, information, components);
     }
 }
