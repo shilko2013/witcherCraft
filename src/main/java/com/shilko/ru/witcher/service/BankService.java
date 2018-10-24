@@ -4,7 +4,7 @@ public interface BankService {
   
   void takeMoney(Long money);
   
-  //Is that rofl???
+  //Is that a joke???
   String sayThanks(User whichUser);
   
   //what did you mean on this methon???
