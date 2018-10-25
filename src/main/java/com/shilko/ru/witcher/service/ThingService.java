@@ -3,7 +3,7 @@ package com.shilko.ru.witcher.service;
 public interface ThingService {
   
   //adding:
-  void addNewThing(Thing newThing);
+  void addThing(Thing newThing);
   
   //edditing:
   void editThing(Long thingID);
@@ -15,9 +15,8 @@ public interface ThingService {
   void removeThing(String thingName);
   
   //getters:
-  Thing getThingById(Long id);
+  Thing getThingByID(Long id);
   Thign getThingByName(String thingName);
   
-  //what kind is this thing???
-  
+  //what kind is this thing???  
 }
