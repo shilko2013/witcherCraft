@@ -11,4 +11,6 @@ public interface UserService {
     Users findByEmail(String email);
     
     void editUser(Users editedUser);
+    
+    //+ next methods: editPage...??? 
 }
