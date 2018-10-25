@@ -3,16 +3,21 @@ package com.shilko.ru.witcher.service;
 public interface ComponentService {
 
   //additing:
-  void addNewComponent(Component newComponent);
+  void addComponent(Component newComponent);
   
   //edditing:
-  void editComponent(Long whichComponent, Component thisComponent);
+  void editComponent(Long componentID);
+  
+  void editComponent(String componentName);
+  
+  void removeComponent(Long componentID);
+  
+  void removeComponent(String componentName);
   
   //getters:
   Component getComponentById(Long id);
+  
   Component getComponentByName(String name);
-  //here a list or map
-  //<Component> getAllComponents();
 
   //what kind is this component???
 }
