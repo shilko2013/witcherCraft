@@ -8,4 +8,7 @@ public interface ContentService {
   //only for logged in users and admins:
   void editContent(String editedContent);
   
+  //only for admins:
+  void removeContent(/*args -> ???*/);
+  
 }
