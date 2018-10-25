@@ -13,6 +13,6 @@ public interface ThingService {
   Thing getThingById(Long id);
   Thign getThingByName(String thingName);
   //some list or map here:
-  //Thing getAllThings();
+  //<Thing> getAllThings();
   
 }
