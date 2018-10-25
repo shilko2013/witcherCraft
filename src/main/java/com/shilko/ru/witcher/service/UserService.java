@@ -9,4 +9,6 @@ public interface UserService {
     Users findByLogin(String login);
 
     Users findByEmail(String email);
+    
+    void changePassword(String newPassword);
 }
