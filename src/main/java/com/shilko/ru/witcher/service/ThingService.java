@@ -3,8 +3,7 @@ package com.shilko.ru.witcher.service;
 public interface ThingService {
   
   //adding:
-  //arg -> ???
-  void addNewThing(Thing thing);
+  void addNewThing(Thing newThing);
   
   //edditing:
   void editThing(Long whichThing, Thing thisThing);
@@ -15,4 +14,5 @@ public interface ThingService {
   //some list or map here:
   //<Thing> getAllThings();
   
+  //what kind is this thing???
 }
