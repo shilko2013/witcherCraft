@@ -12,5 +12,7 @@ public interface UserService {
     
     void editUser(Users editedUser);
     
-    //+ next methods: editPage...??? 
+    void editPageContent(String edits);
+    
+    void addNewContent(String news);
 }
