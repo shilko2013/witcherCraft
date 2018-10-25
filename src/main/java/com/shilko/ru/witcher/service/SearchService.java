@@ -6,4 +6,8 @@ public interface SearchService {
   //generate new page with finded results...
   void searchByLine(String inputLine);
   
+  void saveInputedLine(String inputLine);
+  
+  void suggestLike(String inputLine);
+  
 }
