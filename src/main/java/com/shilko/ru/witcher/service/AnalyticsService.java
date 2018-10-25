@@ -6,8 +6,9 @@ public interface AnalyticsService {
   void loggingAnalitics();
   
   //Which type does this getter return???
+  //generate a page containing list of analitics...
   void getAnalitics();
   
-  void updateAndlitics();
+  void updateAnalitics();
   
 }
