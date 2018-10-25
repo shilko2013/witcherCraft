@@ -1,11 +1,11 @@
 package com.shilko.ru.witcher.service;
 
-public interface PagesEditingService {
+public interface EditPagesService {
   
-  void addNewPage(String content);
+  //only for admins:
+  void addContent(String newContent);
   
-  void editPageContent(String newContent);
+  //only for logged in users and admins:
+  void editContent(String editedContent);
   
-  //This feature can only be used by an administrator(s)... 
-  void confirmEditing();
 }
