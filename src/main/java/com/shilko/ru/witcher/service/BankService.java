@@ -1,13 +1,14 @@
 package com.shilko.ru.witcher.service;
 
 public interface BankService {
+  Long MINamountMONEY;
   
   void takeMoney(Long money);
   
-  //Is that a joke???
-  String sayThanks(User whichUser);
+  boolean checkAmountMoney(Long money);
   
-  //what did you mean on this methon???
-  void doTranzaction();
+  void doTransaction();
+  
+  String sayThanks();
   
 }
