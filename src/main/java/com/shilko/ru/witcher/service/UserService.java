@@ -10,5 +10,5 @@ public interface UserService {
 
     Users findByEmail(String email);
     
-    void changePassword(String newPassword);
+    void editUser(Users editedUser);
 }
