@@ -1,6 +1,6 @@
 package com.shilko.ru.witcher.service;
 
-public interface EditPagesService {
+public interface ContentPagesService {
   
   //only for admins:
   void addContent(String newContent);
