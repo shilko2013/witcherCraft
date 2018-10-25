@@ -14,4 +14,5 @@ public interface ComponentService {
   //here a list or map
   //<Component> getAllComponents();
 
+  //what kind is this component???
 }
