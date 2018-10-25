@@ -7,8 +7,11 @@ public interface UserService {
     void addUser(Users newUser);
     
     void editUser(Users editedUser);
+    
+    void removeUser(Users whichUser);
 
     Users findByLogin(String login);
 
     Users findByEmail(String email);
+    
 }
