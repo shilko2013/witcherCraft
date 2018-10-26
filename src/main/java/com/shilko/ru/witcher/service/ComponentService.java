@@ -1,6 +1,11 @@
 package com.shilko.ru.witcher.service;
 
 public interface ComponentService {
+  
+  //check on editing:
+  boolean isComponentEdited(/*args -> ???*/);
+  
+  String getDataOfEditing(/*args -> ???*/);
 
   //additing:
   void addComponent(Component newComponent);
