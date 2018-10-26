@@ -9,6 +9,8 @@ public interface UserService {
     void editUser(Users editedUser);
     
     void removeUser(Users whichUser);
+    
+    void logIN(Users user);
 
     Users findByLogin(String login);
 
