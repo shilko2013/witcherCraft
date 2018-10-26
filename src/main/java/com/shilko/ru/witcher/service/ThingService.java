@@ -2,6 +2,9 @@ package com.shilko.ru.witcher.service;
 
 public interface ThingService {
   
+  //check on editing:
+  boolean isThingEdited(Thing thisThing);
+  
   //adding:
   void addThing(Thing newThing);
   
