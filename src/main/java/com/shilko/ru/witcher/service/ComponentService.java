@@ -3,7 +3,7 @@ package com.shilko.ru.witcher.service;
 public interface ComponentService {
   
   //check on editing:
-  boolean isComponentEdited(/*args -> ???*/);
+  boolean isComponentEdited(Component thisComponent);
   
   String getDataOfEditing(/*args -> ???*/);
 
