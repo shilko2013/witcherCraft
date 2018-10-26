@@ -15,8 +15,10 @@ public interface ThingService {
   void removeThing(String thingName);
   
   //getters:
-  Thing getThingByID(Long id);
-  Thign getThingByName(String thingName);
+  Thing getThing(Long id);
+  
+  Thign getThing(String thingName);
   
   //what kind is this thing???  
+  
 }
