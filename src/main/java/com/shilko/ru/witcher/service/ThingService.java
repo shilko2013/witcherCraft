@@ -3,9 +3,14 @@ package com.shilko.ru.witcher.service;
 public interface ThingService {
   
   //check on editing:
+  //These 2 methods are not important!!!
   boolean isThingEdited(Thing thisThing);
   
   String getDataOfEditing(/*args -> ???*/);
+  //
+  
+  //check on craft:
+  boolean forCraft(Thing thisThing);
   
   //adding:
   void addThing(Thing newThing);
@@ -22,8 +27,6 @@ public interface ThingService {
   //getters:
   Thing getThing(Long id);
   
-  Thign getThing(String thingName);
-  
-  //what kind is this thing???  
+  Thing getThing(String thingName);
   
 }
