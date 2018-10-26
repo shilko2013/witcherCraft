@@ -3,7 +3,7 @@ package com.shilko.ru.witcher.service;
 public interface ContentService {
   
   //check on permissions:
-  boolean isPermissionDenied(/*args -> Users and Admins*/);
+  boolean isPermissionGranted(/*args -> Users and Admins*/);
   
   //only for admins:
   void addContent(String newContent);
@@ -13,5 +13,7 @@ public interface ContentService {
   
   //only for admins:
   void removeContent(/*args -> ???*/);
+  
+  void sortContent();
   
 }
