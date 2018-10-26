@@ -3,9 +3,14 @@ package com.shilko.ru.witcher.service;
 public interface ComponentService {
   
   //check on editing:
+  //these 2 methods are not important!!!
   boolean isComponentEdited(Component thisComponent);
   
   String getDataOfEditing(/*args -> ???*/);
+  //
+  
+  //check on craft:
+  boolean forCraft(Component thisComponent);
 
   //additing:
   void addComponent(Component newComponent);
@@ -24,6 +29,4 @@ public interface ComponentService {
   
   Component getComponent(String name);
 
-  //what kind is this component???
-  
 }
