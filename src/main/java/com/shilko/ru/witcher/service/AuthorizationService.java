@@ -1,11 +1,15 @@
 package com.shilko.ru.witcher.service;
 
+import com.shilko.ru.witcher.entity.Users;
+
 public interface AuthorizationService {
  
- signInByLogin(String login, String password);
+ Users signInByLogin(String login, String password);
  
- signInByEmail(Stirng email, String password);
+ Users signInByEmail(String email, String password);
  
- signUP(String email, String login, String password);
+ Users signIN(String email, String login, String password);
+ 
+ Users signUP(String email, String login, String password);
  
 }
