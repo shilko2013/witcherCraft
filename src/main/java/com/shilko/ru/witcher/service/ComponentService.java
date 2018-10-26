@@ -15,9 +15,10 @@ public interface ComponentService {
   void removeComponent(String componentName);
   
   //getters:
-  Component getComponentByID(Long id);
+  Component getComponent(Long id);
   
-  Component getComponentByName(String name);
+  Component getComponent(String name);
 
   //what kind is this component???
+  
 }
