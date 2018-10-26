@@ -5,6 +5,8 @@ public interface ThingService {
   //check on editing:
   boolean isThingEdited(Thing thisThing);
   
+  String getDataOfEditing(/*args -> ???*/);
+  
   //adding:
   void addThing(Thing newThing);
   
