@@ -25,13 +25,5 @@ public interface UserStatusCrudRepository extends CrudRepository<UserStatus, Lon
     @Override
     List<UserStatus> findAll();
 
-    /**
-     * Find by users user status.
-     *
-     * @param users the users
-     * @return the user status
-     */
-    UserStatus findByUsers(Users users);
-
     UserStatus findByStatus(String status);
 }

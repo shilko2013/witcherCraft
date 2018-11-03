@@ -4,6 +4,7 @@ import com.shilko.ru.witcher.entity.Users;
 import com.shilko.ru.witcher.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.validation.Errors;
 import org.springframework.validation.ValidationUtils;
 import org.springframework.validation.Validator;
@@ -20,6 +21,7 @@ public class UserValidator implements Validator {
     }
 
     @Override
+    @Transactional(readOnly = true)
     public void validate(Object o, Errors errors) {
         Users user = (Users) o;
 

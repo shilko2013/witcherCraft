@@ -33,9 +33,9 @@ public class UserStatus implements Serializable {
     @Column(nullable = false)
     private String status;
 
-    @Column(nullable = false)
+    /*@Column(nullable = false)
     @OneToMany(mappedBy = "id", fetch = FetchType.LAZY)
-    private List<Users> users;
+    private List<Users> users;*/
 
     /**
      * Gets id.
@@ -78,18 +78,18 @@ public class UserStatus implements Serializable {
      *
      * @return the users
      */
-    public List<Users> getUsers() {
+    /*public List<Users> getUsers() {
         return users;
-    }
+    }*/
 
     /**
      * Sets users.
      *
      * @param users the users
      */
-    public void setUsers(List<Users> users) {
+    /*public void setUsers(List<Users> users) {
         this.users = users;
-    }
+    }*/
 
     @Override
     public boolean equals(Object o) {
@@ -97,12 +97,12 @@ public class UserStatus implements Serializable {
         if (o == null || getClass() != o.getClass()) return false;
         UserStatus that = (UserStatus) o;
         return id == that.id &&
-                Objects.equals(status, that.status) &&
-                Objects.equals(users, that.users);
+                Objects.equals(status, that.status)/* &&
+                Objects.equals(users, that.users)*/;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, status, users);
+        return Objects.hash(id, status/*, users*/);
     }
 }

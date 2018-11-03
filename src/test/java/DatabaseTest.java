@@ -19,7 +19,7 @@ import static org.junit.Assert.*;
  * Test class DatabaseTest includes one test method {@link DatabaseTest#test()} for testing entities.
  */
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = {"/ApplicationConfig.xml"})
+@ContextConfiguration(locations = {""})
 @Transactional
 public class DatabaseTest {
 
@@ -348,13 +348,13 @@ public class DatabaseTest {
         LOG.info("usersFindAllByUserStatus method ends.");
     }
 
-    private void usersStatusFindByUsers() {
+    /*private void usersStatusFindByUsers() {
         LOG.info("usersStatusFindByUsers method's starting...");
         assertEquals(userStatusCrudRepository.findByUsers(users.get(0)),admin);
         assertEquals(userStatusCrudRepository.findByUsers(users.get(1)),editor);
         assertEquals(userStatusCrudRepository.findByUsers(users.get(2)),reader);
         LOG.info("usersStatusFindByUsers method ends.");
-    }
+    }*/
 
     private void usersDeleteById() {
         usersCrudRepository.deleteById(users.get(0).getId());
@@ -418,7 +418,7 @@ public class DatabaseTest {
         usersFindByLogin();
         usersFindAllByUserStatus();
 
-        usersStatusFindByUsers();
+        //usersStatusFindByUsers();
 
         usersDeleteById();
         usersDelete();

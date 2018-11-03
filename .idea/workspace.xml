@@ -6,36 +6,16 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="678ca382-2f1f-4b50-a17d-25d8060134e3" name="Default Changelist" comment="Version 0.0.6.2.1 UserService in process... Trying to deploy on tomcat.">
-      <change afterPath="$PROJECT_DIR$/.idea/artifacts/witcherCraft_war_exploded.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/validation.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/ApplicationConfigMVC.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/ApplicationConfigMain.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/admin.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/login.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/registration.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/welcome.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/css/bootstrap.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/css/common.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/resources/js/bootstrap.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="678ca382-2f1f-4b50-a17d-25d8060134e3" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/db.temp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/shilko/ru/witcher/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/shilko/ru/witcher/controller/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/shilko/ru/witcher/entity/Component.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/shilko/ru/witcher/entity/Component.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/shilko/ru/witcher/entity/Thing.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/shilko/ru/witcher/entity/Thing.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/shilko/ru/witcher/entity/Users.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/shilko/ru/witcher/entity/Users.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/shilko/ru/witcher/main/WitcherApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/shilko/ru/witcher/main/WitcherApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/shilko/ru/witcher/repository/UsersCrudRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/shilko/ru/witcher/repository/UsersCrudRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/shilko/ru/witcher/serviceimpl/SecurityServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/shilko/ru/witcher/serviceimpl/SecurityServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/shilko/ru/witcher/serviceimpl/UserDetailsServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/shilko/ru/witcher/serviceimpl/UserDetailsServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/shilko/ru/witcher/entity/UserStatus.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/shilko/ru/witcher/entity/UserStatus.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/shilko/ru/witcher/repository/UserStatusCrudRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/shilko/ru/witcher/repository/UserStatusCrudRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/shilko/ru/witcher/serviceimpl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/shilko/ru/witcher/serviceimpl/UserServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/shilko/ru/witcher/validator/UserValidator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/shilko/ru/witcher/validator/UserValidator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/ApplicationConfig.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/ApplicationConfigDatabase.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/ApplicationConfigSecurity.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/ApplicationConfigSecurity.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/validation.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/validation.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/DatabaseTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/DatabaseTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ApplicationConfig.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/target/test-classes/DatabaseTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/DatabaseTest.class" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -158,45 +138,49 @@
     <session id="-1519412328">
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="class" value="10" />
-          <entry key="java" value="56" />
+          <entry key="class" value="24" />
+          <entry key="java" value="106" />
           <entry key="js" value="1" />
-          <entry key="jsp" value="6" />
-          <entry key="properties" value="1" />
+          <entry key="jsp" value="7" />
+          <entry key="properties" value="2" />
           <entry key="public" value="1" />
           <entry key="sql" value="2" />
+          <entry key="temp" value="1" />
           <entry key="uml" value="1" />
-          <entry key="xml" value="12" />
+          <entry key="xml" value="16" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="CLASS" value="10" />
-          <entry key="JAVA" value="56" />
-          <entry key="JSP" value="6" />
+          <entry key="CLASS" value="24" />
+          <entry key="JAVA" value="106" />
+          <entry key="JSP" value="7" />
           <entry key="JavaScript" value="1" />
-          <entry key="Properties" value="1" />
+          <entry key="Properties" value="2" />
+          <entry key="SQL" value="1" />
           <entry key="Scratch" value="2" />
           <entry key="UML" value="2" />
-          <entry key="XML" value="12" />
+          <entry key="XML" value="16" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="java" value="1719" />
+          <entry key="java" value="1850" />
           <entry key="jsp" value="25" />
-          <entry key="properties" value="102" />
-          <entry key="txt" value="127" />
-          <entry key="xml" value="230" />
+          <entry key="properties" value="108" />
+          <entry key="temp" value="65" />
+          <entry key="txt" value="143" />
+          <entry key="xml" value="231" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="1719" />
+          <entry key="JAVA" value="1850" />
           <entry key="JSP" value="25" />
-          <entry key="PLAIN_TEXT" value="127" />
-          <entry key="Properties" value="102" />
-          <entry key="XML" value="230" />
+          <entry key="PLAIN_TEXT" value="143" />
+          <entry key="Properties" value="108" />
+          <entry key="SQL" value="65" />
+          <entry key="XML" value="231" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.spring.boot.mvc.usages" />
@@ -209,22 +193,82 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/registration.jsp">
+        <entry file="file://$PROJECT_DIR$/src/test/java/DatabaseTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="241">
-              <caret line="49" column="71" selection-start-line="49" selection-start-column="71" selection-end-line="49" selection-end-column="71" />
+            <state relative-caret-position="75">
+              <caret line="392" column="36" lean-forward="true" selection-start-line="392" selection-start-column="36" selection-end-line="392" selection-end-column="36" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/shilko/ru/witcher/serviceimpl/UserServiceImpl.java">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/shilko/ru/witcher/entity/Users.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="25" column="34" lean-forward="true" selection-start-line="25" selection-start-column="34" selection-end-line="25" selection-end-column="34" />
+            <state relative-caret-position="75">
+              <caret line="44" column="54" selection-start-line="44" selection-start-column="54" selection-end-line="44" selection-end-column="54" />
               <folding>
-                <element signature="e#1258#1259#0" expanded="true" />
-                <element signature="e#1332#1333#0" expanded="true" />
+                <element signature="imports" expanded="true" />
+                <element signature="e#2013#2014#0" expanded="true" />
+                <element signature="e#2044#2045#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/shilko/ru/witcher/repository/UsersCrudRepository.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="151">
+              <caret line="33" column="7" lean-forward="true" selection-start-line="33" selection-start-column="7" selection-end-line="33" selection-end-column="7" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/shilko/ru/witcher/repository/UserStatusCrudRepository.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="375">
+              <caret line="25" column="31" selection-start-line="25" selection-start-column="31" selection-end-line="25" selection-end-column="31" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/shilko/ru/witcher/entity/UserStatus.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="750">
+              <caret line="78" column="24" lean-forward="true" selection-start-line="78" selection-start-column="24" selection-end-line="78" selection-end-column="24" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#2029#2030#0" expanded="true" />
+                <element signature="e#2087#2088#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/db.temp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="30">
+              <caret line="2" lean-forward="true" selection-start-line="2" selection-end-line="2" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/shilko/ru/witcher/validator/UserValidator.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-134">
+              <caret line="24" column="16" selection-start-line="24" selection-start-column="16" selection-end-line="24" selection-end-column="16" />
+              <folding>
+                <element signature="imports" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -233,8 +277,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/shilko/ru/witcher/controller/UserController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="35" selection-start-line="35" selection-end-line="35" />
+            <state relative-caret-position="19">
+              <caret line="36" column="26" selection-start-line="36" selection-start-column="26" selection-end-line="36" selection-end-column="26" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -242,36 +286,20 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/shilko/ru/witcher/validator/UserValidator.java">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/ApplicationConfigSecurity.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="736">
-              <caret line="66" selection-start-line="66" selection-end-line="66" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state relative-caret-position="330">
+              <caret line="22" column="53" lean-forward="true" selection-start-line="22" selection-start-column="53" selection-end-line="22" selection-end-column="53" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/validation.properties">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/shilko/ru/witcher/entity/CategoryComponent.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="7" column="26" lean-forward="true" selection-start-line="7" selection-start-column="26" selection-end-line="7" selection-end-column="26" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/shilko/ru/witcher/entity/Users.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="181">
-              <caret line="94" selection-start-line="94" selection-end-line="94" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#2044#2045#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="35">
+              <caret line="14" column="5" lean-forward="true" selection-start-line="14" selection-start-column="5" selection-end-line="14" selection-end-column="5" />
             </state>
           </provider>
         </entry>
@@ -299,7 +327,14 @@
       <find>Arrays.asList</find>
       <find>FetchType.LAZY</find>
       <find>read</find>
+      <find>fetch = FetchType.LAZY</find>
+      <find>GenerationType.IDENTITY</find>
+      <find>postgres=#</find>
     </findStrings>
+    <replaceStrings>
+      <replace>fetch = FetchType.EAGER</replace>
+      <replace>GenerationType.AUTO</replace>
+    </replaceStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -312,14 +347,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/com/shilko/ru/wither/repository/EffectThingCrudRepository.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/shilko/ru/wither/repository/ThingCrudRepository.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/shilko/ru/wither/repository/TypeThingCrudRepository.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/shilko/ru/wither/repository/UsersCrudRepository.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/shilko/ru/wither/repository/UserStatusCrudRepository.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/shilko/ru/wither/entity/Component.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/shilko/ru/wither/entity/DescriptionComponent.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/shilko/ru/wither/entity/DescriptionThing.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/shilko/ru/wither/entity/Draft.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/shilko/ru/wither/entity/EffectThing.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/shilko/ru/wither/entity/Thing.java" />
@@ -333,14 +360,11 @@
         <option value="$PROJECT_DIR$/src/main/java/com/shilko/ru/witcher/service/UserService.java" />
         <option value="$PROJECT_DIR$/src/main/resources/ApplicationConfig.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/shilko/ru/witcher/entity/CraftOrMagic.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/shilko/ru/witcher/entity/Draft.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/shilko/ru/witcher/repository/ComponentCrudRepository.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/shilko/ru/witcher/repository/DraftCrudRepository.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/shilko/ru/witcher/repository/ThingCrudRepository.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/shilko/ru/witcher/repository/CraftOrAlchemyCrudRepository.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/shilko/ru/witcher/entity/CraftOrAlchemy.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/shilko/ru/witcher/service/SecurityService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/shilko/ru/witcher/repository/UserStatusCrudRepository.java" />
         <option value="$PROJECT_DIR$/src/main/WEB-INF/ApplicationConfig.xml" />
         <option value="$PROJECT_DIR$/src/main/WEB-INF/ApplicationConfigSecurity.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/shilko/ru/witcher/main/WitcherApplication.java" />
@@ -348,21 +372,32 @@
         <option value="$PROJECT_DIR$/src/main/resources/ApplicationConfigMVC.xml" />
         <option value="$PROJECT_DIR$/src/main/resources/ApplicationConfigMain.xml" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" />
-        <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/ApplicationConfigMVC.xml" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/view/registration.jsp" />
-        <option value="$PROJECT_DIR$/src/main/java/com/shilko/ru/witcher/entity/Component.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/shilko/ru/witcher/entity/Thing.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/shilko/ru/witcher/entity/Users.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/shilko/ru/witcher/repository/UsersCrudRepository.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/shilko/ru/witcher/serviceimpl/SecurityServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/shilko/ru/witcher/serviceimpl/UserDetailsServiceImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/shilko/ru/witcher/controller/UserController.java" />
-        <option value="$PROJECT_DIR$/src/test/java/DatabaseTest.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/registration.jsp" />
         <option value="$PROJECT_DIR$/src/main/java/com/shilko/ru/witcher/validator/UserValidator.java" />
         <option value="$PROJECT_DIR$/src/main/resources/validation.properties" />
+        <option value="$PROJECT_DIR$/src/main/java/com/shilko/ru/witcher/controller/UserController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/shilko/ru/witcher/config/HibernateUtil.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/shilko/ru/witcher/serviceimpl/UserServiceImpl.java" />
+        <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/shilko/ru/witcher/entity/CategoryComponent.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/shilko/ru/witcher/entity/Component.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/shilko/ru/witcher/entity/CraftOrAlchemy.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/shilko/ru/witcher/entity/DescriptionComponent.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/shilko/ru/witcher/entity/DescriptionThing.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/shilko/ru/witcher/entity/Draft.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/shilko/ru/witcher/entity/EffectThing.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/shilko/ru/witcher/entity/Thing.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/shilko/ru/witcher/entity/TypeThing.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/shilko/ru/witcher/entity/Users.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/shilko/ru/witcher/entity/UserStatus.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/shilko/ru/witcher/repository/UserStatusCrudRepository.java" />
+        <option value="$PROJECT_DIR$/src/test/java/DatabaseTest.java" />
+        <option value="$PROJECT_DIR$/db.temp" />
       </list>
     </option>
   </component>
@@ -499,6 +534,15 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="witcher" type="462c0819:PsiDirectoryNode" />
+              <item name="config" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="witcherCraft" type="b2602c69:ProjectViewProjectNode" />
+              <item name="witcherCraft" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="witcher" type="462c0819:PsiDirectoryNode" />
               <item name="controller" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -560,6 +604,13 @@
               <item name="witcherCraft" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="witcherCraft" type="b2602c69:ProjectViewProjectNode" />
+              <item name="witcherCraft" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="webapp" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -585,6 +636,13 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="test" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="witcherCraft" type="b2602c69:ProjectViewProjectNode" />
+              <item name="witcherCraft" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -597,7 +655,7 @@
     <property name="SearchEverywhereHistoryKey" value="maven&#9;ACTION&#9;ActivateMavenProjectsToolWindow" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1541265585219" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1541277596296" />
     <property name="database.console.LAST_STATE" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
@@ -913,7 +971,14 @@
       <option name="project" value="LOCAL" />
       <updated>1541255427537</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Version 0.0.6.2.2 UserService in process... LazyInitEx.">
+      <created>1541265670513</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1541265670513</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -949,13 +1014,13 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="145059000" />
+    <option name="totallyTimeSpent" value="156522000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="25" width="1920" height="1055" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.17289221" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.17289221" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -966,8 +1031,8 @@
       <window_info anchor="bottom" id="Application Servers" weight="0.32972974" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3288889" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49946696" weight="0.3718919" />
-      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.35243243" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49946696" visible="true" weight="0.3718919" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.35243243" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -1046,9 +1111,32 @@
     <MESSAGE value="Version 0.0.6.1 Added table CraftOrAlchemy." />
     <MESSAGE value="Version 0.0.6.2 UserService in process..." />
     <MESSAGE value="Version 0.0.6.2.1 UserService in process... Trying to deploy on tomcat." />
-    <option name="LAST_COMMIT_MESSAGE" value="Version 0.0.6.2.1 UserService in process... Trying to deploy on tomcat." />
+    <MESSAGE value="Version 0.0.6.2.2 UserService in process... LazyInitEx." />
+    <option name="LAST_COMMIT_MESSAGE" value="Version 0.0.6.2.2 UserService in process... LazyInitEx." />
   </component>
   <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/shilko/ru/witcher/validator/UserValidator.java</url>
+          <line>27</line>
+          <properties />
+          <option name="timeStamp" value="7" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/shilko/ru/witcher/serviceimpl/UserServiceImpl.java</url>
+          <line>28</line>
+          <properties />
+          <option name="timeStamp" value="8" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/shilko/ru/witcher/controller/UserController.java</url>
+          <line>51</line>
+          <properties />
+          <option name="timeStamp" value="9" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
     <watches-manager>
       <configuration name="JUnit">
         <watch expression="descriptionComponent1" />
@@ -1056,164 +1144,6 @@
     </watches-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/shilko/ru/witcher/service/SearchService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="30" selection-start-line="2" selection-start-column="30" selection-end-line="2" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/shilko/ru/witcher/service/ThingService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="31" selection-start-line="2" selection-start-column="31" selection-end-line="2" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/shilko/ru/witcher/service/AdminService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" selection-start-line="5" selection-end-line="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/5cd430aa-91f2-4381-b3fa-48c6377d6e99/console.sql">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/shilko/ru/witcher/entity/TypeThing.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="341">
-          <caret line="36" column="4" lean-forward="true" selection-start-line="36" selection-start-column="4" selection-end-line="37" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/shilko/ru/witcher/repository/DescriptionComponentCrudRepository.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="12" column="30" selection-start-line="12" selection-start-column="30" selection-end-line="12" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/shilko/ru/witcher/entity/CategoryComponent.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="251">
-          <caret line="44" column="69" selection-start-line="44" selection-start-column="55" selection-end-line="44" selection-end-column="69" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/shilko/ru/witcher/entity/Draft.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="115">
-          <caret line="29" column="119" selection-start-line="29" selection-start-column="119" selection-end-line="29" selection-end-column="119" />
-          <folding>
-            <element signature="e#1557#1558#0" expanded="true" />
-            <element signature="e#1589#1590#0" expanded="true" />
-            <element signature="e#1636#1637#0" expanded="true" />
-            <element signature="e#1671#1672#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/shilko/ru/witcher/repository/ComponentCrudRepository.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="46">
-          <caret line="28" column="38" selection-start-line="28" selection-start-column="20" selection-end-line="28" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/shilko/ru/witcher/repository/ThingCrudRepository.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="28" column="34" selection-start-line="28" selection-start-column="34" selection-end-line="28" selection-end-column="34" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/shilko/ru/witcher/repository/CraftOrAlchemyCrudRepository.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="58" selection-start-line="5" selection-start-column="58" selection-end-line="5" selection-end-column="58" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/shilko/ru/witcher/repository/DraftCrudRepository.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="28" column="34" selection-start-line="28" selection-start-column="34" selection-end-line="28" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-test/2.5/spring-test-2.5.jar!/org/springframework/test/context/junit4/SpringMethodRoadie.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="172" selection-start-line="172" selection-end-line="172" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/shilko/ru/witcher/entity/CraftOrAlchemy.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-239">
-          <caret line="25" column="4" selection-start-line="25" selection-start-column="4" selection-end-line="25" selection-end-column="4" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#234#235#0" expanded="true" />
-            <element signature="e#272#273#0" expanded="true" />
-            <element signature="e#689#690#0" expanded="true" />
-            <element signature="e#714#715#0" expanded="true" />
-            <element signature="e#748#749#0" expanded="true" />
-            <element signature="e#776#777#0" expanded="true" />
-            <element signature="e#814#815#0" expanded="true" />
-            <element signature="e#843#844#0" expanded="true" />
-            <element signature="e#892#893#0" expanded="true" />
-            <element signature="e#928#929#0" expanded="true" />
-            <element signature="e#966#967#0" expanded="true" />
-            <element signature="e#995#996#0" expanded="true" />
-            <element signature="e#1044#1045#0" expanded="true" />
-            <element signature="e#1080#1081#0" expanded="true" />
-            <element signature="e#1126#1127#0" expanded="true" />
-            <element signature="e#1159#1160#0" expanded="true" />
-            <element signature="e#1220#1221#0" expanded="true" />
-            <element signature="e#1264#1265#0" expanded="true" />
-            <element signature="e#1438#1439#0" expanded="true" />
-            <element signature="e#1468#1469#0" expanded="true" />
-            <element signature="e#1511#1512#0" expanded="true" />
-            <element signature="e#1542#1543#0" expanded="true" />
-            <element signature="e#2065#2066#0" expanded="true" />
-            <element signature="e#2141#2142#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/security/spring-security-core/5.1.1.RELEASE/spring-security-core-5.1.1.RELEASE.jar!/org/springframework/security/core/userdetails/UserDetailsService.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="7" column="17" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-context/5.1.0.RELEASE/spring-context-5.1.0.RELEASE.jar!/org/springframework/validation/Validator.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="7" column="17" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar:///usr/lib/jvm/java-1.8.0-openjdk-amd64/jre/lib/rt.jar!/java/util/Optional.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="183">
-          <caret line="75" column="13" selection-start-line="75" selection-start-column="13" selection-end-line="75" selection-end-column="13" />
-          <folding>
-            <element signature="e#1948#1949#0" expanded="true" />
-            <element signature="e#2009#2010#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/ApplicationConfig.xml">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -1425,9 +1355,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/login.jsp">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/welcome.jsp">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -1455,72 +1382,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/ApplicationConfigDatabase.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="13" column="69" selection-start-line="13" selection-start-column="69" selection-end-line="13" selection-end-column="69" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="150">
           <caret line="10" column="55" selection-start-line="10" selection-start-column="55" selection-end-line="10" selection-end-column="55" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="346">
-          <caret line="99" column="21" selection-start-line="99" selection-start-column="21" selection-end-line="99" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/shilko/ru/witcher/entity/Component.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="173">
-          <caret line="57" column="29" selection-start-line="57" selection-start-column="29" selection-end-line="57" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/shilko/ru/witcher/entity/Thing.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="173">
-          <caret line="56" column="29" selection-start-line="56" selection-start-column="29" selection-end-line="56" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/shilko/ru/witcher/entity/UserStatus.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-570">
-          <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/shilko/ru/witcher/repository/UserStatusCrudRepository.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="281">
-          <caret line="23" lean-forward="true" selection-start-line="23" selection-end-line="23" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/shilko/ru/witcher/repository/UsersCrudRepository.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="33" column="7" lean-forward="true" selection-start-line="33" selection-start-column="7" selection-end-line="33" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/shilko/ru/witcher/service/UserService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="26" selection-start-line="4" selection-start-column="26" selection-end-line="4" selection-end-column="26" />
         </state>
       </provider>
     </entry>
@@ -1551,27 +1416,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/DatabaseTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="308">
-          <caret line="338" column="56" selection-start-line="338" selection-start-column="56" selection-end-line="338" selection-end-column="56" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/ApplicationConfigMVC.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="225">
           <caret line="15" column="19" selection-start-line="15" selection-start-column="19" selection-end-line="15" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/ApplicationConfigSecurity.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="196">
-          <caret line="17" column="52" selection-start-line="17" selection-start-column="52" selection-end-line="17" selection-end-column="52" />
         </state>
       </provider>
     </entry>
@@ -1582,48 +1430,66 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/login.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="19" lean-forward="true" selection-start-line="19" selection-end-line="19" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/validation.properties">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="26" lean-forward="true" selection-start-line="7" selection-start-column="26" selection-end-line="7" selection-end-column="26" />
+        <state relative-caret-position="45">
+          <caret line="3" column="109" selection-start-line="3" selection-start-column="109" selection-end-line="3" selection-end-column="109" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/shilko/ru/witcher/validator/UserValidator.java">
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-aop/5.1.0.RELEASE/spring-aop-5.1.0.RELEASE.jar!/org/springframework/aop/framework/JdkDynamicAopProxy.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="736">
-          <caret line="66" selection-start-line="66" selection-end-line="66" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="291">
+          <caret line="120" column="50" lean-forward="true" selection-start-line="120" selection-start-column="50" selection-end-line="120" selection-end-column="50" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/shilko/ru/witcher/controller/UserController.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/shilko/ru/witcher/service/UserService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="35" selection-start-line="35" selection-end-line="35" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="60">
+          <caret line="4" column="17" selection-start-line="4" selection-start-column="17" selection-end-line="4" selection-end-column="17" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/shilko/ru/witcher/entity/Users.java">
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-web/5.1.0.RELEASE/spring-web-5.1.0.RELEASE.jar!/org/springframework/web/method/support/InvocableHandlerMethod.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="181">
-          <caret line="94" selection-start-line="94" selection-end-line="94" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#2044#2045#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="264">
+          <caret line="129" selection-start-line="129" selection-end-line="129" />
         </state>
       </provider>
     </entry>
     <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-webmvc/5.1.0.RELEASE/spring-webmvc-5.1.0.RELEASE.jar!/org/springframework/web/servlet/DispatcherServlet.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="189">
-          <caret line="514" selection-start-line="514" selection-end-line="514" />
+        <state relative-caret-position="186">
+          <caret line="436" selection-start-line="436" selection-end-line="436" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-webmvc/5.1.0.RELEASE/spring-webmvc-5.1.0.RELEASE.jar!/org/springframework/web/servlet/FrameworkServlet.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="339">
+          <caret line="506" selection-start-line="506" selection-end-line="506" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/security/spring-security-web/5.1.1.RELEASE/spring-security-web-5.1.1.RELEASE.jar!/org/springframework/security/web/FilterChainProxy.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="66">
+          <caret line="54" column="16" selection-start-line="54" selection-start-column="16" selection-end-line="54" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/security/spring-security-web/5.1.1.RELEASE/spring-security-web-5.1.1.RELEASE.jar!/org/springframework/security/web/access/intercept/FilterSecurityInterceptor.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="74">
+          <caret line="54" column="16" selection-start-line="54" selection-start-column="16" selection-end-line="54" selection-end-column="16" />
         </state>
       </provider>
     </entry>
@@ -1634,28 +1500,224 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-web/5.1.0.RELEASE/spring-web-5.1.0.RELEASE.jar!/org/springframework/web/method/support/InvocableHandlerMethod.class">
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/security/spring-security-web/5.1.1.RELEASE/spring-security-web-5.1.1.RELEASE.jar!/org/springframework/security/web/access/ExceptionTranslationFilter.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="234">
-          <caret line="129" selection-start-line="129" selection-end-line="129" />
+        <state relative-caret-position="324">
+          <caret line="77" selection-start-line="77" selection-end-line="77" />
         </state>
       </provider>
     </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-aop/5.1.0.RELEASE/spring-aop-5.1.0.RELEASE.jar!/org/springframework/aop/framework/JdkDynamicAopProxy.class">
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-web/5.1.0.RELEASE/spring-web-5.1.0.RELEASE.jar!/org/springframework/web/filter/OncePerRequestFilter.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="246">
-          <caret line="141" selection-start-line="141" selection-end-line="141" />
+        <state relative-caret-position="360">
+          <caret line="34" selection-start-line="34" selection-end-line="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/security/spring-security-web/5.1.1.RELEASE/spring-security-web-5.1.1.RELEASE.jar!/org/springframework/security/web/context/SecurityContextPersistenceFilter.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="171">
+          <caret line="33" column="16" selection-start-line="33" selection-start-column="16" selection-end-line="33" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/security/spring-security-web/5.1.1.RELEASE/spring-security-web-5.1.1.RELEASE.jar!/org/springframework/security/web/header/HeaderWriterFilter.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="35" selection-start-line="35" selection-end-line="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/shilko/ru/witcher/config/HibernateUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" column="26" lean-forward="true" selection-start-line="9" selection-start-column="26" selection-end-line="9" selection-end-column="26" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1051#1052#0" expanded="true" />
+            <element signature="e#1088#1089#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-beans/5.1.0.RELEASE/spring-beans-5.1.0.RELEASE.jar!/org/springframework/beans/factory/support/BeanDefinitionValueResolver.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="189">
+          <caret line="204" selection-start-line="204" selection-end-line="204" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/ApplicationConfigDatabase.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="32" column="39" selection-start-line="32" selection-start-column="39" selection-end-line="32" selection-end-column="39" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/shilko/ru/witcher/serviceimpl/UserServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="25" column="34" lean-forward="true" selection-start-line="25" selection-start-column="34" selection-end-line="25" selection-end-column="34" />
+        <state relative-caret-position="315">
+          <caret line="30" column="39" selection-start-line="30" selection-start-column="39" selection-end-line="30" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="196">
+          <caret line="89" column="21" selection-start-line="89" selection-start-column="21" selection-end-line="89" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/shilko/ru/witcher/entity/Component.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="185">
+          <caret line="40" column="54" selection-start-line="40" selection-start-column="46" selection-end-line="40" selection-end-column="54" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/shilko/ru/witcher/entity/CraftOrAlchemy.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="19" column="54" selection-start-line="19" selection-start-column="54" selection-end-line="19" selection-end-column="54" />
           <folding>
-            <element signature="e#1258#1259#0" expanded="true" />
-            <element signature="e#1332#1333#0" expanded="true" />
+            <element signature="imports" expanded="true" />
+            <element signature="e#1394#1395#0" expanded="true" />
+            <element signature="e#1438#1439#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/shilko/ru/witcher/entity/DescriptionComponent.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="242">
+          <caret line="31" column="54" selection-start-line="31" selection-start-column="54" selection-end-line="31" selection-end-column="54" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/shilko/ru/witcher/entity/DescriptionThing.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="242">
+          <caret line="31" column="54" selection-start-line="31" selection-start-column="54" selection-end-line="31" selection-end-column="54" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/shilko/ru/witcher/entity/Draft.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="117">
+          <caret line="37" column="54" selection-start-line="37" selection-start-column="54" selection-end-line="37" selection-end-column="54" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/shilko/ru/witcher/entity/EffectThing.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="347">
+          <caret line="36" column="54" selection-start-line="36" selection-start-column="54" selection-end-line="36" selection-end-column="54" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/shilko/ru/witcher/entity/Thing.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="25">
+          <caret line="42" column="54" selection-start-line="42" selection-start-column="54" selection-end-line="42" selection-end-column="54" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/shilko/ru/witcher/entity/TypeThing.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="178">
+          <caret line="33" column="54" selection-start-line="33" selection-start-column="54" selection-end-line="33" selection-end-column="54" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/shilko/ru/witcher/entity/CategoryComponent.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="35">
+          <caret line="14" column="5" lean-forward="true" selection-start-line="14" selection-start-column="5" selection-end-line="14" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/shilko/ru/witcher/entity/UserStatus.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="750">
+          <caret line="78" column="24" lean-forward="true" selection-start-line="78" selection-start-column="24" selection-end-line="78" selection-end-column="24" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#2029#2030#0" expanded="true" />
+            <element signature="e#2087#2088#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/shilko/ru/witcher/entity/Users.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="44" column="54" selection-start-line="44" selection-start-column="54" selection-end-line="44" selection-end-column="54" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#2013#2014#0" expanded="true" />
+            <element signature="e#2044#2045#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/shilko/ru/witcher/repository/UsersCrudRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="151">
+          <caret line="33" column="7" lean-forward="true" selection-start-line="33" selection-start-column="7" selection-end-line="33" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/shilko/ru/witcher/repository/UserStatusCrudRepository.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="375">
+          <caret line="25" column="31" selection-start-line="25" selection-start-column="31" selection-end-line="25" selection-end-column="31" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/DatabaseTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="392" column="36" lean-forward="true" selection-start-line="392" selection-start-column="36" selection-end-line="392" selection-end-column="36" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/db.temp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" lean-forward="true" selection-start-line="2" selection-end-line="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/shilko/ru/witcher/validator/UserValidator.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-134">
+          <caret line="24" column="16" selection-start-line="24" selection-start-column="16" selection-end-line="24" selection-end-column="16" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/shilko/ru/witcher/controller/UserController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="19">
+          <caret line="36" column="26" selection-start-line="36" selection-start-column="26" selection-end-line="36" selection-end-column="26" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/ApplicationConfigSecurity.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="22" column="53" lean-forward="true" selection-start-line="22" selection-start-column="53" selection-end-line="22" selection-end-column="53" />
         </state>
       </provider>
     </entry>

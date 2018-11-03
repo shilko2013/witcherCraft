@@ -4,6 +4,8 @@ import com.shilko.ru.witcher.entity.Users;
 import com.shilko.ru.witcher.repository.UserStatusCrudRepository;
 import com.shilko.ru.witcher.repository.UsersCrudRepository;
 import com.shilko.ru.witcher.service.UserService;
+import org.hibernate.Session;
+import org.hibernate.Transaction;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
