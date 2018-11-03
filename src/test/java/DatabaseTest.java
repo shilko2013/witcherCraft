@@ -53,6 +53,9 @@ public class DatabaseTest {
     @Autowired
     private TypeThingCrudRepository typeThingCrudRepository;
 
+    @Autowired
+    private CraftOrAlchemyCrudRepository craftOrAlchemyCrudRepository;
+
     private static final Logger LOG;
     private static FileHandler fileHandler;
 
@@ -69,6 +72,7 @@ public class DatabaseTest {
     private List<TypeThing> typeThing = new ArrayList<>();
     private List<Thing> thing = new ArrayList<>();
     private List<Draft> draft = new ArrayList<>();
+    private List<CraftOrAlchemy> craftOrAlchemies = new ArrayList<>();
 
     static {
         LOG = Logger.getLogger("databaseTest");
@@ -127,12 +131,20 @@ public class DatabaseTest {
         LOG.info("Init category component ends.");
     }
 
+    private void initCraftOrAlchemy() {
+        LOG.info("initCraftOrAlchemy starting...");
+        craftOrAlchemies.add(new CraftOrAlchemy(true));
+        craftOrAlchemies.add(new CraftOrAlchemy(false));
+        craftOrAlchemies.forEach(craftOrAlchemyCrudRepository::save);
+        LOG.info("initCraftOrAlchemy ends.");
+    }
+
     private void initComponent() {
         LOG.info("Init description component's starting...");
-        component.add(new Component("wood", 1, 1.2, descriptionComponent.get(0), categoryComponent.get(0)));
-        component.add(new Component("plastic", 5, 0.1, descriptionComponent.get(1), categoryComponent.get(1)));
-        component.add(new Component("pen", 500, 1.4, descriptionComponent.get(2), categoryComponent.get(0)));
-        component.add(new Component("steak", 10, 0.0, descriptionComponent.get(3), categoryComponent.get(1)));
+        component.add(new Component("wood", 1, 1.2, descriptionComponent.get(0), categoryComponent.get(0),craftOrAlchemies.get(0)));
+        component.add(new Component("plastic", 5, 0.1, descriptionComponent.get(1), categoryComponent.get(1),craftOrAlchemies.get(1)));
+        component.add(new Component("pen", 500, 1.4, descriptionComponent.get(2), categoryComponent.get(0),craftOrAlchemies.get(0)));
+        component.add(new Component("steak", 10, 0.0, descriptionComponent.get(3), categoryComponent.get(1),craftOrAlchemies.get(1)));
         component.forEach(componentCrudRepository::save);
         LOG.info("Init component ends.");
     }
@@ -157,10 +169,10 @@ public class DatabaseTest {
 
     private void initThing() {
         LOG.info("Init thing's starting...");
-        thing.add(new Thing("sword", 800, 5, typeThing.get(0), descriptionThing.get(0)));
-        thing.add(new Thing("armor", 1, 0.1, typeThing.get(1), descriptionThing.get(1)));
-        thing.add(new Thing("cap", 10, 3, typeThing.get(0), descriptionThing.get(2)));
-        thing.add(new Thing("ticket", 830, 4, typeThing.get(1), descriptionThing.get(3)));
+        thing.add(new Thing("sword", 800, 5, typeThing.get(0), descriptionThing.get(0),craftOrAlchemies.get(0)));
+        thing.add(new Thing("armor", 1, 0.1, typeThing.get(1), descriptionThing.get(1),craftOrAlchemies.get(1)));
+        thing.add(new Thing("cap", 10, 3, typeThing.get(0), descriptionThing.get(2),craftOrAlchemies.get(1)));
+        thing.add(new Thing("ticket", 830, 4, typeThing.get(1), descriptionThing.get(3),craftOrAlchemies.get(0)));
         thing.forEach(thingCrudRepository::save);
         LOG.info("Init thing ends.");
     }
@@ -178,10 +190,10 @@ public class DatabaseTest {
 
     private void initDraft() {
         LOG.info("Init draft's starting...");
-        draft.add(new Draft(thing.get(0), null, component));
-        draft.add(new Draft(thing.get(1), "info", Arrays.asList(component.get(0), component.get(1), component.get(3))));
-        draft.add(new Draft(thing.get(2), "inf1", Arrays.asList(component.get(1), component.get(2), component.get(3))));
-        draft.add(new Draft(thing.get(0), "inf2", Arrays.asList(component.get(3))));
+        draft.add(new Draft(thing.get(0), null, component, craftOrAlchemies.get(1)));
+        draft.add(new Draft(thing.get(1), "info", Arrays.asList(component.get(0), component.get(1), component.get(3)),craftOrAlchemies.get(0)));
+        draft.add(new Draft(thing.get(2), "inf1", Arrays.asList(component.get(1), component.get(2), component.get(3)),craftOrAlchemies.get(1)));
+        draft.add(new Draft(thing.get(0), "inf2", Arrays.asList(component.get(3)),craftOrAlchemies.get(0)));
         draft.forEach(draftCrudRepository::save);
         LOG.info("Init draft ends.");
     }
@@ -368,6 +380,7 @@ public class DatabaseTest {
 
         initUserStatus();
         initUsers();
+        initCraftOrAlchemy();
         initDescriptionComponent();
         initCategoryComponent();
         initComponent();

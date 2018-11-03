@@ -28,17 +28,22 @@ public class Component {
      * @param descriptionComponent the description component
      * @param categoryComponent    the category component
      */
-    public Component(@NotNull String name, @NotNull @PositiveOrZero int price, @NotNull @PositiveOrZero double weight, @NotNull DescriptionComponent descriptionComponent, @NotNull CategoryComponent categoryComponent) {
+    public Component(@NotNull String name, @NotNull @PositiveOrZero int price, @NotNull @PositiveOrZero double weight, @NotNull DescriptionComponent descriptionComponent, @NotNull CategoryComponent categoryComponent, @NotNull CraftOrAlchemy isAlchemy) {
         this.name = name;
         this.categoryComponent = categoryComponent;
         this.price = price;
         this.weight = weight;
         this.descriptionComponent = descriptionComponent;
+        this.isAlchemy = isAlchemy;
     }
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
+
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "craftormagic_id", nullable = false)
+    private CraftOrAlchemy isAlchemy;
 
     @Column(nullable = false, unique = true)
     private String name;
@@ -187,6 +192,18 @@ public class Component {
      */
     public void setDrafts(List<Draft> drafts) {
         this.drafts = drafts;
+    }
+
+    public CraftOrAlchemy isAlchemy() {
+        return isAlchemy;
+    }
+
+    public void setAlchemy(CraftOrAlchemy alchemy) {
+        isAlchemy = alchemy;
+    }
+
+    public void setCategoryComponent(CategoryComponent categoryComponent) {
+        this.categoryComponent = categoryComponent;
     }
 
     @Override

@@ -30,12 +30,13 @@ public class Thing implements Serializable {
      * @param typeThing        the type thing
      * @param descriptionThing the description thing
      */
-    public Thing(@NotNull String name, @NotNull @PositiveOrZero int price, @NotNull @PositiveOrZero double weight, @NotNull TypeThing typeThing, @NotNull DescriptionThing descriptionThing) {
+    public Thing(@NotNull String name, @NotNull @PositiveOrZero int price, @NotNull @PositiveOrZero double weight, @NotNull TypeThing typeThing, @NotNull DescriptionThing descriptionThing, @NotNull CraftOrAlchemy isAlchemy) {
         this.name = name;
         this.price = price;
         this.weight = weight;
         this.descriptionThing = descriptionThing;
         this.typeThing = typeThing;
+        this.isAlchemy = isAlchemy;
     }
 
     @Id
@@ -69,6 +70,18 @@ public class Thing implements Serializable {
     @Column(nullable = false)
     @OneToMany(mappedBy = "thing", fetch = FetchType.LAZY)
     private List<Draft> drafts;
+
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "craftormagic_id", nullable = false)
+    private CraftOrAlchemy isAlchemy;
+
+    public CraftOrAlchemy isAlchemy() {
+        return isAlchemy;
+    }
+
+    public void setAlchemy(CraftOrAlchemy alchemy) {
+        isAlchemy = alchemy;
+    }
 
     /**
      * Gets id.

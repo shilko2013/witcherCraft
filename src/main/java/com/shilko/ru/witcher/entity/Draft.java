@@ -27,10 +27,11 @@ public class Draft implements Serializable {
      * @param information the information
      * @param components  the components
      */
-    public Draft(@NotNull Thing thing, String information, @NotNull List<Component> components) {
+    public Draft(@NotNull Thing thing, String information, @NotNull List<Component> components, @NotNull CraftOrAlchemy isAlchemy) {
         this.thing = thing;
         this.information = information;
         this.components = components;
+        this.isAlchemy = isAlchemy;
     }
 
     @Id
@@ -52,6 +53,19 @@ public class Draft implements Serializable {
             inverseJoinColumns = { @JoinColumn(name = "component_id")}
     )
     private List<Component> components;
+
+
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "craftormagic_id", nullable = false)
+    private CraftOrAlchemy isAlchemy;
+
+    public CraftOrAlchemy isAlchemy() {
+        return isAlchemy;
+    }
+
+    public void setAlchemy(CraftOrAlchemy alchemy) {
+        isAlchemy = alchemy;
+    }
 
     /**
      * Gets id.
