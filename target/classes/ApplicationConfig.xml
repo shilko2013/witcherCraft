@@ -7,13 +7,13 @@
      http://www.springframework.org/schema/data/jpa
      http://www.springframework.org/schema/data/jpa/spring-jpa.xsd">
 
-    <jpa:repositories base-package="com.shilko.ru.wither.repository"/>
+    <jpa:repositories base-package="com.shilko.ru.witcher.repository"/>
 
     <bean id="psqlDataSource"
           class="org.springframework.jdbc.datasource.DriverManagerDataSource">
         <property name="driverClassName" value="org.postgresql.Driver" />
-        <property name="url" value="jdbc:postgresql://localhost:2222/postgres" />
-        <property name="username" value="postgres" />
+        <property name="url" value="jdbc:postgresql://localhost:5432/postgres" />
+        <property name="username" value="shilko2013" />
         <property name="password" value="iaq150" />
         <property name="connectionProperties">
             <props>
@@ -25,7 +25,7 @@
     <bean id="entityManagerFactory"
           class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
         <property name="dataSource" ref="psqlDataSource" />
-        <property name="packagesToScan" value="com.shilko.ru.wither.entity" />
+        <property name="packagesToScan" value="com.shilko.ru.witcher.entity" />
         <property name="jpaVendorAdapter">
             <bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter" />
         </property>
@@ -50,7 +50,7 @@
         <beans xmlns="http://www.springframework.org/schema/beans"
                xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
                xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
-            <bean name="car" class="com.shilko.ru.wither.main.Car">
+            <bean name="car" class="com.shilko.ru.witcherr.main.Car">
                 <constructor-arg value="1"></constructor-arg>
             </bean>
         </beans>-->

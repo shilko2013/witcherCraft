@@ -4,9 +4,9 @@ import com.shilko.ru.witcher.entity.Users;
 
 public interface UserService {
 
-    void addUser(Users users);
+    void save(Users user);
 
-    Users findByLogin(String login);
+    Users findByUsername(String username);
 
     Users findByEmail(String email);
 }
