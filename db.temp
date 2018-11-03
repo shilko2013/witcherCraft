@@ -1,9 +1,9 @@
-delete schema public;
+drop schema public cascade;
 create schema public;
 
 insert into userstatus (status) values('admin');
 insert into userstatus (status) values('editor');
 insert into userstatus (status) values('reader');
-insert into users (email, password, username, userstatus_id) values('a@a.ru','iaq15000','adminnnn',0);
-insert into users (email, password, username, userstatus_id) values('b@b.ru','iaq15000','editorrr',1);
-insert into users (email, password, username, userstatus_id) values('c@c.ru','iaq15000','readerrr',2);
+insert into users (email, password, username, userstatus_id) values('a@a.ru','$2a$11$Hv.ZBhWKW670ztvYjnYtC.JZ8yhJgboAv3G03l53zw4SnD3DF8xmC','adminnnn',0);
+insert into users (email, password, username, userstatus_id) values('b@b.ru','$2a$11$Hv.ZBhWKW670ztvYjnYtC.JZ8yhJgboAv3G03l53zw4SnD3DF8xmC','editorrr',1);
+insert into users (email, password, username, userstatus_id) values('c@c.ru','$2a$11$Hv.ZBhWKW670ztvYjnYtC.JZ8yhJgboAv3G03l53zw4SnD3DF8xmC','readerrr',2);

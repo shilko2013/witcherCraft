@@ -8,8 +8,8 @@
 		http://www.springframework.org/schema/security/spring-security.xsd">
 
     <http auto-config="true">
-        <intercept-url pattern="/" access="hasAnyRole('reader', 'admin', 'editor')"/>
-        <intercept-url pattern="/welcome" access="hasAnyRole('reader', 'admin', 'editor')"/>
+        <intercept-url pattern="/" access="hasRole('reader') or hasRole('admin') or hasRole('editor')"/>
+        <intercept-url pattern="/welcome" access="hasRole('reader') or hasRole('admin') or hasRole('editor')"/>
         <intercept-url pattern="/admin" access="hasRole('admin')"/>
 
         <form-login login-page="/login" default-target-url="/welcome" authentication-failure-url="/login?error"
