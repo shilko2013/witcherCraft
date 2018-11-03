@@ -11,7 +11,7 @@ public class ApplicationConfigController {
     private static ApplicationContext applicationContext;
 
     static {
-        applicationContext = new ClassPathXmlApplicationContext("ApplicationConfig.xml");
+        applicationContext = new ClassPathXmlApplicationContext("src/main/WEB-INF/ApplicationConfig.xml");
     }
 
     /**
