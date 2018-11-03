@@ -41,7 +41,7 @@ public class UserController {
 
         userService.save(user);
 
-        securityService.autoLogin(user.getLogin(), user.getPassword());
+        securityService.autoLogin(user.getUsername(), user.getPassword());
 
         return "welcome";
     }

@@ -1,6 +1,5 @@
 package com.shilko.ru.witcher.serviceimpl;
 
-import com.shilko.ru.witcher.entity.UserStatus;
 import com.shilko.ru.witcher.entity.Users;
 import com.shilko.ru.witcher.repository.UserStatusCrudRepository;
 import com.shilko.ru.witcher.repository.UsersCrudRepository;
@@ -8,8 +7,7 @@ import com.shilko.ru.witcher.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
-
-import java.util.Optional;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
 public class UserServiceImpl implements UserService {
@@ -24,6 +22,7 @@ public class UserServiceImpl implements UserService {
     private BCryptPasswordEncoder bCryptPasswordEncoder;
 
     @Override
+    @Transactional
     public void save(Users user) {
         user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
         user.setUserStatus(userStatusCrudRepository.findByStatus("reader"));
@@ -32,7 +31,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public Users findByUsername(String username) {
-        return usersCrudRepository.findByLogin(username).orElse(null);
+        return usersCrudRepository.findByUsername(username).orElse(null);
     }
 
     @Override

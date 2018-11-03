@@ -21,15 +21,15 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 
     @Override
     @Transactional(readOnly = true)
-    public UserDetails loadUserByUsername(String login) throws UsernameNotFoundException {
-        Optional<Users> user = usersCrudRepository.findByLogin(login);
+    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+        Optional<Users> user = usersCrudRepository.findByUsername(username);
 
         if (!user.isPresent())
             throw new UsernameNotFoundException("User with so login doesn't exist");
 
         Set<GrantedAuthority> grantedAuthorities = new HashSet<>();
 
-        grantedAuthorities.add(new SimpleGrantedAuthority(user.get().getLogin()));
-        return new org.springframework.security.core.userdetails.User(user.get().getLogin(), user.get().getPassword(), grantedAuthorities);
+        grantedAuthorities.add(new SimpleGrantedAuthority(user.get().getUsername()));
+        return new org.springframework.security.core.userdetails.User(user.get().getUsername(), user.get().getPassword(), grantedAuthorities);
     }
 }

@@ -17,5 +17,3 @@ public class WitcherApplication {
     }
 
 }
-//TODO How separate alch & craft?
-//TODO DB for redaction changes?

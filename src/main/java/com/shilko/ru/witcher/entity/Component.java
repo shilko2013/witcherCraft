@@ -53,11 +53,9 @@ public class Component {
     private CategoryComponent categoryComponent;
 
     @Column(nullable = false)
-    @PositiveOrZero
     private int price;
 
     @Column(nullable = false)
-    @PositiveOrZero
     private double weight;
 
     @OneToOne(fetch = FetchType.EAGER)

@@ -34,10 +34,10 @@ public interface UsersCrudRepository extends CrudRepository<Users, Long> {
     /**
      * Find by login optional.
      *
-     * @param login the login
+     * @param username the login
      * @return the optional
      */
-    Optional<Users> findByLogin(String login);
+    Optional<Users> findByUsername(String username);
 
     @Override
     List<Users> findAll();

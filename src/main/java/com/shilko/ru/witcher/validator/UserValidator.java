@@ -23,33 +23,46 @@ public class UserValidator implements Validator {
     public void validate(Object o, Errors errors) {
         Users user = (Users) o;
 
-        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "login", "Required");
-        if (user.getLogin().length() < 8 || user.getLogin().length() > 32) {
-            errors.rejectValue("login", "Size.userForm.login");
+        if (user.getUsername() == null)
+            errors.rejectValue("username", "Invalid.userForm.username");
+        else {
+            ValidationUtils.rejectIfEmptyOrWhitespace(errors, "username", "Required");
+            if (user.getUsername().length() < 8 || user.getUsername().length() > 32) {
+                errors.rejectValue("username", "Size.userForm.username");
+            }
+
+            if (userService.findByUsername(user.getUsername()) != null) {
+                errors.rejectValue("username", "Duplicate.userForm.username");
+            }
+
+            if (!checkValidChars(user.getUsername()))
+                errors.rejectValue("username", "Invalid.userForm.username");
         }
 
-        if (userService.findByUsername(user.getLogin()) != null) {
-            errors.rejectValue("login", "Duplicate.userForm.login");
-        }
-
-        if (!checkValidChars(user.getLogin()))
-            errors.rejectValue("login", "Invalid.userForm.login");
-
-        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "password", "Required");
-        if (user.getPassword().length() < 8 || user.getPassword().length() > 32) {
-            errors.rejectValue("password", "Size.userForm.password");
-        }
-
-        if (!checkValidChars(user.getPassword()))
+        if (user.getPassword() == null) {
             errors.rejectValue("password", "Invalid.userForm.password");
+        } else {
+            ValidationUtils.rejectIfEmptyOrWhitespace(errors, "password", "Required");
+            if (user.getPassword().length() < 8 || user.getPassword().length() > 32) {
+                errors.rejectValue("password", "Size.userForm.password");
+            }
 
-        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "email", "Required");
-        if (!user.getEmail().matches("^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,6}$")) {
+            if (!checkValidChars(user.getPassword()))
+                errors.rejectValue("password", "Invalid.userForm.password");
+        }
+
+        if (user.getEmail() == null) {
             errors.rejectValue("email", "Invalid.userForm.email");
         }
+        else {
+            ValidationUtils.rejectIfEmptyOrWhitespace(errors, "email", "Required");
+            if (!user.getEmail().matches("^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,6}$")) {
+                errors.rejectValue("email", "Invalid.userForm.email");
+            }
 
-        if (userService.findByEmail(user.getEmail()) != null) {
-            errors.rejectValue("email", "Duplicate.userForm.email");
+            if (userService.findByEmail(user.getEmail()) != null) {
+                errors.rejectValue("email", "Duplicate.userForm.email");
+            }
         }
 
     }

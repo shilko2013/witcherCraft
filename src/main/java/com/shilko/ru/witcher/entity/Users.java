@@ -21,13 +21,13 @@ public class Users implements Serializable {
     /**
      * Instantiates a new Users.
      *
-     * @param login      the login
+     * @param username      the login
      * @param password   the password
      * @param email      the email
      * @param userStatus the user status
      */
-    public Users(@NotNull String login, @NotNull @Size(min = minPasswordSize) String password, @NotNull @Email String email, @NotNull UserStatus userStatus) {
-        this.login = login;
+    public Users(@NotNull String username, @NotNull @Size(min = minPasswordSize) String password, @NotNull @Email String email, @NotNull UserStatus userStatus) {
+        this.username = username;
         this.password = password;
         this.email = email;
         this.userStatus = userStatus;
@@ -46,14 +46,13 @@ public class Users implements Serializable {
     private long id;
 
     @Column(unique=true, nullable = false)
-    private String login;
+    private String username;
 
     @Column(nullable = false)
     @Size(min = minPasswordSize)
     private String password;
 
     @Column(unique=true, nullable = false)
-    @Email
     private String email;
 
     @ManyToOne(fetch = FetchType.EAGER)
@@ -83,8 +82,8 @@ public class Users implements Serializable {
      *
      * @return the login
      */
-    public String getLogin() {
-        return login;
+    public String getUsername() {
+        return username;
     }
 
     /**
@@ -118,8 +117,8 @@ public class Users implements Serializable {
         this.id = id;
     }
 
-    public void setLogin(String login) {
-        this.login = login;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public void setPassword(String password) {

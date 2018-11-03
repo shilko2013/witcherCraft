@@ -334,9 +334,9 @@ public class DatabaseTest {
 
     private void usersFindByLogin() {
         LOG.info("usersFindByLogin method's starting...");
-        assertEquals(usersCrudRepository.findByLogin("admin").get(),users.get(0));
-        assertEquals(usersCrudRepository.findByLogin("editor").get(),users.get(1));
-        assertEquals(usersCrudRepository.findByLogin("reader").get(),users.get(2));
+        assertEquals(usersCrudRepository.findByUsername("admin").get(),users.get(0));
+        assertEquals(usersCrudRepository.findByUsername("editor").get(),users.get(1));
+        assertEquals(usersCrudRepository.findByUsername("reader").get(),users.get(2));
         LOG.info("usersFindByLogin method ends.");
     }
 
