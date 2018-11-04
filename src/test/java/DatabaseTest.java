@@ -27,9 +27,6 @@ public class DatabaseTest {
     private UsersCrudRepository usersCrudRepository;
 
     @Autowired
-    private UserStatusCrudRepository userStatusCrudRepository;
-
-    @Autowired
     private CategoryComponentCrudRepository categoryComponentCrudRepository;
 
     @Autowired
@@ -58,11 +55,6 @@ public class DatabaseTest {
 
     private static final Logger LOG;
     private static FileHandler fileHandler;
-
-    private UserStatus admin;
-    private UserStatus editor;
-    private UserStatus reader;
-
     private List<Users> users = new ArrayList<>();
     private List<DescriptionComponent> descriptionComponent = new ArrayList<>();
     private List<CategoryComponent> categoryComponent = new ArrayList<>();
@@ -92,26 +84,14 @@ public class DatabaseTest {
     public static void logStart() {
         LOG.info("Test's starting...");
     }
-
-    private void initUserStatus() {
-        LOG.info("Init user status's starting...");
-        admin = new UserStatus("admin");
-        editor = new UserStatus("editor");
-        reader = new UserStatus("reader");
-        userStatusCrudRepository.save(admin);
-        userStatusCrudRepository.save(editor);
-        userStatusCrudRepository.save(reader);
-        LOG.info("Init user status ends.");
-    }
-
-    private void initUsers() {
+    /*private void initUsers() {
         LOG.info("Init user's starting...");
         users.add(new Users("admin", "123123123", "admin@mail.ru", admin));
         users.add(new Users("editor", "123123123", "editor@mail.ru", editor));
         users.add(new Users("reader", "123123123", "reader@mail.ru", reader));
         users.forEach(usersCrudRepository::save);
         LOG.info("Init user ends.");
-    }
+    }*/
 
     private void initDescriptionComponent() {
         LOG.info("Init description component's starting...");
@@ -340,13 +320,13 @@ public class DatabaseTest {
         LOG.info("usersFindByLogin method ends.");
     }
 
-    private void usersFindAllByUserStatus() {
+    /*private void usersFindAllByUserStatus() {
         LOG.info("usersFindAllByUserStatus method's starting...");
         assertEquals(usersCrudRepository.findAllByUserStatus(admin).size(),1);
         assertEquals(usersCrudRepository.findAllByUserStatus(editor).size(),1);
         assertEquals(usersCrudRepository.findAllByUserStatus(reader).get(0),users.get(2));
         LOG.info("usersFindAllByUserStatus method ends.");
-    }
+    }*/
 
     /*private void usersStatusFindByUsers() {
         LOG.info("usersStatusFindByUsers method's starting...");
@@ -378,8 +358,8 @@ public class DatabaseTest {
     public void test() {
         LOG.info("Test method's starting...");
 
-        initUserStatus();
-        initUsers();
+        /*initUserStatus();
+        initUsers();*/
         initCraftOrAlchemy();
         initDescriptionComponent();
         initCategoryComponent();
@@ -416,7 +396,7 @@ public class DatabaseTest {
 
         usersFindByEmail();
         usersFindByLogin();
-        usersFindAllByUserStatus();
+        //usersFindAllByUserStatus();
 
         //usersStatusFindByUsers();
 

@@ -1,6 +1,6 @@
 package com.shilko.ru.witcher.repository;
 
-import com.shilko.ru.witcher.entity.UserStatus;
+import com.shilko.ru.witcher.entity.UserStatusEnum;
 import com.shilko.ru.witcher.entity.Users;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
@@ -48,5 +48,5 @@ public interface UsersCrudRepository extends CrudRepository<Users, Long> {
      * @param userStatus the user status
      * @return the list
      */
-    List<Users> findAllByUserStatus(UserStatus userStatus);
+    List<Users> findAllByUserStatus(UserStatusEnum userStatus);
 }

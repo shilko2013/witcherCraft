@@ -24,13 +24,11 @@ public class Users implements Serializable {
      * @param username      the login
      * @param password   the password
      * @param email      the email
-     * @param userStatus the user status
      */
-    public Users(@NotNull String username, @NotNull @Size(min = minPasswordSize) String password, @NotNull @Email String email, @NotNull UserStatus userStatus) {
+    public Users(@NotNull String username, @NotNull @Size(min = minPasswordSize) String password, @NotNull @Email String email) {
         this.username = username;
         this.password = password;
         this.email = email;
-        this.userStatus = userStatus;
     }
 
     /**
@@ -55,9 +53,16 @@ public class Users implements Serializable {
     @Column(unique=true, nullable = false)
     private String email;
 
-    @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "userstatus_id", nullable = false)
-    private UserStatus userStatus;
+    @Column(nullable = false)
+    private UserStatusEnum userStatus;
+
+    public UserStatusEnum getUserStatus() {
+        return userStatus;
+    }
+
+    public void setUserStatus(UserStatusEnum userStatus) {
+        this.userStatus = userStatus;
+    }
 
     /**
      * Gets min password size.
@@ -104,15 +109,6 @@ public class Users implements Serializable {
         return email;
     }
 
-    /**
-     * Gets user status.
-     *
-     * @return the user status
-     */
-    public UserStatus getUserStatus() {
-        return userStatus;
-    }
-
     public void setId(long id) {
         this.id = id;
     }
@@ -127,10 +123,6 @@ public class Users implements Serializable {
 
     public void setEmail(String email) {
         this.email = email;
-    }
-
-    public void setUserStatus(UserStatus userStatus) {
-        this.userStatus = userStatus;
     }
 
     @Override
