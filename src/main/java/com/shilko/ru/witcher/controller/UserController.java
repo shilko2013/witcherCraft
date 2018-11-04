@@ -1,6 +1,7 @@
 package com.shilko.ru.witcher.controller;
 
 import com.shilko.ru.witcher.entity.Users;
+import com.shilko.ru.witcher.service.AnalyticsService;
 import com.shilko.ru.witcher.service.BankService;
 import com.shilko.ru.witcher.service.SecurityService;
 import com.shilko.ru.witcher.service.UserService;
@@ -24,6 +25,9 @@ public class UserController {
 
     @Autowired
     private BankService bankService;
+
+    @Autowired
+    private AnalyticsService analyticsService;
 
     @Autowired
     private UserValidator userValidator;
@@ -65,8 +69,9 @@ public class UserController {
 
     @RequestMapping(value = {"/", "/welcome"}, method = RequestMethod.GET)
     public String welcome(Model model) {
-        model.addAttribute("bankService",bankService.getRedirectOnQiwiPayment());
-
+        model.addAttribute("bankService", bankService.getRedirectOnQiwiPayment());
+        model.addAttribute("analyticsRedirect", analyticsService.getRedirectYandexMetrika());
+        model.addAttribute("analyticsScript", analyticsService.getAnalyticsResource());
         return "welcome";
     }
 
