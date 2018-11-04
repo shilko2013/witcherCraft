@@ -8,7 +8,6 @@
   <component name="ChangeListManager">
     <list default="true" id="678ca382-2f1f-4b50-a17d-25d8060134e3" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/ApplicationConfigMVC.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/ApplicationConfigMVC.xml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -161,7 +160,7 @@
           <entry key="jsp" value="25" />
           <entry key="properties" value="108" />
           <entry key="temp" value="78" />
-          <entry key="txt" value="223" />
+          <entry key="txt" value="265" />
           <entry key="xml" value="263" />
         </counts>
       </usages-collector>
@@ -169,7 +168,7 @@
         <counts>
           <entry key="JAVA" value="1922" />
           <entry key="JSP" value="25" />
-          <entry key="PLAIN_TEXT" value="223" />
+          <entry key="PLAIN_TEXT" value="265" />
           <entry key="Properties" value="108" />
           <entry key="SQL" value="78" />
           <entry key="XML" value="263" />
@@ -215,8 +214,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/ApplicationConfigMVC.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
+            <state relative-caret-position="285">
+              <caret line="19" column="32" lean-forward="true" selection-start-line="19" selection-start-column="32" selection-end-line="19" selection-end-column="32" />
             </state>
           </provider>
         </entry>
@@ -618,7 +617,7 @@
     <property name="SearchEverywhereHistoryKey" value="maven&#9;ACTION&#9;ActivateMavenProjectsToolWindow" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1541323798440" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1541323831377" />
     <property name="database.console.LAST_STATE" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/webapp/resources" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
@@ -856,7 +855,7 @@
       <workItem from="1539867579822" duration="702000" />
       <workItem from="1540140152244" duration="1005000" />
       <workItem from="1540287533040" duration="4968000" />
-      <workItem from="1541316512611" duration="3925000" />
+      <workItem from="1541316512611" duration="4191000" />
     </task>
     <task id="LOCAL-00001" summary="Version 0.0.2. Update of db is available.">
       <created>1539193949562</created>
@@ -956,7 +955,14 @@
       <option name="project" value="LOCAL" />
       <updated>1541318645597</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="Version 0.0.6.4. Added resources for login.">
+      <created>1541323818681</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1541323818681</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -992,7 +998,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="163399000" />
+    <option name="totallyTimeSpent" value="163665000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="25" width="1920" height="1055" extended-state="6" />
@@ -1009,7 +1015,7 @@
       <window_info id="Web" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32864866" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49946696" visible="true" weight="0.3718919" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49946696" weight="0.3718919" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.35243243" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -1017,7 +1023,7 @@
       <window_info anchor="bottom" id="Spring" order="7" weight="0.32962963" />
       <window_info anchor="bottom" id="Terminal" order="8" />
       <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.50053304" side_tool="true" weight="0.2688889" />
-      <window_info anchor="bottom" id="Messages" order="10" weight="0.32864866" />
+      <window_info active="true" anchor="bottom" id="Messages" order="10" visible="true" weight="0.32864866" />
       <window_info anchor="bottom" id="Java Enterprise" order="11" />
       <window_info anchor="bottom" id="Database Changes" order="12" />
       <window_info anchor="bottom" id="Version Control" order="13" show_stripe_button="false" />
@@ -1093,7 +1099,8 @@
     <MESSAGE value="Version 0.0.6.2.2 UserService in process... LazyInitEx." />
     <MESSAGE value="Version 0.0.6.2.3 UserService in process... Registration of new users work, old users doesn't work." />
     <MESSAGE value="Version 0.0.6.2.4 Registration works." />
-    <option name="LAST_COMMIT_MESSAGE" value="Version 0.0.6.2.4 Registration works." />
+    <MESSAGE value="Version 0.0.6.4. Added resources for login." />
+    <option name="LAST_COMMIT_MESSAGE" value="Version 0.0.6.4. Added resources for login." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1533,8 +1540,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/ApplicationConfigMVC.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
+        <state relative-caret-position="285">
+          <caret line="19" column="32" lean-forward="true" selection-start-line="19" selection-start-column="32" selection-end-line="19" selection-end-column="32" />
         </state>
       </provider>
     </entry>
