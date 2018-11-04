@@ -1,12 +1,12 @@
 package com.shilko.ru.witcher.controller;
 
 import com.shilko.ru.witcher.entity.Users;
+import com.shilko.ru.witcher.service.BankService;
 import com.shilko.ru.witcher.service.SecurityService;
 import com.shilko.ru.witcher.service.UserService;
 import com.shilko.ru.witcher.validator.UserValidator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -21,6 +21,9 @@ public class UserController {
 
     @Autowired
     private SecurityService securityService;
+
+    @Autowired
+    private BankService bankService;
 
     @Autowired
     private UserValidator userValidator;
@@ -62,6 +65,8 @@ public class UserController {
 
     @RequestMapping(value = {"/", "/welcome"}, method = RequestMethod.GET)
     public String welcome(Model model) {
+        model.addAttribute("bankService",bankService.getRedirectOnQiwiPayment());
+
         return "welcome";
     }
 
