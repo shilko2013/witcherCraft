@@ -37,6 +37,7 @@
 
     <p>Bank service: <a href="${bankService}">This link</a></p>
     <p>Analytics service: <a href="${analyticsRedirect}">This link</a></p>
+    <p>Admin page: <a href="${contextPath}/admin">This link</a></p>
 
 </div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>

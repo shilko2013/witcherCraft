@@ -1,10 +1,7 @@
 package com.shilko.ru.witcher.controller;
 
 import com.shilko.ru.witcher.entity.Users;
-import com.shilko.ru.witcher.service.AnalyticsService;
-import com.shilko.ru.witcher.service.BankService;
-import com.shilko.ru.witcher.service.SecurityService;
-import com.shilko.ru.witcher.service.UserService;
+import com.shilko.ru.witcher.service.*;
 import com.shilko.ru.witcher.validator.UserValidator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -73,10 +70,5 @@ public class UserController {
         model.addAttribute("analyticsRedirect", analyticsService.getRedirectYandexMetrika());
         model.addAttribute("analyticsScript", analyticsService.getAnalyticsResource());
         return "welcome";
-    }
-
-    @RequestMapping(value = "/admin", method = RequestMethod.GET)
-    public String admin(Model model) {
-        return "admin";
     }
 }

@@ -28,6 +28,28 @@
     </c:if>
 </div>
 
+<div>
+    <table border="1">
+        <span>${message}</span>
+        <c:forEach items="${userList}" var="item">
+            <tr>
+                <td>${item.id}</td>
+                <td>${item.username}</td>
+                <td>${item.userStatus}</td>
+                <td>${item.email}</td>
+                <td>
+                    <a href="/admin/${item.username}/reader">set reader</a><br>
+                    <a href="/admin/${item.username}/editor">set editor</a><br>
+                    <a href="/admin/${item.username}/admin">set admin</a>
+                </td>
+                <td>
+                    <a href="/admin/${item.username}/disable">disable</a>
+                </td>
+            </tr>
+        </c:forEach>
+    </table>
+</div>
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 <script src="${contextPath}/resources/js/bootstrap.min.js"></script>
 
