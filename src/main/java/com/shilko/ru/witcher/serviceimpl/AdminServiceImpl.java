@@ -4,7 +4,9 @@ import com.shilko.ru.witcher.entity.UserStatusEnum;
 import com.shilko.ru.witcher.entity.Users;
 import com.shilko.ru.witcher.repository.UsersCrudRepository;
 import com.shilko.ru.witcher.service.AdminService;
+import com.shilko.ru.witcher.service.NotificationMailService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.util.Pair;
 import org.springframework.security.core.session.*;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -17,10 +19,13 @@ import java.util.Optional;
 public class AdminServiceImpl implements AdminService {
 
     @Autowired
-    UsersCrudRepository usersCrudRepository;
+    private UsersCrudRepository usersCrudRepository;
 
     @Autowired
-    SessionRegistry sessionRegistry;
+    private NotificationMailService notificationMailService;
+
+    @Autowired
+    private SessionRegistry sessionRegistry;
 
     @Override
     public List<Users> getAllUsers() {
@@ -28,14 +33,14 @@ public class AdminServiceImpl implements AdminService {
     }
 
     @Override
-    public boolean setRole(String username, String role) {
+    public Pair<Boolean,Boolean> setRole(String username, String role) {
         Optional<Users> user = usersCrudRepository.findByUsername(username);
         if (!user.isPresent())
-            return false;
+            return Pair.of(false,false);
         if (!(role.equals("reader")
                 || role.equals("editor")
                 || role.equals("admin")))
-            return false;
+            return Pair.of(false,false);
         Optional<Users> oldUser = usersCrudRepository.findByUsername(user.get().getUsername());
         switch (role) {
             case "reader":
@@ -48,14 +53,14 @@ public class AdminServiceImpl implements AdminService {
                 user.get().setUserStatus(UserStatusEnum.USER_STATUS_ADMIN);
                 break;
                 default:
-                    return false;
+                    return Pair.of(false,false);
         }
         if (!oldUser.isPresent())
-            return false;
+            return Pair.of(false,false);
         if (oldUser.get().getUserStatus() == user.get().getUserStatus())
-            return true;
+            return Pair.of(false,true);
         usersCrudRepository.save(user.get());
-        return true;
+        return Pair.of(false,notificationMailService.sendMessage("Now your role is "+role,user.get().getEmail()));
     }
 
     @Override

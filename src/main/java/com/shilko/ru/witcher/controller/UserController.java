@@ -4,6 +4,7 @@ import com.shilko.ru.witcher.entity.Users;
 import com.shilko.ru.witcher.service.*;
 import com.shilko.ru.witcher.validator.UserValidator;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.annotation.Secured;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;

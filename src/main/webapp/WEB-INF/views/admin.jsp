@@ -31,6 +31,8 @@
 <div>
     <table border="1">
         <span>${message}</span>
+        <br/>
+        <span>${message2}</span>
         <c:forEach items="${userList}" var="item">
             <tr>
                 <td>${item.id}</td>
