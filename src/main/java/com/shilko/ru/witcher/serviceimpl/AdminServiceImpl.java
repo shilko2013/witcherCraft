@@ -60,7 +60,7 @@ public class AdminServiceImpl implements AdminService {
         if (oldUser.get().getUserStatus() == user.get().getUserStatus())
             return Pair.of(false,true);
         usersCrudRepository.save(user.get());
-        return Pair.of(false,notificationMailService.sendMessage("Now your role is "+role,user.get().getEmail()));
+        return Pair.of(true,notificationMailService.sendMessage("Now your role is "+role,user.get().getEmail()));
     }
 
     @Override

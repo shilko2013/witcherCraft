@@ -3,6 +3,7 @@ package com.shilko.ru.witcher.controller;
 import com.shilko.ru.witcher.service.AdminService;
 import com.shilko.ru.witcher.service.NotificationMailService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.util.Pair;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -35,11 +36,12 @@ public class AdminController {
         } else if (action.equals("reader")
                 || action.equals("editor")
                 || action.equals("admin")) {
-            if (!adminService.setRole(username, action).getFirst())
+            Pair<Boolean, Boolean> setRoleSuccess = adminService.setRole(username, action);
+            if (!setRoleSuccess.getFirst())
                 model.addAttribute("message", "Username is incorrect or error editing role");
             else
                 model.addAttribute("message", "Success edit role");
-            if (!adminService.setRole(username, action).getSecond())
+            if (!setRoleSuccess.getSecond())
                 model.addAttribute("message2", "Mail didn't send");
             else
                 model.addAttribute("message2", "Mail sended");
