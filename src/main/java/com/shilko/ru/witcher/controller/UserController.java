@@ -22,10 +22,7 @@ public class UserController {
     private SecurityService securityService;
 
     @Autowired
-    private BankService bankService;
-
-    @Autowired
-    private AnalyticsService analyticsService;
+    private ExternalResourceService externalResourceService;
 
     @Autowired
     private UserValidator userValidator;
@@ -67,9 +64,9 @@ public class UserController {
 
     @RequestMapping(value = {"/", "/welcome"}, method = RequestMethod.GET)
     public String welcome(Model model) {
-        model.addAttribute("bankService", bankService.getRedirectOnQiwiPayment());
-        model.addAttribute("analyticsRedirect", analyticsService.getRedirectYandexMetrika());
-        model.addAttribute("analyticsScript", analyticsService.getAnalyticsResource());
+        model.addAttribute("bankService", externalResourceService.getBankRedirect());
+        model.addAttribute("analyticsRedirect", externalResourceService.getAnalyticsRedirect());
+        model.addAttribute("analyticsScript", externalResourceService.getAnalyticsResource());
         return "welcome";
     }
 }
