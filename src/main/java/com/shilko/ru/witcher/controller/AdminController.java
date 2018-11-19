@@ -27,7 +27,6 @@ public class AdminController {
 
     @RequestMapping(value = "/admin/{username}/{action}", method = RequestMethod.GET)
     public String admin(@PathVariable String username, @PathVariable String action, Model model) {
-        model.addAttribute("userList", adminService.getAllUsers());
         if (action.equals("disable")) {
             if (!adminService.disableSession(username))
                 model.addAttribute("message", "Username is incorrect or error closing session");
@@ -46,6 +45,7 @@ public class AdminController {
             else
                 model.addAttribute("message2", "Mail sended");
         }
+        model.addAttribute("userList", adminService.getAllUsers());
         return "admin";
     }
 }
