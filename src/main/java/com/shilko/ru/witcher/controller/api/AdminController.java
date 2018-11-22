@@ -28,7 +28,7 @@ public class AdminController {
         users.forEach(user -> {
             user.setPassword("");
         });
-        return ResponseEntity.ok(new Gson().toJson(adminService.getAllUsers()));
+        return ResponseEntity.ok(new Gson().toJson(users));
     }
 
     @RequestMapping(value = "/{username}/{action}", method = RequestMethod.GET)
