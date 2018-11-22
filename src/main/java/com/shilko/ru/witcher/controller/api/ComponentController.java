@@ -1,4 +1,4 @@
-package com.shilko.ru.witcher.controller;
+package com.shilko.ru.witcher.controller.api;
 
 import com.shilko.ru.witcher.entity.Component;
 import com.shilko.ru.witcher.entity.Users;

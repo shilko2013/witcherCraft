@@ -5,68 +5,56 @@ import com.shilko.ru.witcher.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.validation.Errors;
-import org.springframework.validation.ValidationUtils;
-import org.springframework.validation.Validator;
 
 @Component
-public class UserValidator implements Validator {
+public class UserValidator {
 
     @Autowired
     private UserService userService;
 
-    @Override
-    public boolean supports(Class<?> aClass) {
-        return Users.class.equals(aClass);
-    }
-
-    @Override
     @Transactional(readOnly = true)
-    public void validate(Object o, Errors errors) {
+    public String validate(Object o) {
         Users user = (Users) o;
 
         if (user.getUsername() == null)
-            errors.rejectValue("username", "Invalid.userForm.username");
+            return "Invalid username";
         else {
-            ValidationUtils.rejectIfEmptyOrWhitespace(errors, "username", "Required");
             if (user.getUsername().length() < 8 || user.getUsername().length() > 32) {
-                errors.rejectValue("username", "Size.userForm.username");
+                return "Size username";
             }
 
             if (userService.findByUsername(user.getUsername()) != null) {
-                errors.rejectValue("username", "Duplicate.userForm.username");
+                return "Duplicate username";
             }
 
             if (!checkValidChars(user.getUsername()))
-                errors.rejectValue("username", "Invalid.userForm.username");
+                return "Invalid username";
         }
 
         if (user.getPassword() == null) {
-            errors.rejectValue("password", "Invalid.userForm.password");
+            return  "Invalid password";
         } else {
-            ValidationUtils.rejectIfEmptyOrWhitespace(errors, "password", "Required");
             if (user.getPassword().length() < 8 || user.getPassword().length() > 32) {
-                errors.rejectValue("password", "Size.userForm.password");
+                return "Size password";
             }
 
             if (!checkValidChars(user.getPassword()))
-                errors.rejectValue("password", "Invalid.userForm.password");
+                return "Invalid password";
         }
 
         if (user.getEmail() == null) {
-            errors.rejectValue("email", "Invalid.userForm.email");
+            return "Invalidm email";
         }
         else {
-            ValidationUtils.rejectIfEmptyOrWhitespace(errors, "email", "Required");
             if (!user.getEmail().matches("^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,6}$")) {
-                errors.rejectValue("email", "Invalid.userForm.email");
+                return "Invalid email";
             }
 
             if (userService.findByEmail(user.getEmail()) != null) {
-                errors.rejectValue("email", "Duplicate.userForm.email");
+                return "Duplicate email";
             }
         }
-
+        return "success";
     }
 
     private boolean checkValidChars(String login) {

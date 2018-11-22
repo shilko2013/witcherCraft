@@ -1,31 +1,29 @@
-package com.shilko.ru.witcher.controller;
+package com.shilko.ru.witcher.controller.api;
 
 import com.shilko.ru.witcher.service.AdminService;
 import com.shilko.ru.witcher.service.NotificationMailService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.util.Pair;
-import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
 
-@Controller
+@RestController
+@RequestMapping(value = "/api/admin")
 public class AdminController {
-
-    @Autowired
-    private NotificationMailService notificationMailService;
 
     @Autowired
     private AdminService adminService;
 
-    @RequestMapping(value = "/admin", method = RequestMethod.GET)
+    @RequestMapping(value = "/", method = RequestMethod.GET)
     public String admin(Model model) {
         model.addAttribute("userList", adminService.getAllUsers());
         return "admin";
     }
 
-    @RequestMapping(value = "/admin/{username}/{action}", method = RequestMethod.GET)
+    @RequestMapping(value = "/{username}/{action}", method = RequestMethod.GET)
     public String admin(@PathVariable String username, @PathVariable String action, Model model) {
         if (action.equals("disable")) {
             if (!adminService.disableSession(username))

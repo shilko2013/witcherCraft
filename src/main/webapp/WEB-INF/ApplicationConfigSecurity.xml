@@ -18,6 +18,8 @@
 
         <logout logout-success-url="/login?logout"/>
 
+        <csrf disabled="true"/>
+
         <session-management>
             <concurrency-control session-registry-ref="sessionRegistry"/>
         </session-management>
