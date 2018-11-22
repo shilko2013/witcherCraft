@@ -8,7 +8,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-@Controller("/component")
+@Controller
+@RequestMapping("component")
 public class ComponentController {
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
