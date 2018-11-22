@@ -35,7 +35,7 @@ public interface ThingCrudRepository extends CrudRepository<Thing, Long> {
      * @param draft the draft
      * @return the thing
      */
-    Thing findByDraftsContains(Draft draft);
+    Optional<Thing> findByDraftsContains(Draft draft);
 
     /**
      * Find all by type thing list.

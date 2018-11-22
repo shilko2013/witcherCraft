@@ -21,7 +21,7 @@ public interface CategoryComponentCrudRepository extends CrudRepository<Category
      * @param name the name
      * @return the category component
      */
-    CategoryComponent findByName(String name);
+    Optional<CategoryComponent> findByName(String name);
 
     @Override
     CategoryComponent save(CategoryComponent categoryComponent);
@@ -38,5 +38,5 @@ public interface CategoryComponentCrudRepository extends CrudRepository<Category
      * @param component the component
      * @return the category component
      */
-    CategoryComponent findByComponentsContains(Component component);
+    Optional<CategoryComponent> findByComponentsContains(Component component);
 }

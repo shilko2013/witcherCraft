@@ -30,13 +30,20 @@ public class Thing implements Serializable {
      * @param typeThing        the type thing
      * @param descriptionThing the description thing
      */
-    public Thing(@NotNull String name, @NotNull @PositiveOrZero int price, @NotNull @PositiveOrZero double weight, @NotNull TypeThing typeThing, @NotNull DescriptionThing descriptionThing, @NotNull CraftOrAlchemy isAlchemy) {
+    public Thing(@NotNull String name,
+                 @NotNull @PositiveOrZero int price,
+                 @NotNull @PositiveOrZero double weight,
+                 @NotNull TypeThing typeThing,
+                 @NotNull DescriptionThing descriptionThing,
+                 @NotNull CraftOrAlchemy isAlchemy,
+                 Image image) {
         this.name = name;
         this.price = price;
         this.weight = weight;
         this.descriptionThing = descriptionThing;
         this.typeThing = typeThing;
         this.isAlchemy = isAlchemy;
+        this.image = image;
     }
 
     @Id
@@ -72,6 +79,10 @@ public class Thing implements Serializable {
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "craftormagic_id", nullable = false)
     private CraftOrAlchemy isAlchemy;
+
+    @OneToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "image_id", nullable = true)
+    private Image image;
 
     public CraftOrAlchemy isAlchemy() {
         return isAlchemy;

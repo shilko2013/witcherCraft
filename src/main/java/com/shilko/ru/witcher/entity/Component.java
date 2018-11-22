@@ -1,4 +1,5 @@
 package com.shilko.ru.witcher.entity;
+
 import lombok.Data;
 
 import javax.persistence.*;
@@ -17,7 +18,8 @@ public class Component {
     /**
      * Instantiates a new Component.
      */
-    public Component() {}
+    public Component() {
+    }
 
     /**
      * Instantiates a new Component.
@@ -28,13 +30,20 @@ public class Component {
      * @param descriptionComponent the description component
      * @param categoryComponent    the category component
      */
-    public Component(@NotNull String name, @NotNull @PositiveOrZero int price, @NotNull @PositiveOrZero double weight, @NotNull DescriptionComponent descriptionComponent, @NotNull CategoryComponent categoryComponent, @NotNull CraftOrAlchemy isAlchemy) {
+    public Component(@NotNull String name,
+                     @NotNull @PositiveOrZero int price,
+                     @NotNull @PositiveOrZero double weight,
+                     @NotNull DescriptionComponent descriptionComponent,
+                     @NotNull CategoryComponent categoryComponent,
+                     @NotNull CraftOrAlchemy isAlchemy,
+                     Image image) {
         this.name = name;
         this.categoryComponent = categoryComponent;
         this.price = price;
         this.weight = weight;
         this.descriptionComponent = descriptionComponent;
         this.isAlchemy = isAlchemy;
+        this.image = image;
     }
 
     @Id
@@ -65,6 +74,10 @@ public class Component {
     @Column(nullable = false)
     @ManyToMany(mappedBy = "components", fetch = FetchType.LAZY)
     private List<Draft> drafts;
+
+    @OneToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "image_id", nullable = true)
+    private Image image;
 
     /**
      * Gets id.

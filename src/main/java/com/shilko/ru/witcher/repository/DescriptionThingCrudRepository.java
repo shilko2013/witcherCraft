@@ -29,6 +29,6 @@ public interface DescriptionThingCrudRepository extends CrudRepository<Descripti
      * @param component the component
      * @return the description thing
      */
-    DescriptionThing findByThing(Thing component);
+    Optional<DescriptionThing> findByThing(Thing component);
 
 }

@@ -30,5 +30,5 @@ public interface DescriptionComponentCrudRepository extends CrudRepository<Descr
      * @param component the component
      * @return the description component
      */
-    DescriptionComponent findByComponent(Component component);
+    Optional<DescriptionComponent> findByComponent(Component component);
 }

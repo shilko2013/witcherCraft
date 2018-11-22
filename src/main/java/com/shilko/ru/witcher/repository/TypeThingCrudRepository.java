@@ -20,7 +20,7 @@ public interface TypeThingCrudRepository extends CrudRepository<TypeThing, Long>
      * @param name the name
      * @return the type thing
      */
-    TypeThing findByName(String name);
+    Optional<TypeThing> findByName(String name);
 
     @Override
     TypeThing save(TypeThing typeThing);

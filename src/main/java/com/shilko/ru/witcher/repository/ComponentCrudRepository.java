@@ -34,7 +34,7 @@ public interface ComponentCrudRepository extends CrudRepository<Component, Long>
      * @param name the name
      * @return the component
      */
-    Component findByName(String name);
+    Optional<Component> findByName(String name);
 
     /**
      * Find all by category component equals list.
