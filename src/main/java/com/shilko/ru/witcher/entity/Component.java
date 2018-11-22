@@ -79,6 +79,22 @@ public class Component {
     @JoinColumn(name = "image_id", nullable = true)
     private Image image;
 
+    public CraftOrAlchemy getIsAlchemy() {
+        return isAlchemy;
+    }
+
+    public void setIsAlchemy(CraftOrAlchemy isAlchemy) {
+        this.isAlchemy = isAlchemy;
+    }
+
+    public Image getImage() {
+        return image;
+    }
+
+    public void setImage(Image image) {
+        this.image = image;
+    }
+
     /**
      * Gets id.
      *
