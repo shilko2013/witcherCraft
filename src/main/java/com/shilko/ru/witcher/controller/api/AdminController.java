@@ -1,14 +1,17 @@
 package com.shilko.ru.witcher.controller.api;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.shilko.ru.witcher.entity.Users;
 import com.shilko.ru.witcher.service.AdminService;
 import com.shilko.ru.witcher.service.NotificationMailService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.util.Pair;
+import org.springframework.http.ResponseEntity;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/api/admin")
@@ -17,10 +20,15 @@ public class AdminController {
     @Autowired
     private AdminService adminService;
 
-    @RequestMapping(value = "/", method = RequestMethod.GET)
-    public String admin(Model model) {
-        model.addAttribute("userList", adminService.getAllUsers());
-        return "admin";
+    @RequestMapping(value = "/getusers", method = RequestMethod.GET)
+    public
+    @ResponseBody
+    ResponseEntity admin() {
+        List<Users> users = adminService.getAllUsers();
+        users.forEach(user -> {
+            user.setPassword("");
+        });
+        return ResponseEntity.ok(new Gson().toJson(adminService.getAllUsers()));
     }
 
     @RequestMapping(value = "/{username}/{action}", method = RequestMethod.GET)
