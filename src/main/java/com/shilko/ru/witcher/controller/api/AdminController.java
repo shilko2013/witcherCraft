@@ -23,7 +23,7 @@ public class AdminController {
     @RequestMapping(value = "/getusers", method = RequestMethod.GET)
     public
     @ResponseBody
-    ResponseEntity admin() {
+    ResponseEntity getAllUsers() {
         List<Users> users = adminService.getAllUsers();
         users.forEach(user -> {
             user.setPassword("");
@@ -32,26 +32,23 @@ public class AdminController {
     }
 
     @RequestMapping(value = "/{username}/{action}", method = RequestMethod.GET)
-    public String admin(@PathVariable String username, @PathVariable String action, Model model) {
+    public
+    @ResponseBody
+    ResponseEntity actionWithUser(@PathVariable String username, @PathVariable String action) {
         if (action.equals("disable")) {
             if (!adminService.disableSession(username))
-                model.addAttribute("message", "Username is incorrect or error closing session");
+                return ResponseEntity.badRequest().body("Username is incorrect or error closing session");
             else
-                model.addAttribute("message", "Success close session");
+                return ResponseEntity.ok("Success close session");
         } else if (action.equals("reader")
                 || action.equals("editor")
                 || action.equals("admin")) {
             Pair<Boolean, Boolean> setRoleSuccess = adminService.setRole(username, action);
             if (!setRoleSuccess.getFirst())
-                model.addAttribute("message", "Username is incorrect or error editing role");
+                return ResponseEntity.badRequest().body("Username is incorrect or error editing role");
             else
-                model.addAttribute("message", "Success edit role");
-            if (!setRoleSuccess.getSecond())
-                model.addAttribute("message2", "Mail didn't send");
-            else
-                model.addAttribute("message2", "Mail sended");
+                return ResponseEntity.ok("Mail sent");
         }
-        model.addAttribute("userList", adminService.getAllUsers());
-        return "admin";
+        return ResponseEntity.badRequest().body("Illegal action");
     }
 }
