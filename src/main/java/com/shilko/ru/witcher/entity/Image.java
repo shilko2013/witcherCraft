@@ -1,12 +1,27 @@
 package com.shilko.ru.witcher.entity;
 
 import lombok.Data;
+import org.springframework.http.MediaType;
 
 import javax.persistence.*;
 
 @Entity
 @Data
 public class Image {
+
+    public static MediaType getMediaType(Image image) {
+        switch (image.type) {
+            case "gif":
+                return MediaType.IMAGE_GIF;
+            case "png":
+                return MediaType.IMAGE_PNG;
+            case "jpeg":
+            case "jpg":
+                return MediaType.IMAGE_JPEG;
+            default:
+                return MediaType.ALL;
+        }
+    }
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -22,9 +37,10 @@ public class Image {
     @OneToOne(mappedBy = "descriptionComponent", fetch = FetchType.EAGER)
     private Component component;
 
-    public Image() { }
+    public Image() {
+    }
 
-    public Image(long id, String name, String type, byte[] picture, Component component) {
+    public Image(long id, String type, byte[] picture, Component component) {
         this.id = id;
         this.type = type;
         this.picture = picture;

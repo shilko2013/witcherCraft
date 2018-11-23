@@ -26,7 +26,7 @@ public class AdminController {
     ResponseEntity getAllUsers() {
         List<Users> users = adminService.getAllUsers();
         users.forEach(user -> {
-            user.setPassword("");
+            user.setPassword(null);
         });
         return ResponseEntity.ok(new Gson().toJson(users));
     }
