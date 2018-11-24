@@ -42,8 +42,8 @@ public class RegistrationController {
 
         userService.save(user);
 
-        securityService.autoLogin(user.getUsername(), user.getPassword());
+        //securityService.autoLogin(user.getUsername(), user.getPassword());
 
-        return ResponseEntity.ok().build();
+        return ResponseEntity.ok("Registration success");
     }
 }
