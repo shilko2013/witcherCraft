@@ -5,7 +5,10 @@ import lombok.Data;
 import javax.persistence.*;
 import java.util.List;
 import java.util.Objects;
-
+/*
+    Save alchemy & craft in separate two entities (with different field isAlchemy
+    You have to have only two exemplars of this class in your DB!
+ */
 @Entity
 @Data
 public class CraftOrAlchemy {

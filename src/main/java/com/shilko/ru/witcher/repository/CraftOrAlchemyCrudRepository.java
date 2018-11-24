@@ -11,5 +11,5 @@ public interface CraftOrAlchemyCrudRepository extends CrudRepository<CraftOrAlch
     @Override
     CraftOrAlchemy save(CraftOrAlchemy craftOrAlchemy);
 
-    List<CraftOrAlchemy> findAllByIsAlchemy(boolean isAlchemy);
+    Optional<CraftOrAlchemy> findByIsAlchemy(boolean isAlchemy);
 }

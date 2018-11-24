@@ -40,8 +40,7 @@ public class Image {
     public Image() {
     }
 
-    public Image(long id, String type, byte[] picture, Component component) {
-        this.id = id;
+    public Image(String type, byte[] picture, Component component) {
         this.type = type;
         this.picture = picture;
         this.component = component;
