@@ -38,5 +38,5 @@ public interface CategoryComponentCrudRepository extends CrudRepository<Category
      * @param component the component
      * @return the category component
      */
-    Optional<CategoryComponent> findByComponentsContains(Component component);
+    /*Optional<CategoryComponent> findByComponentsContains(Component component);*/
 }

@@ -25,7 +25,7 @@ public interface ComponentCrudRepository extends CrudRepository<Component, Long>
     @Override
     List<Component> findAll();
 
-    List<Component> findAllByAlchemy(boolean isAlchemy);
+    List<Component> findAllByIsAlchemy(boolean isAlchemy);
 
     /**
      * Find by name component.

@@ -34,7 +34,7 @@ public class Image {
     @Column(nullable = false)
     private byte[] picture;
 
-    @OneToOne(mappedBy = "descriptionComponent", fetch = FetchType.EAGER)
+    @OneToOne(mappedBy = "descriptionComponent", fetch = FetchType.EAGER, cascade=CascadeType.ALL)
     private Component component;
 
     public Image() {

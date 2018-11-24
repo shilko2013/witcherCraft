@@ -2,9 +2,11 @@ package com.shilko.ru.witcher.serviceimpl;
 
 import com.shilko.ru.witcher.entity.CategoryComponent;
 import com.shilko.ru.witcher.entity.Component;
+import com.shilko.ru.witcher.entity.DescriptionComponent;
 import com.shilko.ru.witcher.entity.Image;
 import com.shilko.ru.witcher.repository.CategoryComponentCrudRepository;
 import com.shilko.ru.witcher.repository.ComponentCrudRepository;
+import com.shilko.ru.witcher.repository.DescriptionComponentCrudRepository;
 import com.shilko.ru.witcher.repository.ImageCrudRepository;
 import com.shilko.ru.witcher.service.ComponentService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,6 +27,9 @@ public class ComponentServiceImpl implements ComponentService {
     @Autowired
     private ImageCrudRepository imageCrudRepository;
 
+    @Autowired
+    private DescriptionComponentCrudRepository descriptionComponentCrudRepository;
+
     @Override
     public List<Component> getAllComponents() {
         return componentCrudRepository.findAll();
@@ -41,7 +46,8 @@ public class ComponentServiceImpl implements ComponentService {
     }
 
     @Override
-    public void saveComponent(Component component, Image image) {
+    public void saveComponent(Component component, Image image, DescriptionComponent descriptionComponent) {
+        descriptionComponentCrudRepository.save(descriptionComponent);
         componentCrudRepository.save(component);
         imageCrudRepository.save(image);
     }
@@ -49,5 +55,10 @@ public class ComponentServiceImpl implements ComponentService {
     @Override
     public void saveCategoryComponent(CategoryComponent categoryComponent) {
         categoryComponentCrudRepository.save(categoryComponent);
+    }
+
+    @Override
+    public Optional<CategoryComponent> getCategoryComponentByName(String name) {
+        return categoryComponentCrudRepository.findByName(name);
     }
 }

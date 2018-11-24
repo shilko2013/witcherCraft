@@ -25,7 +25,7 @@ public interface DraftCrudRepository extends CrudRepository<Draft, Long> {
     @Override
     List<Draft> findAll();
 
-    List<Draft> findAllByAlchemy(boolean alchemy);
+    List<Draft> findAllByIsAlchemy(boolean alchemy);
 
     /**
      * Find all by components contains list.

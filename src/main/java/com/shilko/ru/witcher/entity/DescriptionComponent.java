@@ -36,7 +36,7 @@ public class DescriptionComponent {
     @Type(type = "text")
     private String description;
 
-    @OneToOne(mappedBy = "descriptionComponent", fetch = FetchType.EAGER)
+    @OneToOne(mappedBy = "descriptionComponent", fetch = FetchType.EAGER, cascade=CascadeType.ALL)
     private Component component;
 
     /**

@@ -30,4 +30,14 @@ public class IndexController {
     public String welcome() {
         return "welcome";
     }
+
+    @RequestMapping(value = "/api/component/addcategory", method = RequestMethod.GET)
+    public String addCategoryComponentPage() {
+        return "addcategory";
+    }
+
+    @RequestMapping(value = "/api/component/add", method = RequestMethod.GET)
+    public String addComponentPage() {
+        return "addcomponent";
+    }
 }

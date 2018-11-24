@@ -28,6 +28,8 @@ public class ComponentController {
     @Value("classpath:standard_picture.png")
     Resource standardImage;
 
+    private final static long MAX_FILE_SIZE = 0xA00000; //10Mb
+
     @RequestMapping(value = "/components", method = RequestMethod.GET)
     public
     @ResponseBody
@@ -63,11 +65,6 @@ public class ComponentController {
         return new ResponseEntity<>(image.get().getPicture(), headers, HttpStatus.OK);
     }
 
-    @RequestMapping(value = "/add", method = RequestMethod.GET)
-    public String addComponentPage() {
-        return "addcomponent";
-    }
-
     @Transactional
     @RequestMapping(value = "/add", method = RequestMethod.POST)
     public
@@ -88,6 +85,8 @@ public class ComponentController {
         if (imageFile == null)
             image = null;
         else {
+            if (imageFile.getSize() > MAX_FILE_SIZE)
+                return ResponseEntity.badRequest().body("So big image file, maximum size is " + (MAX_FILE_SIZE >> 20) + "Mb");
             try {
                 split = imageFile.getOriginalFilename().split("\\.");
             } catch (Exception e) {
@@ -104,17 +103,15 @@ public class ComponentController {
             }
         }
         Component component = new Component(name, price, weight, descriptionComponent, categoryComponent.get(), isAlchemy, image);
+        descriptionComponent.setComponent(component);
+        if (image != null)
+            image.setComponent(component);
         try {
-            componentService.saveComponent(component, image);
+            componentService.saveComponent(component, image, descriptionComponent);
         } catch (Exception e) {
             return ResponseEntity.badRequest().body("Illegal set of arguments");
         }
-        return ResponseEntity.ok().build();
-    }
-
-    @RequestMapping(value = "/addcategory", method = RequestMethod.GET)
-    public String addCategoryComponentPage() {
-        return "addcategory";
+        return ResponseEntity.ok("Successfully added");
     }
 
     @Transactional
@@ -126,10 +123,12 @@ public class ComponentController {
         if (name == null || information == null)
             return ResponseEntity.badRequest().body("Illegal set of arguments");
         try {
+            if (componentService.getCategoryComponentByName(name).isPresent())
+                return ResponseEntity.badRequest().body("This category already exists");
             componentService.saveCategoryComponent(new CategoryComponent(name, information));
         } catch (Exception e) {
             return ResponseEntity.badRequest().body("Illegal set of arguments");
         }
-        return ResponseEntity.ok().build();
+        return ResponseEntity.ok("Successfully added");
     }
 }

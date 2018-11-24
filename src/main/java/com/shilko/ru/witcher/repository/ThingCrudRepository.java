@@ -25,7 +25,7 @@ public interface ThingCrudRepository extends CrudRepository<Thing, Long> {
     @Override
     List<Thing> findAll();
 
-    List<Thing> findAllByAlchemy(boolean alchemy);
+    List<Thing> findAllByIsAlchemy(boolean alchemy);
 
 
     /**

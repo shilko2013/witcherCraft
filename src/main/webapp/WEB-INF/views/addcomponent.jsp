@@ -33,7 +33,7 @@
 
 <div class="container">
 
-    <form action="${contextPath}/api/component/add" method="post">
+    <form action="${contextPath}/api/component/add" method="post" enctype="multipart/form-data">
         <label for="name"></label>
         <input type="text" id="name" name="name" placeholder="Enter name" required>
         <br/>
@@ -48,6 +48,9 @@
         <br/>
         <label for="categoryId"></label>
         <input type="text" id="categoryId" name="categoryId" placeholder="Enter categoryId" required>
+        <br/>
+        <label for="isAlchemy"></label>
+        <input type="text" id="isAlchemy" name="isAlchemy" placeholder="Enter isAlchemy" required>
         <br/>
         <label for="image"></label>
         <input type="file" id="image" name="image" placeholder="Enter image">
