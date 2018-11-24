@@ -56,7 +56,7 @@ public class Component {
     @Column(nullable = false, unique = true)
     private String name;
 
-    @ManyToOne(fetch = FetchType.EAGER, cascade=CascadeType.ALL)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "category_id", nullable = false)
     private CategoryComponent categoryComponent;
 
@@ -66,7 +66,7 @@ public class Component {
     @Column(nullable = false)
     private double weight;
 
-    @OneToOne(fetch = FetchType.EAGER, cascade=CascadeType.ALL)
+    @OneToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "descriptioncomponent_id", nullable = false)
     private DescriptionComponent descriptionComponent;
 

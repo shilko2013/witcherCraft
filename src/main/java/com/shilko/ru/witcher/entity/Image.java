@@ -1,6 +1,7 @@
 package com.shilko.ru.witcher.entity;
 
 import lombok.Data;
+import org.hibernate.annotations.Type;
 import org.springframework.http.MediaType;
 
 import javax.persistence.*;
@@ -30,17 +31,17 @@ public class Image {
     @Column(nullable = false)
     private String type;
 
-    @Lob
+    @Type(type = "text")
     @Column(nullable = false)
-    private byte[] picture;
+    private String picture;
 
-    @OneToOne(mappedBy = "descriptionComponent", fetch = FetchType.EAGER, cascade=CascadeType.ALL)
+    @OneToOne(mappedBy = "image", fetch = FetchType.EAGER, cascade=CascadeType.ALL)
     private Component component;
 
     public Image() {
     }
 
-    public Image(String type, byte[] picture, Component component) {
+    public Image(String type, String picture, Component component) {
         this.type = type;
         this.picture = picture;
         this.component = component;
@@ -62,11 +63,11 @@ public class Image {
         this.type = type;
     }
 
-    public byte[] getPicture() {
+    public String getPicture() {
         return picture;
     }
 
-    public void setPicture(byte[] picture) {
+    public void setPicture(String picture) {
         this.picture = picture;
     }
 

@@ -17,7 +17,8 @@ public class DescriptionComponent {
     /**
      * Instantiates a new Description component.
      */
-    public DescriptionComponent() {}
+    public DescriptionComponent() {
+    }
 
     /**
      * Instantiates a new Description component.
@@ -36,7 +37,7 @@ public class DescriptionComponent {
     @Type(type = "text")
     private String description;
 
-    @OneToOne(mappedBy = "descriptionComponent", fetch = FetchType.EAGER, cascade=CascadeType.ALL)
+    @OneToOne(mappedBy = "descriptionComponent", fetch = FetchType.EAGER)
     private Component component;
 
     /**

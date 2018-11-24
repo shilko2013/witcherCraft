@@ -11,6 +11,7 @@ import com.shilko.ru.witcher.repository.ImageCrudRepository;
 import com.shilko.ru.witcher.service.ComponentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Optional;
@@ -37,7 +38,10 @@ public class ComponentServiceImpl implements ComponentService {
 
     @Override
     public Optional<Image> getImageByIdComponent(Long id) {
-        return imageCrudRepository.findByComponent_Id(id);
+        Optional<Component> component = componentCrudRepository.findById(id);
+        if (!component.isPresent())
+            return Optional.empty();
+        return imageCrudRepository.findByComponent(component.get());
     }
 
     @Override
@@ -48,8 +52,10 @@ public class ComponentServiceImpl implements ComponentService {
     @Override
     public void saveComponent(Component component, Image image, DescriptionComponent descriptionComponent) {
         descriptionComponentCrudRepository.save(descriptionComponent);
-        componentCrudRepository.save(component);
+        component.setDescriptionComponent(descriptionComponent);
         imageCrudRepository.save(image);
+        component.setImage(image);
+        componentCrudRepository.save(component);
     }
 
     @Override

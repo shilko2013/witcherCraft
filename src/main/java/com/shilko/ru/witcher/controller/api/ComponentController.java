@@ -3,6 +3,7 @@ package com.shilko.ru.witcher.controller.api;
 import com.google.gson.Gson;
 import com.shilko.ru.witcher.entity.*;
 import com.shilko.ru.witcher.service.ComponentService;
+import org.apache.commons.codec.binary.Base64;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.io.Resource;
@@ -41,6 +42,7 @@ public class ComponentController {
         return ResponseEntity.ok(new Gson().toJson(componentService.getAllComponents()));
     }
 
+    @Transactional
     @RequestMapping(value = "/{strId}/image", method = RequestMethod.GET)
     public
     @ResponseBody
@@ -62,7 +64,7 @@ public class ComponentController {
             }
         }
         headers.setContentType(Image.getMediaType(image.get()));
-        return new ResponseEntity<>(image.get().getPicture(), headers, HttpStatus.OK);
+        return new ResponseEntity<>(Base64.decodeBase64(image.get().getPicture()), headers, HttpStatus.OK);
     }
 
     @Transactional
@@ -97,15 +99,12 @@ public class ComponentController {
             if (Image.getMediaType(image) == MediaType.ALL)
                 return ResponseEntity.badRequest().body("Illegal image file extension. Server supports png, jpeg, jpg and gif images.");
             try {
-                image.setPicture(imageFile.getBytes());
+                image.setPicture(Base64.encodeBase64String(imageFile.getBytes()));
             } catch (Exception e) {
                 return ResponseEntity.badRequest().body("Illegal image file");
             }
         }
         Component component = new Component(name, price, weight, descriptionComponent, categoryComponent.get(), isAlchemy, image);
-        descriptionComponent.setComponent(component);
-        if (image != null)
-            image.setComponent(component);
         try {
             componentService.saveComponent(component, image, descriptionComponent);
         } catch (Exception e) {
