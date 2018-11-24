@@ -27,7 +27,7 @@ public class Draft implements Serializable {
      * @param information the information
      * @param components  the components
      */
-    public Draft(@NotNull Thing thing, String information, @NotNull List<Component> components, @NotNull CraftOrAlchemy isAlchemy) {
+    public Draft(@NotNull Thing thing, String information, @NotNull List<Component> components, @NotNull boolean isAlchemy) {
         this.thing = thing;
         this.information = information;
         this.components = components;
@@ -54,16 +54,14 @@ public class Draft implements Serializable {
     )
     private List<Component> components;
 
+    @Column(nullable = false)
+    private boolean isAlchemy;
 
-    @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "craftormagic_id", nullable = false)
-    private CraftOrAlchemy isAlchemy;
-
-    public CraftOrAlchemy isAlchemy() {
+    public boolean isAlchemy() {
         return isAlchemy;
     }
 
-    public void setAlchemy(CraftOrAlchemy alchemy) {
+    public void setAlchemy(boolean alchemy) {
         isAlchemy = alchemy;
     }
 

@@ -35,7 +35,7 @@ public class Thing implements Serializable {
                  @NotNull @PositiveOrZero double weight,
                  @NotNull TypeThing typeThing,
                  @NotNull DescriptionThing descriptionThing,
-                 @NotNull CraftOrAlchemy isAlchemy,
+                 @NotNull boolean isAlchemy,
                  Image image) {
         this.name = name;
         this.price = price;
@@ -76,19 +76,18 @@ public class Thing implements Serializable {
     @OneToMany(mappedBy = "thing", fetch = FetchType.LAZY)
     private List<Draft> drafts;
 
-    @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "craftormagic_id", nullable = false)
-    private CraftOrAlchemy isAlchemy;
+    @Column(nullable = false)
+    private boolean isAlchemy;
 
     @OneToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "image_id", nullable = true)
     private Image image;
 
-    public CraftOrAlchemy isAlchemy() {
+    public boolean isAlchemy() {
         return isAlchemy;
     }
 
-    public void setAlchemy(CraftOrAlchemy alchemy) {
+    public void setAlchemy(boolean alchemy) {
         isAlchemy = alchemy;
     }
 

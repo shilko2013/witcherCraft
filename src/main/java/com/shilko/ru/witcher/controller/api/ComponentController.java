@@ -103,13 +103,9 @@ public class ComponentController {
                 return ResponseEntity.badRequest().body("Illegal image file");
             }
         }
-        Optional<CraftOrAlchemy> craftOrAlchemy = componentService.getCraftOrAlchemyByIsAlchemy(isAlchemy);
-        if (!craftOrAlchemy.isPresent())
-            return ResponseEntity.badRequest().body("Illegal isAlchemy argument");
-        Component component = new Component(name, price, weight, descriptionComponent, categoryComponent.get(), craftOrAlchemy.get(), image);
-        craftOrAlchemy.get().getComponents().add(component);
+        Component component = new Component(name, price, weight, descriptionComponent, categoryComponent.get(), isAlchemy, image);
         try {
-            componentService.saveComponent(component, image, craftOrAlchemy.get());
+            componentService.saveComponent(component, image);
         } catch (Exception e) {
             return ResponseEntity.badRequest().body("Illegal set of arguments");
         }

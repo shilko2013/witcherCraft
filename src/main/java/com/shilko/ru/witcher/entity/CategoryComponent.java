@@ -41,9 +41,9 @@ public class CategoryComponent {
     @Type(type = "text")
     private String information;
 
-    @Column(nullable = false)
+    /*@Column(nullable = false)
     @OneToMany(mappedBy = "categoryComponent", fetch = FetchType.LAZY)
-    private List<Component> components;
+    private List<Component> components;*/
 
     /**
      * Gets id.
@@ -104,18 +104,18 @@ public class CategoryComponent {
      *
      * @return the components
      */
-    public List<Component> getComponents() {
+    /*public List<Component> getComponents() {
         return components;
-    }
+    }*/
 
     /**
      * Sets components.
      *
      * @param components the components
      */
-    public void setComponents(List<Component> components) {
+    /*public void setComponents(List<Component> components) {
         this.components = components;
-    }
+    }*/
 
     @Override
     public boolean equals(Object o) {
@@ -124,12 +124,12 @@ public class CategoryComponent {
         CategoryComponent that = (CategoryComponent) o;
         return id == that.id &&
                 Objects.equals(name, that.name) &&
-                Objects.equals(information, that.information) &&
-                Objects.equals(components, that.components);
+                Objects.equals(information, that.information)/* &&
+                Objects.equals(components, that.components)*/;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name, information, components);
+        return Objects.hash(id, name, information/*, components*/);
     }
 }

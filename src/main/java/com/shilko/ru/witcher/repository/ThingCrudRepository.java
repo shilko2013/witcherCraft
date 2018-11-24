@@ -1,6 +1,5 @@
 package com.shilko.ru.witcher.repository;
 
-import com.shilko.ru.witcher.entity.CraftOrAlchemy;
 import com.shilko.ru.witcher.entity.Draft;
 import com.shilko.ru.witcher.entity.Thing;
 import com.shilko.ru.witcher.entity.TypeThing;
@@ -26,7 +25,7 @@ public interface ThingCrudRepository extends CrudRepository<Thing, Long> {
     @Override
     List<Thing> findAll();
 
-    List<Thing> findAllByIsAlchemy(CraftOrAlchemy alchemy);
+    List<Thing> findAllByAlchemy(boolean alchemy);
 
 
     /**

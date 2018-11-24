@@ -1,7 +1,6 @@
 package com.shilko.ru.witcher.repository;
 
 import com.shilko.ru.witcher.entity.Component;
-import com.shilko.ru.witcher.entity.CraftOrAlchemy;
 import com.shilko.ru.witcher.entity.Draft;
 import com.shilko.ru.witcher.entity.Thing;
 import org.springframework.data.repository.CrudRepository;
@@ -26,7 +25,7 @@ public interface DraftCrudRepository extends CrudRepository<Draft, Long> {
     @Override
     List<Draft> findAll();
 
-    List<Draft> findAllByIsAlchemy(CraftOrAlchemy alchemy);
+    List<Draft> findAllByAlchemy(boolean alchemy);
 
     /**
      * Find all by components contains list.

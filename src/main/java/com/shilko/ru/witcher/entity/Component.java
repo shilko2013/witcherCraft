@@ -35,7 +35,7 @@ public class Component {
                      @NotNull @PositiveOrZero double weight,
                      @NotNull DescriptionComponent descriptionComponent,
                      @NotNull CategoryComponent categoryComponent,
-                     @NotNull CraftOrAlchemy isAlchemy,
+                     @NotNull boolean isAlchemy,
                      Image image) {
         this.name = name;
         this.categoryComponent = categoryComponent;
@@ -50,9 +50,8 @@ public class Component {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "craftormagic_id", nullable = false)
-    private CraftOrAlchemy isAlchemy;
+    @Column(nullable = false)
+    private boolean isAlchemy;
 
     @Column(nullable = false, unique = true)
     private String name;
@@ -79,11 +78,11 @@ public class Component {
     @JoinColumn(name = "image_id", nullable = true)
     private Image image;
 
-    public CraftOrAlchemy getIsAlchemy() {
+    public boolean getAlchemy() {
         return isAlchemy;
     }
 
-    public void setIsAlchemy(CraftOrAlchemy isAlchemy) {
+    public void setAlchemy(boolean isAlchemy) {
         this.isAlchemy = isAlchemy;
     }
 
@@ -219,14 +218,6 @@ public class Component {
      */
     public void setDrafts(List<Draft> drafts) {
         this.drafts = drafts;
-    }
-
-    public CraftOrAlchemy isAlchemy() {
-        return isAlchemy;
-    }
-
-    public void setAlchemy(CraftOrAlchemy alchemy) {
-        isAlchemy = alchemy;
     }
 
     public void setCategoryComponent(CategoryComponent categoryComponent) {

@@ -2,7 +2,6 @@ package com.shilko.ru.witcher.service;
 
 import com.shilko.ru.witcher.entity.CategoryComponent;
 import com.shilko.ru.witcher.entity.Component;
-import com.shilko.ru.witcher.entity.CraftOrAlchemy;
 import com.shilko.ru.witcher.entity.Image;
 
 import java.util.List;
@@ -16,9 +15,7 @@ public interface ComponentService {
 
     Optional<CategoryComponent> getCategoryComponentById(Long id);
 
-    Optional<CraftOrAlchemy> getCraftOrAlchemyByIsAlchemy(boolean isAlchemy);
-
-    void saveComponent(Component component, Image image, CraftOrAlchemy craftOrAlchemy);
+    void saveComponent(Component component, Image image);
 
     void saveCategoryComponent(CategoryComponent categoryComponent);
 }
