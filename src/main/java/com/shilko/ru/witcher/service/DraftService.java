@@ -16,4 +16,6 @@ public interface DraftService {
     void saveDraft(String information, String thingId, List<Long> componentId);
 
     Optional<Draft> getDraftById(Long id);
+
+    void deleteDraftById(Long id);
 }

@@ -36,4 +36,8 @@ public interface ThingService {
                             MultipartFile imageFile);
 
     ResponseEntity addTypeThing(String name, String information, boolean add);
+
+    void deleteTypeThing(Long id);
+
+    void deleteThing(Long id);
 }

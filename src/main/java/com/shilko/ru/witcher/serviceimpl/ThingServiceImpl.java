@@ -148,4 +148,14 @@ public class ThingServiceImpl implements ThingService {
         }
         return ResponseEntity.ok("Successfully added");
     }
+
+    @Override
+    public void deleteTypeThing(Long id) {
+        typeThingCrudRepository.deleteById(id);
+    }
+
+    @Override
+    public void deleteThing(Long id) {
+        typeThingCrudRepository.deleteById(id);
+    }
 }

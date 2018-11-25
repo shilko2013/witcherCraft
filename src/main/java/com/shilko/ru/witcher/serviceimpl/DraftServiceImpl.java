@@ -62,4 +62,9 @@ public class DraftServiceImpl implements DraftService {
     public Optional<Draft> getDraftById(Long id) {
         return draftCrudRepository.findById(id);
     }
+
+    @Override
+    public void deleteDraftById(Long id) {
+        draftCrudRepository.deleteById(id);
+    }
 }

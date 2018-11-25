@@ -121,4 +121,17 @@ public class DraftController {
         }
         return ResponseEntity.ok("Successfully added");
     }
+
+    @Transactional
+    @RequestMapping(value = "/delete/{strId}", method = RequestMethod.POST)
+    public
+    @ResponseBody
+    ResponseEntity deleteComponent(@PathVariable String strId) {
+        try {
+            draftService.deleteDraftById(Long.parseLong(strId));
+            return ResponseEntity.ok("Thing deleted");
+        } catch (Exception e) {
+            return ResponseEntity.badRequest().body("Illegal id");
+        }
+    }
 }
