@@ -10,7 +10,7 @@ import java.util.Optional;
 
 public interface ComponentService {
 
-    List<Component> getAllComponents();
+    List<Component> getAllComponents(boolean isAlchemy);
 
     Optional<Image> getImageByIdComponent(Long id);
 

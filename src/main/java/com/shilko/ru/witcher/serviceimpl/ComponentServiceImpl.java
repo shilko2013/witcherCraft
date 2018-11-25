@@ -31,8 +31,8 @@ public class ComponentServiceImpl implements ComponentService {
     private DescriptionComponentCrudRepository descriptionComponentCrudRepository;
 
     @Override
-    public List<Component> getAllComponents() {
-        return componentCrudRepository.findAll();
+    public List<Component> getAllComponents(boolean isAlchemy) {
+        return componentCrudRepository.findAllByIsAlchemy(isAlchemy);
     }
 
     @Override

@@ -7,4 +7,6 @@ public interface ExternalResourceService {
     String getAnalyticsResource();
 
     String getBankRedirect();
+
+    String getSearchRedirect();
 }

@@ -31,11 +31,11 @@ public class ComponentController {
 
     private final static long MAX_FILE_SIZE = 0xA00000; //10Mb
 
-    @RequestMapping(value = "/components", method = RequestMethod.GET)
+    @RequestMapping(value = "/components/{isAlchemy}", method = RequestMethod.GET)
     public
     @ResponseBody
-    ResponseEntity getAllComponents() {
-        List<Component> components = componentService.getAllComponents();
+    ResponseEntity getAllComponents(@PathVariable boolean isAlchemy) {
+        List<Component> components = componentService.getAllComponents(isAlchemy);
         components.forEach(component -> {
             component.setImage(null);
             component.getDescriptionComponent().setComponent(null);
