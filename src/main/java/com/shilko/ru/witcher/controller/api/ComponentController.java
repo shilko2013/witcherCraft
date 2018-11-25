@@ -38,8 +38,28 @@ public class ComponentController {
         List<Component> components = componentService.getAllComponents();
         components.forEach(component -> {
             component.setImage(null);
+            component.getDescriptionComponent().setComponent(null);
         });
-        return ResponseEntity.ok(new Gson().toJson(componentService.getAllComponents()));
+        return ResponseEntity.ok(new Gson().toJson(components));
+    }
+
+    @RequestMapping(value = "/{strId}", method = RequestMethod.GET)
+    public
+    @ResponseBody
+    ResponseEntity getComponent(@PathVariable String strId) {
+        long id;
+        try {
+            id = Long.parseLong(strId);
+        } catch (Exception e) {
+            return ResponseEntity.badRequest().body("Illegal id");
+        }
+        Optional<Component> component = componentService.getComponentById(id);
+        if (!component.isPresent()) {
+            return ResponseEntity.badRequest().body("Components doesn't present");
+        }
+        component.get().setImage(null);
+        component.get().getDescriptionComponent().setComponent(null);
+        return ResponseEntity.ok(new Gson().toJson(component.get()));
     }
 
     @Transactional

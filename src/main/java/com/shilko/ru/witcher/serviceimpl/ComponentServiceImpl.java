@@ -11,7 +11,6 @@ import com.shilko.ru.witcher.repository.ImageCrudRepository;
 import com.shilko.ru.witcher.service.ComponentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Optional;
@@ -66,5 +65,10 @@ public class ComponentServiceImpl implements ComponentService {
     @Override
     public Optional<CategoryComponent> getCategoryComponentByName(String name) {
         return categoryComponentCrudRepository.findByName(name);
+    }
+
+    @Override
+    public Optional<Component> getComponentById(Long id) {
+        return componentCrudRepository.findById(id);
     }
 }

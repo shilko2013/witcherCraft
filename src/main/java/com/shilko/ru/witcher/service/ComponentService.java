@@ -21,4 +21,6 @@ public interface ComponentService {
     void saveCategoryComponent(CategoryComponent categoryComponent);
 
     Optional<CategoryComponent> getCategoryComponentByName(String name);
+
+    Optional<Component> getComponentById(Long id);
 }

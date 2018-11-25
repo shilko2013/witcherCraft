@@ -71,7 +71,7 @@ public class Component {
     private DescriptionComponent descriptionComponent;
 
     @Column(nullable = false)
-    @ManyToMany(mappedBy = "components", fetch = FetchType.LAZY)
+    @ManyToMany(mappedBy = "components", fetch = FetchType.EAGER)
     private List<Draft> drafts;
 
     @OneToOne(fetch = FetchType.EAGER)
