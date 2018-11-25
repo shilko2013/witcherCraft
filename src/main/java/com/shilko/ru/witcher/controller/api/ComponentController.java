@@ -103,6 +103,8 @@ public class ComponentController { //TODO edit methods!!!
                                 @RequestParam("categoryId") long categoryId,
                                 @RequestParam("isAlchemy") boolean isAlchemy,
                                 @RequestParam("image") MultipartFile imageFile) {
+        if (componentService.getComponentByName(name).isPresent())
+            return ResponseEntity.badRequest().body("This component already exists");
         DescriptionComponent descriptionComponent = new DescriptionComponent(description);
         Optional<CategoryComponent> categoryComponent = componentService.getCategoryComponentById(categoryId);
         if (!categoryComponent.isPresent())

@@ -77,4 +77,9 @@ public class ThingServiceImpl implements ThingService {
     public Optional<Thing> getThingById(Long id) {
         return thingCrudRepository.findById(id);
     }
+
+    @Override
+    public Optional<Thing> getThingByName(String name) {
+        return thingCrudRepository.findByName(name);
+    }
 }

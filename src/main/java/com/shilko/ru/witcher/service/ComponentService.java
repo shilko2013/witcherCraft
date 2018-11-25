@@ -23,4 +23,6 @@ public interface ComponentService {
     Optional<CategoryComponent> getCategoryComponentByName(String name);
 
     Optional<Component> getComponentById(Long id);
+
+    Optional<Component> getComponentByName(String name);
 }

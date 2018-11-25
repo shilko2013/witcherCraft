@@ -72,4 +72,9 @@ public class ComponentServiceImpl implements ComponentService {
     public Optional<Component> getComponentById(Long id) {
         return componentCrudRepository.findById(id);
     }
+
+    @Override
+    public Optional<Component> getComponentByName(String name) {
+        return componentCrudRepository.findByName(name);
+    }
 }

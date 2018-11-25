@@ -114,6 +114,8 @@ public class ThingController {
                             @RequestParam("effects") List<String> effects,
                             @RequestParam("effectsNames") List<String> effectsNames,
                             @RequestParam("image") MultipartFile imageFile) {
+        if (thingService.getThingByName(name).isPresent())
+            return ResponseEntity.badRequest().body("This thing already exists");
         DescriptionThing descriptionThing = new DescriptionThing(description);
         Optional<TypeThing> typeThing = thingService.getTypeThingById(typeId);
         if (!typeThing.isPresent())

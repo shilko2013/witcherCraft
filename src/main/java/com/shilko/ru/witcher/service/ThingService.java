@@ -20,4 +20,6 @@ public interface ThingService {
     Optional<TypeThing> getTypeThingByName(String name);
 
     Optional<Thing> getThingById(Long id);
+
+    Optional<Thing> getThingByName(String name);
 }
