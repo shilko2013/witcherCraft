@@ -23,11 +23,10 @@ public class EffectThing {
      * Instantiates a new Effect thing.
      *
      * @param name        the name
-     * @param description the description
      * @param information the information
      * @param thing       the thing
      */
-    public EffectThing(@NotNull String name, @NotNull String description, String information, @NotNull Thing thing) {
+    public EffectThing(@NotNull String name, String information, Thing thing) {
         this.name = name;
         this.information = information;
         this.thing = thing;
@@ -45,7 +44,7 @@ public class EffectThing {
     private String information;
 
     @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "thing_id", nullable = false)
+    @JoinColumn(name = "thing_id")
     private Thing thing;
 
     /**

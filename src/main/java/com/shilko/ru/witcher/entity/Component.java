@@ -1,6 +1,8 @@
 package com.shilko.ru.witcher.entity;
 
 import lombok.Data;
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
@@ -72,6 +74,7 @@ public class Component {
 
     @Column(nullable = false)
     @ManyToMany(mappedBy = "components", fetch = FetchType.EAGER)
+    @Fetch(value = FetchMode.SUBSELECT)
     private List<Draft> drafts;
 
     @OneToOne(fetch = FetchType.EAGER)

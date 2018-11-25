@@ -36,8 +36,18 @@ public class IndexController {
         return "addcategory";
     }
 
+    @RequestMapping(value = "/api/thing/addtype", method = RequestMethod.GET)
+    public String addTypeThingPage() {
+        return "addtype";
+    }
+
     @RequestMapping(value = "/api/component/add", method = RequestMethod.GET)
     public String addComponentPage() {
         return "addcomponent";
+    }
+
+    @RequestMapping(value = "/api/thing/add", method = RequestMethod.GET)
+    public String addThingPage() {
+        return "addthing";
     }
 }

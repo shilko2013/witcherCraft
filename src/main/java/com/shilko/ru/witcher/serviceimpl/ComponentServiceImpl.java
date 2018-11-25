@@ -52,7 +52,8 @@ public class ComponentServiceImpl implements ComponentService {
     public void saveComponent(Component component, Image image, DescriptionComponent descriptionComponent) {
         descriptionComponentCrudRepository.save(descriptionComponent);
         component.setDescriptionComponent(descriptionComponent);
-        imageCrudRepository.save(image);
+        if (image != null)
+            imageCrudRepository.save(image);
         component.setImage(image);
         componentCrudRepository.save(component);
     }

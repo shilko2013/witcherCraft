@@ -21,7 +21,7 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/component")
-public class ComponentController {
+public class ComponentController { //TODO edit methods!!!
 
     @Autowired
     private ComponentService componentService;
@@ -39,6 +39,7 @@ public class ComponentController {
         components.forEach(component -> {
             component.setImage(null);
             component.getDescriptionComponent().setComponent(null);
+            component.setDrafts(null);
         });
         return ResponseEntity.ok(new Gson().toJson(components));
     }
@@ -59,6 +60,10 @@ public class ComponentController {
         }
         component.get().setImage(null);
         component.get().getDescriptionComponent().setComponent(null);
+        component.get().getDrafts().forEach(draft -> {
+            draft.setThing(null);
+            draft.setComponents(null);
+        });
         return ResponseEntity.ok(new Gson().toJson(component.get()));
     }
 
@@ -104,7 +109,7 @@ public class ComponentController {
             return ResponseEntity.badRequest().body("Illegal category id");
         Image image = new Image();
         String[] split;
-        if (imageFile == null)
+        if (imageFile == null || imageFile.getSize() == 0)
             image = null;
         else {
             if (imageFile.getSize() > MAX_FILE_SIZE)

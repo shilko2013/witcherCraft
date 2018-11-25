@@ -1,8 +1,11 @@
 package com.shilko.ru.witcher.entity;
 
 import lombok.Data;
+import org.apache.commons.codec.binary.Base64;
 import org.hibernate.annotations.Type;
 import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.persistence.*;
 
@@ -35,8 +38,11 @@ public class Image {
     @Column(nullable = false)
     private String picture;
 
-    @OneToOne(mappedBy = "image", fetch = FetchType.EAGER, cascade=CascadeType.ALL)
+    @OneToOne(mappedBy = "image", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     private Component component;
+
+    @OneToOne(mappedBy = "image", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    private Thing thing;
 
     public Image() {
     }
@@ -45,6 +51,14 @@ public class Image {
         this.type = type;
         this.picture = picture;
         this.component = component;
+    }
+
+    public Thing getThing() {
+        return thing;
+    }
+
+    public void setThing(Thing thing) {
+        this.thing = thing;
     }
 
     public Long getId() {

@@ -1,6 +1,8 @@
 package com.shilko.ru.witcher.entity;
 
 import lombok.Data;
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
@@ -69,11 +71,12 @@ public class Thing implements Serializable {
     private DescriptionThing descriptionThing;
 
     @Column(nullable = false)
-    @OneToMany(mappedBy = "thing", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "thing", fetch = FetchType.EAGER)
     private List<EffectThing> effects;
 
     @Column(nullable = false)
-    @OneToMany(mappedBy = "thing", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "thing", fetch = FetchType.EAGER)
+    @Fetch(value = FetchMode.SUBSELECT)
     private List<Draft> drafts;
 
     @Column(nullable = false)
@@ -82,6 +85,14 @@ public class Thing implements Serializable {
     @OneToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "image_id", nullable = true)
     private Image image;
+
+    public Image getImage() {
+        return image;
+    }
+
+    public void setImage(Image image) {
+        this.image = image;
+    }
 
     public boolean isAlchemy() {
         return isAlchemy;

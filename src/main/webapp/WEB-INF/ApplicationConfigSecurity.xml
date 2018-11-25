@@ -10,8 +10,7 @@
     <http auto-config="true">
         <intercept-url pattern="/" access="hasAuthority('USER_STATUS_READER') or hasAuthority('USER_STATUS_ADMIN') or hasAuthority('USER_STATUS_EDITOR')"/>
         <intercept-url pattern="/welcome" access="hasAuthority('USER_STATUS_READER') or hasAuthority('USER_STATUS_ADMIN') or hasAuthority('USER_STATUS_EDITOR')"/>
-        <intercept-url pattern="/api/admin/*" access="hasAuthority('USER_STATUS_ADMIN')"/>
-        <intercept-url pattern="/api/**" access="hasAuthority('USER_STATUS_READER') or hasAuthority('USER_STATUS_ADMIN') or hasAuthority('USER_STATUS_EDITOR')"/>
+        <intercept-url pattern="/api/**" access="hasAuthority('USER_STATUS_ADMIN')"/>
 
         <form-login login-page="/login" default-target-url="/welcome" authentication-failure-url="/login?error"
                     username-parameter="username" password-parameter="password"/>

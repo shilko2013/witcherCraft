@@ -13,7 +13,7 @@ public interface ThingService {
 
     Optional<TypeThing> getTypeThingById(Long id);
 
-    void saveThing(Thing thing, DescriptionThing descriptionThing, List<EffectThing> effectThings, Image image);
+    void saveThing(Thing thing, DescriptionThing descriptionThing, List<String> effectThings, List<String> effectNames, Image image);
 
     void saveTypeThing(TypeThing typeThing);
 
