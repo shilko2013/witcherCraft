@@ -21,15 +21,13 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/component")
-public class ComponentController { //TODO edit methods!!!
+public class ComponentController {
 
     @Autowired
     private ComponentService componentService;
 
     @Value("classpath:standard_picture.png")
     Resource standardImage;
-
-    private final static long MAX_FILE_SIZE = 0xA00000; //10Mb
 
     @RequestMapping(value = "/components/{isAlchemy}", method = RequestMethod.GET)
     public
@@ -105,39 +103,21 @@ public class ComponentController { //TODO edit methods!!!
                                 @RequestParam("image") MultipartFile imageFile) {
         if (componentService.getComponentByName(name).isPresent())
             return ResponseEntity.badRequest().body("This component already exists");
-        DescriptionComponent descriptionComponent = new DescriptionComponent(description);
-        Optional<CategoryComponent> categoryComponent = componentService.getCategoryComponentById(categoryId);
-        if (!categoryComponent.isPresent())
-            return ResponseEntity.badRequest().body("Illegal category id");
-        Image image = new Image();
-        String[] split;
-        if (imageFile == null || imageFile.getSize() == 0)
-            image = null;
-        else {
-            if (imageFile.getSize() > MAX_FILE_SIZE)
-                return ResponseEntity.badRequest().body("So big image file, maximum size is " + (MAX_FILE_SIZE >> 20) + "Mb");
-            try {
-                split = imageFile.getOriginalFilename().split("\\.");
-            } catch (Exception e) {
-                return ResponseEntity.badRequest().body("Illegal image file");
-            }
-            String imageType = split[split.length - 1];
-            image.setType(imageType);
-            if (Image.getMediaType(image) == MediaType.ALL)
-                return ResponseEntity.badRequest().body("Illegal image file extension. Server supports png, jpeg, jpg and gif images.");
-            try {
-                image.setPicture(Base64.encodeBase64String(imageFile.getBytes()));
-            } catch (Exception e) {
-                return ResponseEntity.badRequest().body("Illegal image file");
-            }
-        }
-        Component component = new Component(name, price, weight, descriptionComponent, categoryComponent.get(), isAlchemy, image);
-        try {
-            componentService.saveComponent(component, image, descriptionComponent);
-        } catch (Exception e) {
-            return ResponseEntity.badRequest().body("Illegal set of arguments");
-        }
-        return ResponseEntity.ok("Successfully added");
+        return componentService.addComponent(name, price, weight, description, categoryId, isAlchemy, imageFile);
+    }
+
+    @Transactional
+    @RequestMapping(value = "/edit", method = RequestMethod.POST)
+    public
+    @ResponseBody
+    ResponseEntity editComponent(@RequestParam("name") String name,
+                                 @RequestParam("price") int price,
+                                 @RequestParam("weight") double weight,
+                                 @RequestParam("description") String description,
+                                 @RequestParam("categoryId") long categoryId,
+                                 @RequestParam("isAlchemy") boolean isAlchemy,
+                                 @RequestParam("image") MultipartFile imageFile) {
+        return componentService.addComponent(name, price, weight, description, categoryId, isAlchemy, imageFile);
     }
 
     @Transactional
@@ -146,15 +126,15 @@ public class ComponentController { //TODO edit methods!!!
     @ResponseBody
     ResponseEntity addCategoryComponent(@RequestParam("name") String name,
                                         @RequestParam("information") String information) {
-        if (name == null || information == null)
-            return ResponseEntity.badRequest().body("Illegal set of arguments");
-        try {
-            if (componentService.getCategoryComponentByName(name).isPresent())
-                return ResponseEntity.badRequest().body("This category already exists");
-            componentService.saveCategoryComponent(new CategoryComponent(name, information));
-        } catch (Exception e) {
-            return ResponseEntity.badRequest().body("Illegal set of arguments");
-        }
-        return ResponseEntity.ok("Successfully added");
+        return componentService.addCategoryComponent(name, information, true);
+    }
+
+    @Transactional
+    @RequestMapping(value = "/editcategory", method = RequestMethod.POST)
+    public
+    @ResponseBody
+    ResponseEntity editCategoryComponent(@RequestParam("name") String name,
+                                        @RequestParam("information") String information) {
+        return componentService.addCategoryComponent(name, information, false);
     }
 }

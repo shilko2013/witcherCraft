@@ -116,39 +116,23 @@ public class ThingController {
                             @RequestParam("image") MultipartFile imageFile) {
         if (thingService.getThingByName(name).isPresent())
             return ResponseEntity.badRequest().body("This thing already exists");
-        DescriptionThing descriptionThing = new DescriptionThing(description);
-        Optional<TypeThing> typeThing = thingService.getTypeThingById(typeId);
-        if (!typeThing.isPresent())
-            return ResponseEntity.badRequest().body("Illegal category id");
-        Image image = new Image();
-        String[] split;
-        if (imageFile == null || imageFile.getSize() == 0)
-            image = null;
-        else {
-            if (imageFile.getSize() > MAX_FILE_SIZE)
-                return ResponseEntity.badRequest().body("So big image file, maximum size is " + (MAX_FILE_SIZE >> 20) + "Mb");
-            try {
-                split = imageFile.getOriginalFilename().split("\\.");
-            } catch (Exception e) {
-                return ResponseEntity.badRequest().body("Illegal image file");
-            }
-            String imageType = split[split.length - 1];
-            image.setType(imageType);
-            if (Image.getMediaType(image) == MediaType.ALL)
-                return ResponseEntity.badRequest().body("Illegal image file extension. Server supports png, jpeg, jpg and gif images.");
-            try {
-                image.setPicture(Base64.encodeBase64String(imageFile.getBytes()));
-            } catch (Exception e) {
-                return ResponseEntity.badRequest().body("Illegal image file");
-            }
-        }
-        Thing thing = new Thing(name, price, weight, typeThing.get(), descriptionThing, isAlchemy, image);
-        try {
-            thingService.saveThing(thing, descriptionThing, effects, effectsNames, image);
-        } catch (Exception e) {
-            return ResponseEntity.badRequest().body("Illegal set of arguments");
-        }
-        return ResponseEntity.ok("Successfully added");
+        return thingService.addThing(name, price, weight, description, typeId, isAlchemy, effects, effectsNames, imageFile);
+    }
+
+    @Transactional
+    @RequestMapping(value = "/edit", method = RequestMethod.POST)
+    public
+    @ResponseBody
+    ResponseEntity editThing(@RequestParam("name") String name,
+                            @RequestParam("price") int price,
+                            @RequestParam("weight") double weight,
+                            @RequestParam("description") String description,
+                            @RequestParam("typeId") long typeId,
+                            @RequestParam("isAlchemy") boolean isAlchemy,
+                            @RequestParam("effects") List<String> effects,
+                            @RequestParam("effectsNames") List<String> effectsNames,
+                            @RequestParam("image") MultipartFile imageFile) {
+        return thingService.addThing(name, price, weight, description, typeId, isAlchemy, effects, effectsNames, imageFile);
     }
 
     @Transactional
@@ -157,15 +141,15 @@ public class ThingController {
     @ResponseBody
     ResponseEntity addTypeThing(@RequestParam("name") String name,
                                 @RequestParam("information") String information) {
-        if (name == null || information == null)
-            return ResponseEntity.badRequest().body("Illegal set of arguments");
-        try {
-            if (thingService.getTypeThingByName(name).isPresent())
-                return ResponseEntity.badRequest().body("This category already exists");
-            thingService.saveTypeThing(new TypeThing(name, information));
-        } catch (Exception e) {
-            return ResponseEntity.badRequest().body("Illegal set of arguments");
-        }
-        return ResponseEntity.ok("Successfully added");
+        return thingService.addTypeThing(name,information,true);
+    }
+
+    @Transactional
+    @RequestMapping(value = "/edittype", method = RequestMethod.POST)
+    public
+    @ResponseBody
+    ResponseEntity editTypeThing(@RequestParam("name") String name,
+                                @RequestParam("information") String information) {
+        return thingService.addTypeThing(name,information,false);
     }
 }

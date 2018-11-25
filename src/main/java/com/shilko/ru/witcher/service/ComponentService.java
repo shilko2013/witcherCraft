@@ -4,6 +4,8 @@ import com.shilko.ru.witcher.entity.CategoryComponent;
 import com.shilko.ru.witcher.entity.Component;
 import com.shilko.ru.witcher.entity.DescriptionComponent;
 import com.shilko.ru.witcher.entity.Image;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
 import java.util.Optional;
@@ -25,4 +27,14 @@ public interface ComponentService {
     Optional<Component> getComponentById(Long id);
 
     Optional<Component> getComponentByName(String name);
+
+    ResponseEntity<String> addComponent(String name,
+                                        int price,
+                                        double weight,
+                                        String description,
+                                        long categoryId,
+                                        boolean isAlchemy,
+                                        MultipartFile imageFile);
+
+    ResponseEntity<String> addCategoryComponent(String name, String information, boolean add);
 }
