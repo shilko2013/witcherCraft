@@ -152,4 +152,30 @@ public class ThingController {
                                 @RequestParam("information") String information) {
         return thingService.addTypeThing(name,information,false);
     }
+
+    @Transactional
+    @RequestMapping(value = "/deletetype/{strId}", method = RequestMethod.POST)
+    public
+    @ResponseBody
+    ResponseEntity deleteCategoryComponent(@PathVariable String strId) {
+        try {
+            thingService.deleteTypeThing(Long.parseLong(strId));
+            return ResponseEntity.ok("Type deleted");
+        } catch (Exception e) {
+            return ResponseEntity.badRequest().body("Illegal id");
+        }
+    }
+
+    @Transactional
+    @RequestMapping(value = "/delete/{strId}", method = RequestMethod.POST)
+    public
+    @ResponseBody
+    ResponseEntity deleteComponent(@PathVariable String strId) {
+        try {
+            thingService.deleteThing(Long.parseLong(strId));
+            return ResponseEntity.ok("Thing deleted");
+        } catch (Exception e) {
+            return ResponseEntity.badRequest().body("Illegal id");
+        }
+    }
 }

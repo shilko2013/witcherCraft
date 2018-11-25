@@ -37,4 +37,8 @@ public interface ComponentService {
                                         MultipartFile imageFile);
 
     ResponseEntity<String> addCategoryComponent(String name, String information, boolean add);
+
+    void deleteCategoryComponent(Long id);
+
+    void deleteComponent(Long id);
 }

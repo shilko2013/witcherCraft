@@ -137,4 +137,30 @@ public class ComponentController {
                                         @RequestParam("information") String information) {
         return componentService.addCategoryComponent(name, information, false);
     }
+
+    @Transactional
+    @RequestMapping(value = "/deletecategory/{strId}", method = RequestMethod.POST)
+    public
+    @ResponseBody
+    ResponseEntity deleteCategoryComponent(@PathVariable String strId) {
+        try {
+            componentService.deleteCategoryComponent(Long.parseLong(strId));
+            return ResponseEntity.ok("Category deleted");
+        } catch (Exception e) {
+            return ResponseEntity.badRequest().body("Illegal id");
+        }
+    }
+
+    @Transactional
+    @RequestMapping(value = "/delete/{strId}", method = RequestMethod.POST)
+    public
+    @ResponseBody
+    ResponseEntity deleteComponent(@PathVariable String strId) {
+        try {
+            componentService.deleteComponent(Long.parseLong(strId));
+            return ResponseEntity.ok("Component deleted");
+        } catch (Exception e) {
+            return ResponseEntity.badRequest().body("Illegal id");
+        }
+    }
 }

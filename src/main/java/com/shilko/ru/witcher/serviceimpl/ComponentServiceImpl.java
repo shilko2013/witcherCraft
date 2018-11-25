@@ -142,4 +142,16 @@ public class ComponentServiceImpl implements ComponentService {
         }
         return ResponseEntity.ok("Successfully added");
     }
+
+    @Override
+    public void deleteCategoryComponent(Long id) {
+        categoryComponentCrudRepository.deleteById(id);
+    }
+
+    @Override
+    public void deleteComponent(Long id) {
+        componentCrudRepository.deleteById(id);
+    }
+
+
 }
