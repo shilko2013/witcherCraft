@@ -22,11 +22,6 @@ public interface DraftCrudRepository extends CrudRepository<Draft, Long> {
     @Override
     void deleteById(Long id);
 
-    @Override
-    List<Draft> findAll();
-
-    List<Draft> findAllByIsAlchemy(boolean alchemy);
-
     /**
      * Find all by components contains list.
      *
@@ -42,4 +37,6 @@ public interface DraftCrudRepository extends CrudRepository<Draft, Long> {
      * @return the list
      */
     List<Draft> findAllByThing(Thing thing);
+
+    List<Draft> findAllByThing_IsAlchemy(boolean isAlchemy);
 }

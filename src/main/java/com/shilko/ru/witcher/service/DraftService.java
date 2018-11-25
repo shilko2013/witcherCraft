@@ -13,7 +13,7 @@ public interface DraftService {
 
     Optional<Image> getImageByIdDraft(Long id);
 
-    void saveDraft(Draft draft, Thing thing);
+    void saveDraft(String information, String thingId, List<Long> componentId);
 
     Optional<Draft> getDraftById(Long id);
 }

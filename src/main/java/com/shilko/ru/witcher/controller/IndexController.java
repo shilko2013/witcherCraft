@@ -50,4 +50,9 @@ public class IndexController {
     public String addThingPage() {
         return "addthing";
     }
+
+    @RequestMapping(value = "/api/draft/add", method = RequestMethod.GET)
+    public String addDraftPage() {
+        return "adddraft";
+    }
 }

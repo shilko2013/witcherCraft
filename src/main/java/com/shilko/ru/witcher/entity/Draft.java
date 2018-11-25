@@ -27,11 +27,10 @@ public class Draft implements Serializable {
      * @param information the information
      * @param components  the components
      */
-    public Draft(@NotNull Thing thing, String information, @NotNull List<Component> components, @NotNull boolean isAlchemy) {
+    public Draft(@NotNull Thing thing, String information, @NotNull List<Component> components) {
         this.thing = thing;
         this.information = information;
         this.components = components;
-        this.isAlchemy = isAlchemy;
     }
 
     @Id
@@ -46,24 +45,13 @@ public class Draft implements Serializable {
     private String information;
 
     @Column(nullable = false)
-    @ManyToMany(fetch = FetchType.LAZY)
+    @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(
             name = "draft_component",
             joinColumns = { @JoinColumn(name = "draft_id")},
             inverseJoinColumns = { @JoinColumn(name = "component_id")}
     )
     private List<Component> components;
-
-    @Column(nullable = false)
-    private boolean isAlchemy;
-
-    public boolean isAlchemy() {
-        return isAlchemy;
-    }
-
-    public void setAlchemy(boolean alchemy) {
-        isAlchemy = alchemy;
-    }
 
     /**
      * Gets id.
