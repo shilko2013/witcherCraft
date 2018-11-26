@@ -46,8 +46,10 @@ public class AdminController {
             Pair<Boolean, Boolean> setRoleSuccess = adminService.setRole(username, action);
             if (!setRoleSuccess.getFirst())
                 return ResponseEntity.badRequest().body("Username is incorrect or error editing role");
-            else
+            else if (setRoleSuccess.getSecond())
                 return ResponseEntity.ok("Mail sent");
+            else
+                return ResponseEntity.ok("Mail didn't send");
         }
         return ResponseEntity.badRequest().body("Illegal action");
     }
