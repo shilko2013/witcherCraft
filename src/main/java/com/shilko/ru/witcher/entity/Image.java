@@ -11,7 +11,7 @@ import javax.persistence.*;
 
 @Entity
 @Data
-public class Image {
+public class Image { //TODO edit double code
 
     public static MediaType getMediaType(Image image) {
         switch (image.type) {

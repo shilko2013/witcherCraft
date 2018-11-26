@@ -132,7 +132,7 @@ public class ThingController {
                             @RequestParam("effects") List<String> effects,
                             @RequestParam("effectsNames") List<String> effectsNames,
                             @RequestParam("image") MultipartFile imageFile) {
-        return thingService.addThing(name, price, weight, description, typeId, isAlchemy, effects, effectsNames, imageFile);
+        return thingService.editThing(name, price, weight, description, typeId, isAlchemy, effects, effectsNames, imageFile);
     }
 
     @Transactional
@@ -141,7 +141,7 @@ public class ThingController {
     @ResponseBody
     ResponseEntity addTypeThing(@RequestParam("name") String name,
                                 @RequestParam("information") String information) {
-        return thingService.addTypeThing(name,information,true);
+        return thingService.addTypeThing(name,information);
     }
 
     @Transactional
@@ -150,7 +150,7 @@ public class ThingController {
     @ResponseBody
     ResponseEntity editTypeThing(@RequestParam("name") String name,
                                 @RequestParam("information") String information) {
-        return thingService.addTypeThing(name,information,false);
+        return thingService.editTypeThing(name,information);
     }
 
     @Transactional

@@ -35,7 +35,19 @@ public interface ThingService {
                             List<String> effectsNames,
                             MultipartFile imageFile);
 
-    ResponseEntity addTypeThing(String name, String information, boolean add);
+    ResponseEntity addTypeThing(String name, String information);
+
+    ResponseEntity editThing(String name,
+                            int price,
+                            double weight,
+                            String description,
+                            long typeId,
+                            boolean isAlchemy,
+                            List<String> effects,
+                            List<String> effectsNames,
+                            MultipartFile imageFile);
+
+    ResponseEntity editTypeThing(String name, String information);
 
     ResponseEntity<String> deleteTypeThing(Long id);
 

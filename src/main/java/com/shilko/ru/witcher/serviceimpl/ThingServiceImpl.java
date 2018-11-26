@@ -139,11 +139,11 @@ public class ThingServiceImpl implements ThingService {
     }
 
     @Override
-    public ResponseEntity addTypeThing(String name, String information, boolean add) {
+    public ResponseEntity addTypeThing(String name, String information) {
         if (name == null || information == null)
             return ResponseEntity.badRequest().body("Illegal set of arguments");
         try {
-            if (add && getTypeThingByName(name).isPresent())
+            if (getTypeThingByName(name).isPresent())
                 return ResponseEntity.badRequest().body("This category already exists");
             saveTypeThing(new TypeThing(name, information));
         } catch (Exception e) {
@@ -167,5 +167,75 @@ public class ThingServiceImpl implements ThingService {
         thing.get().getDrafts().forEach(draftCrudRepository::delete);
         thing.get().getEffects().forEach(effectThingCrudRepository::delete);
         descriptionThingCrudRepository.delete(thing.get().getDescriptionThing());
+    }
+
+    @Override
+    public ResponseEntity editThing(String name,
+                             int price,
+                             double weight,
+                             String description,
+                             long typeId,
+                             boolean isAlchemy,
+                             List<String> effects,
+                             List<String> effectsNames,
+                             MultipartFile imageFile) {
+        try {
+            Thing thing = thingCrudRepository.findByName(name).get();
+            thing.setPrice(price);
+            thing.setWeight(weight);
+            DescriptionThing descriptionThing = descriptionThingCrudRepository.findByThing(thing).get();
+            descriptionThing.setDescription(description);
+            descriptionThingCrudRepository.save(descriptionThing);
+            thing.setTypeThing(typeThingCrudRepository.findById(typeId).get());
+            thing.setAlchemy(isAlchemy);
+            effectThingCrudRepository.findAllByThing(thing).forEach(effectThingCrudRepository::delete);
+            List<EffectThing> effectThings = new ArrayList<>();
+            for (int i = 0; i < effects.size(); ++i)
+                effectThings.add(new EffectThing(effectsNames.get(i), effects.get(i), null));
+            effectThings.forEach(effectThing -> effectThingCrudRepository.save(effectThing));
+            thing.setEffects(effectThings);
+            Image image = new Image();
+            String[] split;
+            if (imageFile == null || imageFile.getSize() == 0)
+                image = null;
+            else {
+                if (imageFile.getSize() > MAX_FILE_SIZE)
+                    return ResponseEntity.badRequest().body("So big image file, maximum size is " + (MAX_FILE_SIZE >> 20) + "Mb");
+                try {
+                    split = imageFile.getOriginalFilename().split("\\.");
+                } catch (Exception e) {
+                    return ResponseEntity.badRequest().body("Illegal image file");
+                }
+                String imageType = split[split.length - 1];
+                image.setType(imageType);
+                if (Image.getMediaType(image) == MediaType.ALL)
+                    return ResponseEntity.badRequest().body("Illegal image file extension. Server supports png, jpeg, jpg and gif images.");
+                try {
+                    image.setPicture(Base64.encodeBase64String(imageFile.getBytes()));
+                } catch (Exception e) {
+                    return ResponseEntity.badRequest().body("Illegal image file");
+                }
+            }
+            thing.getImage().setType(image.getType());
+            thing.getImage().setPicture(image.getPicture());
+            if (image != null)
+                imageCrudRepository.save(image);
+            thingCrudRepository.save(thing);
+        } catch (Exception e) {
+            return ResponseEntity.badRequest().body("Illegal set og arguments");
+        }
+        return ResponseEntity.ok("Successfully edited");
+    }
+
+    @Override
+    public ResponseEntity editTypeThing(String name, String information) {
+        try {
+            TypeThing typeThing = typeThingCrudRepository.findByName(name).get();
+            typeThing.setInformation(information);
+            typeThingCrudRepository.save(typeThing);
+        } catch (Exception e) {
+            return ResponseEntity.badRequest().body("Illegal set of arguments");
+        }
+        return ResponseEntity.ok("Successfully edited");
     }
 }

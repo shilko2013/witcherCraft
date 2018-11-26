@@ -129,18 +129,80 @@ public class ComponentServiceImpl implements ComponentService {
     }
 
     @Override
-    public
-    ResponseEntity<String> addCategoryComponent(String name, String information, boolean add) {
+    public ResponseEntity<String> addCategoryComponent(String name, String information) {
         if (name == null || information == null)
             return ResponseEntity.badRequest().body("Illegal set of arguments");
         try {
-            if (add && getCategoryComponentByName(name).isPresent())
+            if (getCategoryComponentByName(name).isPresent())
                 return ResponseEntity.badRequest().body("This category already exists");
             saveCategoryComponent(new CategoryComponent(name, information));
         } catch (Exception e) {
             return ResponseEntity.badRequest().body("Illegal set of arguments");
         }
         return ResponseEntity.ok("Successfully added");
+    }
+
+    @Override
+    public ResponseEntity<String> editComponent(String name,
+                                                int price,
+                                                double weight,
+                                                String description,
+                                                long categoryId,
+                                                boolean isAlchemy,
+                                                MultipartFile imageFile) {
+        try {
+            Component component = componentCrudRepository.findByName(name).get();
+            DescriptionComponent descriptionComponent = descriptionComponentCrudRepository.findByComponent(component).get();
+            component.setPrice(price);
+            component.setWeight(weight);
+            descriptionComponent.setDescription(description);
+            component.setCategory(categoryComponentCrudRepository.findById(categoryId).get());
+            component.setAlchemy(isAlchemy);
+            Image oldImage = imageCrudRepository.findByComponent(component).get();
+            Image image = new Image();
+            String[] split;
+            if (imageFile == null || imageFile.getSize() == 0)
+                image = null;
+            else {
+                if (imageFile.getSize() > MAX_FILE_SIZE)
+                    return ResponseEntity.badRequest().body("So big image file, maximum size is " + (MAX_FILE_SIZE >> 20) + "Mb");
+                try {
+                    split = imageFile.getOriginalFilename().split("\\.");
+                } catch (Exception e) {
+                    return ResponseEntity.badRequest().body("Illegal image file");
+                }
+                String imageType = split[split.length - 1];
+                image.setType(imageType);
+                if (Image.getMediaType(image) == MediaType.ALL)
+                    return ResponseEntity.badRequest().body("Illegal image file extension. Server supports png, jpeg, jpg and gif images.");
+                try {
+                    image.setPicture(Base64.encodeBase64String(imageFile.getBytes()));
+                } catch (Exception e) {
+                    return ResponseEntity.badRequest().body("Illegal image file");
+                }
+            }
+            oldImage.setType(image.getType());
+            oldImage.setPicture(image.getPicture());
+            descriptionComponentCrudRepository.save(descriptionComponent);
+            if (image != null)
+                imageCrudRepository.save(image);
+            componentCrudRepository.save(component);
+        } catch (Exception e) {
+            return ResponseEntity.badRequest().body("Illegal set of arguments");
+        }
+        return ResponseEntity.ok("Success edit");
+    }
+
+    @Override
+    public ResponseEntity<String> editCategoryComponent(String name, String information) {
+        try {
+            CategoryComponent categoryComponent = categoryComponentCrudRepository.findByName(name).get();
+            categoryComponent.setInformation(information);
+            categoryComponentCrudRepository.save(categoryComponent);
+        } catch (Exception e) {
+            return ResponseEntity.badRequest().body("Illegal set of arguments");
+        }
+        return ResponseEntity.ok("Success edit");
     }
 
     @Override

@@ -36,7 +36,17 @@ public interface ComponentService {
                                         boolean isAlchemy,
                                         MultipartFile imageFile);
 
-    ResponseEntity<String> addCategoryComponent(String name, String information, boolean add);
+    ResponseEntity<String> addCategoryComponent(String name, String information);
+
+    ResponseEntity<String> editComponent(String name,
+                                        int price,
+                                        double weight,
+                                        String description,
+                                        long categoryId,
+                                        boolean isAlchemy,
+                                        MultipartFile imageFile);
+
+    ResponseEntity<String> editCategoryComponent(String name, String information);
 
     ResponseEntity<String> deleteCategoryComponent(Long id);
 

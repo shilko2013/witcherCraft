@@ -117,7 +117,7 @@ public class ComponentController { //TODO edit & delete
                                  @RequestParam("categoryId") long categoryId,
                                  @RequestParam("isAlchemy") boolean isAlchemy,
                                  @RequestParam("image") MultipartFile imageFile) {
-        return componentService.addComponent(name, price, weight, description, categoryId, isAlchemy, imageFile);
+        return componentService.editComponent(name, price, weight, description, categoryId, isAlchemy, imageFile);
     }
 
     @Transactional
@@ -126,7 +126,7 @@ public class ComponentController { //TODO edit & delete
     @ResponseBody
     ResponseEntity addCategoryComponent(@RequestParam("name") String name,
                                         @RequestParam("information") String information) {
-        return componentService.addCategoryComponent(name, information, true);
+        return componentService.addCategoryComponent(name, information);
     }
 
     @Transactional
@@ -135,7 +135,7 @@ public class ComponentController { //TODO edit & delete
     @ResponseBody
     ResponseEntity editCategoryComponent(@RequestParam("name") String name,
                                         @RequestParam("information") String information) {
-        return componentService.addCategoryComponent(name, information, false);
+        return componentService.editCategoryComponent(name, information);
     }
 
     @Transactional
