@@ -36,6 +36,9 @@ public class ThingServiceImpl implements ThingService {
     @Autowired
     private DescriptionThingCrudRepository descriptionThingCrudRepository;
 
+    @Autowired
+    private DraftCrudRepository draftCrudRepository;
+
     @Override
     public List<Thing> getAllThings(boolean isAlchemy) {
         return thingCrudRepository.findAllByIsAlchemy(isAlchemy);
@@ -59,10 +62,10 @@ public class ThingServiceImpl implements ThingService {
     public void saveThing(Thing thing, DescriptionThing descriptionThing, List<String> effects, List<String> effectNames, Image image) {
         List<EffectThing> effectThings = new ArrayList<>();
         for (int i = 0; i < effects.size(); ++i)
-            effectThings.add(new EffectThing(effectNames.get(i), effects.get(i),null));
+            effectThings.add(new EffectThing(effectNames.get(i), effects.get(i), null));
         effectThings.forEach(effectThing -> effectThingCrudRepository.save(effectThing));
         if (image != null)
-        imageCrudRepository.save(image);
+            imageCrudRepository.save(image);
         descriptionThingCrudRepository.save(descriptionThing);
         thing.setDescriptionThing(descriptionThing);
         thing.setEffects(effectThings);
@@ -150,12 +153,19 @@ public class ThingServiceImpl implements ThingService {
     }
 
     @Override
-    public void deleteTypeThing(Long id) {
-        typeThingCrudRepository.deleteById(id);
+    public ResponseEntity<String> deleteTypeThing(Long id) {
+        if (!thingCrudRepository.findAllByTypeThingEquals(typeThingCrudRepository.findById(id).get()).isEmpty())
+            return ResponseEntity.badRequest().body("Can not delete - thing with this category exists");
+        thingCrudRepository.deleteById(id);
+        return ResponseEntity.ok("Type deleted");
     }
 
     @Override
     public void deleteThing(Long id) {
-        typeThingCrudRepository.deleteById(id);
+        Optional<Thing> thing = thingCrudRepository.findById(id);
+        imageCrudRepository.delete(thing.get().getImage());
+        thing.get().getDrafts().forEach(draftCrudRepository::delete);
+        thing.get().getEffects().forEach(effectThingCrudRepository::delete);
+        descriptionThingCrudRepository.delete(thing.get().getDescriptionThing());
     }
 }

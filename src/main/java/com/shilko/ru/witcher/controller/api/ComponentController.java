@@ -21,7 +21,7 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/component")
-public class ComponentController {
+public class ComponentController { //TODO edit & delete
 
     @Autowired
     private ComponentService componentService;
@@ -144,8 +144,7 @@ public class ComponentController {
     @ResponseBody
     ResponseEntity deleteCategoryComponent(@PathVariable String strId) {
         try {
-            componentService.deleteCategoryComponent(Long.parseLong(strId));
-            return ResponseEntity.ok("Category deleted");
+            return componentService.deleteCategoryComponent(Long.parseLong(strId));
         } catch (Exception e) {
             return ResponseEntity.badRequest().body("Illegal id");
         }

@@ -45,4 +45,6 @@ public interface ThingCrudRepository extends CrudRepository<Thing, Long> {
     List<Thing> findAllByTypeThing(TypeThing typeThing);
 
     Optional<Thing> findByName(String name);
+
+    List<Thing> findAllByTypeThingEquals(TypeThing typeThing);
 }

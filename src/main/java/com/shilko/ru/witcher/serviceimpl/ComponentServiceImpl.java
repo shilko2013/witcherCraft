@@ -144,14 +144,19 @@ public class ComponentServiceImpl implements ComponentService {
     }
 
     @Override
-    public void deleteCategoryComponent(Long id) {
+    public ResponseEntity<String> deleteCategoryComponent(Long id) {
+        if (!componentCrudRepository.findAllByCategoryComponentEquals(categoryComponentCrudRepository.findById(id).get()).isEmpty())
+            return ResponseEntity.badRequest().body("Can not delete - component with this category exists");
         categoryComponentCrudRepository.deleteById(id);
+        return ResponseEntity.ok("Category deleted");
     }
 
     @Override
     public void deleteComponent(Long id) {
-        componentCrudRepository.deleteById(id);
+        Optional<Component> component = componentCrudRepository.findById(id);
+        imageCrudRepository.delete(component.get().getImage());
+        descriptionComponentCrudRepository.delete(component.get().getDescriptionComponent());
+        componentCrudRepository.delete(component.get());
     }
-
 
 }

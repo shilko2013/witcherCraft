@@ -37,7 +37,7 @@ public interface ThingService {
 
     ResponseEntity addTypeThing(String name, String information, boolean add);
 
-    void deleteTypeThing(Long id);
+    ResponseEntity<String> deleteTypeThing(Long id);
 
     void deleteThing(Long id);
 }
