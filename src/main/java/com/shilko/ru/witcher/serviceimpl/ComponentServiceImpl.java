@@ -23,7 +23,7 @@ import java.util.Optional;
 @Service
 public class ComponentServiceImpl implements ComponentService {
 
-    private static final long MAX_FILE_SIZE = ApplicationConfigController.getMaxFileSize();
+    private static final long MAX_FILE_SIZE = 0xA00000; //10Mb
 
     @Autowired
     private ComponentCrudRepository componentCrudRepository;

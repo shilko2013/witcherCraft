@@ -10,8 +10,6 @@ public class ApplicationConfigController {
 
     private final static ApplicationContext applicationContext;
 
-    private final static long MAX_FILE_SIZE = 0xA00000; //10Mb
-
     static {
         applicationContext = new ClassPathXmlApplicationContext("src/main/WEB-INF/ApplicationConfig.xml");
     }
@@ -24,6 +22,4 @@ public class ApplicationConfigController {
     public static ApplicationContext getApplicationContext() {
         return applicationContext;
     }
-
-    public static  long getMaxFileSize() {return MAX_FILE_SIZE;}
 }
