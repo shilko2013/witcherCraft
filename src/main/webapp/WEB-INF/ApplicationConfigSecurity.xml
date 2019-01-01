@@ -12,7 +12,8 @@
         <intercept-url pattern="/api/admin/**" access="hasAuthority('USER_STATUS_ADMIN')"/>
         <intercept-url pattern="/api/**" access="hasAuthority('USER_STATUS_ADMIN') or hasAuthority('USER_STATUS_EDITOR')"/>
 
-        <form-login authentication-failure-handler-ref="myFailureHandler"/>
+        <form-login authentication-failure-handler-ref="myFailureHandler"
+        authentication-success-handler-ref="mySuccessHandler"/>
 
         <logout />
 
@@ -29,6 +30,9 @@
                 class="org.rest.security.MySavedRequestAwareAuthenticationSuccessHandler"/>-->
     <beans:bean id="myFailureHandler" class=
             "org.springframework.security.web.authentication.SimpleUrlAuthenticationFailureHandler"/>
+
+    <beans:bean id="mySuccessHandler" class=
+            "com.shilko.ru.witcher.config.AuthenticationSuccessHandler"/>
 
     <authentication-manager alias="authenticationManager">
         <authentication-provider user-service-ref="userDetailsServiceImpl">
