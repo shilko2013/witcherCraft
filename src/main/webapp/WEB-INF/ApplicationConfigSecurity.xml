@@ -7,15 +7,14 @@
 		http://www.springframework.org/schema/security
 		http://www.springframework.org/schema/security/spring-security.xsd">
 
-    <http auto-config="true">
+    <http entry-point-ref="restAuthenticationEntryPoint" auto-config="true">
         <intercept-url pattern="/" access="hasAuthority('USER_STATUS_READER') or hasAuthority('USER_STATUS_ADMIN') or hasAuthority('USER_STATUS_EDITOR')"/>
         <intercept-url pattern="/welcome" access="hasAuthority('USER_STATUS_READER') or hasAuthority('USER_STATUS_ADMIN') or hasAuthority('USER_STATUS_EDITOR')"/>
         <intercept-url pattern="/api/**" access="hasAuthority('USER_STATUS_ADMIN')"/>
 
-        <form-login login-page="/login" default-target-url="/welcome" authentication-failure-url="/login?error"
-                    username-parameter="username" password-parameter="password"/>
+        <form-login authentication-failure-handler-ref="myFailureHandler"/>
 
-        <logout logout-success-url="/login?logout"/>
+        <logout />
 
         <csrf disabled="true"/>
 
@@ -23,6 +22,13 @@
             <concurrency-control session-registry-ref="sessionRegistry"/>
         </session-management>
     </http>
+
+    <beans:bean id="restAuthenticationEntryPoint" class="com.shilko.ru.witcher.config.RestAuthenticationEntryPoint" />
+
+    <!--<beans:bean id="mySuccessHandler"
+                class="org.rest.security.MySavedRequestAwareAuthenticationSuccessHandler"/>-->
+    <beans:bean id="myFailureHandler" class=
+            "org.springframework.security.web.authentication.SimpleUrlAuthenticationFailureHandler"/>
 
     <authentication-manager alias="authenticationManager">
         <authentication-provider user-service-ref="userDetailsServiceImpl">
