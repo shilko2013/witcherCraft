@@ -3,6 +3,7 @@ package com.shilko.ru.witcher.config;
 import com.google.gson.Gson;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.web.header.Header;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.Cookie;
@@ -15,6 +16,8 @@ public class AuthenticationSuccessHandler implements org.springframework.securit
     public void onAuthenticationSuccess(HttpServletRequest httpServletRequest,
                                         HttpServletResponse httpServletResponse,
                                         Authentication authentication) throws IOException, ServletException {
-        httpServletResponse.addCookie(new Cookie("role",authentication.getAuthorities().iterator().next().getAuthority()));
+        //httpServletResponse.addHeader("Access-Control-Expose-Headers", "Access-Control-Allow-Origin, Role");
+        //httpServletResponse.addHeader("Access-Control-Allow-Origin", "*");
+        httpServletResponse.addHeader("Role", authentication.getAuthorities().iterator().next().getAuthority());
     }
 }
