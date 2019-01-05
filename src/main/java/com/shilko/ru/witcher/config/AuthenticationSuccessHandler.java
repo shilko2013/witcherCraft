@@ -16,7 +16,7 @@ public class AuthenticationSuccessHandler implements org.springframework.securit
     public void onAuthenticationSuccess(HttpServletRequest httpServletRequest,
                                         HttpServletResponse httpServletResponse,
                                         Authentication authentication) throws IOException, ServletException {
-        //httpServletResponse.addHeader("Access-Control-Expose-Headers", "Access-Control-Allow-Origin, Role");
+        httpServletResponse.addHeader("Access-Control-Expose-Headers", "Role");
         //httpServletResponse.addHeader("Access-Control-Allow-Origin", "*");
         httpServletResponse.addHeader("Role", authentication.getAuthorities().iterator().next().getAuthority());
     }
