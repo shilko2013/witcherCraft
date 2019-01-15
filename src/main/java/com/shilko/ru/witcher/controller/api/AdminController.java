@@ -1,7 +1,5 @@
 package com.shilko.ru.witcher.controller.api;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
 import com.shilko.ru.witcher.entity.Users;
 import com.shilko.ru.witcher.service.AdminService;
 import com.shilko.ru.witcher.service.NotificationMailService;
@@ -28,7 +26,7 @@ public class AdminController {
         users.forEach(user -> {
             user.setPassword(null);
         });
-        return ResponseEntity.ok(new Gson().toJson(users));
+        return ResponseEntity.ok(users);
     }
 
     @RequestMapping(value = "/{username}/{action}", method = RequestMethod.GET)

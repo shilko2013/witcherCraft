@@ -1,6 +1,5 @@
 package com.shilko.ru.witcher.controller.api;
 
-import com.google.gson.Gson;
 import com.shilko.ru.witcher.entity.*;
 import com.shilko.ru.witcher.service.ComponentService;
 import org.apache.commons.codec.binary.Base64;
@@ -20,7 +19,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/api/component")
+@RequestMapping("/component")
 public class ComponentController { //TODO edit & delete
 
     @Autowired
@@ -39,7 +38,7 @@ public class ComponentController { //TODO edit & delete
             component.getDescriptionComponent().setComponent(null);
             component.setDrafts(null);
         });
-        return ResponseEntity.ok(new Gson().toJson(components));
+        return ResponseEntity.ok(components);
     }
 
     @RequestMapping(value = "/{strId}", method = RequestMethod.GET)
@@ -59,10 +58,12 @@ public class ComponentController { //TODO edit & delete
         component.get().setImage(null);
         component.get().getDescriptionComponent().setComponent(null);
         component.get().getDrafts().forEach(draft -> {
-            draft.setThing(null);
+            Thing thing = new Thing();
+            thing.setName(draft.getThing().getName());
+            draft.setThing(thing);
             draft.setComponents(null);
         });
-        return ResponseEntity.ok(new Gson().toJson(component.get()));
+        return ResponseEntity.ok(component.get());
     }
 
     @Transactional
@@ -91,7 +92,7 @@ public class ComponentController { //TODO edit & delete
     }
 
     @Transactional
-    @RequestMapping(value = "/add", method = RequestMethod.POST)
+    @RequestMapping(value = "/api/add", method = RequestMethod.POST)
     public
     @ResponseBody
     ResponseEntity addComponent(@RequestParam("name") String name,
@@ -100,28 +101,27 @@ public class ComponentController { //TODO edit & delete
                                 @RequestParam("description") String description,
                                 @RequestParam("categoryId") long categoryId,
                                 @RequestParam("isAlchemy") boolean isAlchemy,
-                                @RequestParam("image") MultipartFile imageFile) {
+                                @RequestParam(value="image", required=false) MultipartFile imageFile) {
         if (componentService.getComponentByName(name).isPresent())
             return ResponseEntity.badRequest().body("This component already exists");
         return componentService.addComponent(name, price, weight, description, categoryId, isAlchemy, imageFile);
     }
 
     @Transactional
-    @RequestMapping(value = "/edit", method = RequestMethod.POST)
+    @RequestMapping(value = "/api/edit", method = RequestMethod.POST)
     public
     @ResponseBody
     ResponseEntity editComponent(@RequestParam("name") String name,
                                  @RequestParam("price") int price,
                                  @RequestParam("weight") double weight,
                                  @RequestParam("description") String description,
-                                 @RequestParam("categoryId") long categoryId,
-                                 @RequestParam("isAlchemy") boolean isAlchemy,
-                                 @RequestParam("image") MultipartFile imageFile) {
-        return componentService.editComponent(name, price, weight, description, categoryId, isAlchemy, imageFile);
+                                 @RequestParam("category") String category,
+                                 @RequestParam(value="image", required=false) MultipartFile imageFile) {
+        return componentService.editComponent(name, price, weight, description, category, imageFile);
     }
 
     @Transactional
-    @RequestMapping(value = "/addcategory", method = RequestMethod.POST)
+    @RequestMapping(value = "/api/addcategory", method = RequestMethod.POST)
     public
     @ResponseBody
     ResponseEntity addCategoryComponent(@RequestParam("name") String name,
@@ -130,7 +130,7 @@ public class ComponentController { //TODO edit & delete
     }
 
     @Transactional
-    @RequestMapping(value = "/editcategory", method = RequestMethod.POST)
+    @RequestMapping(value = "/api/editcategory", method = RequestMethod.POST)
     public
     @ResponseBody
     ResponseEntity editCategoryComponent(@RequestParam("name") String name,
@@ -139,7 +139,7 @@ public class ComponentController { //TODO edit & delete
     }
 
     @Transactional
-    @RequestMapping(value = "/deletecategory/{strId}", method = RequestMethod.POST)
+    @RequestMapping(value = "/api/deletecategory/{strId}", method = RequestMethod.POST)
     public
     @ResponseBody
     ResponseEntity deleteCategoryComponent(@PathVariable String strId) {
@@ -151,7 +151,7 @@ public class ComponentController { //TODO edit & delete
     }
 
     @Transactional
-    @RequestMapping(value = "/delete/{strId}", method = RequestMethod.POST)
+    @RequestMapping(value = "/api/delete/{strId}", method = RequestMethod.POST)
     public
     @ResponseBody
     ResponseEntity deleteComponent(@PathVariable String strId) {

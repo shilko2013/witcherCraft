@@ -1,6 +1,5 @@
 package com.shilko.ru.witcher.controller.api;
 
-import com.google.gson.Gson;
 import com.shilko.ru.witcher.entity.Component;
 import com.shilko.ru.witcher.entity.Draft;
 import com.shilko.ru.witcher.entity.Image;
@@ -23,7 +22,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/api/draft")
+@RequestMapping("draft/api/")
 public class DraftController {
 
     @Autowired
@@ -50,7 +49,7 @@ public class DraftController {
             });
             draft.setComponents(components);
         });
-        return ResponseEntity.ok(new Gson().toJson(drafts));
+        return ResponseEntity.ok(drafts);
     }
 
     @RequestMapping(value = "/{strId}", method = RequestMethod.GET)
@@ -79,7 +78,7 @@ public class DraftController {
             components.add(newComponent);
         });
         draft.get().setComponents(components);
-        return ResponseEntity.ok(new Gson().toJson(draft.get()));
+        return ResponseEntity.ok(draft.get());
     }
 
     @Transactional
@@ -108,7 +107,7 @@ public class DraftController {
     }
 
     @Transactional
-    @RequestMapping(value = "/add", method = RequestMethod.POST)
+    @RequestMapping(value = "/api//add", method = RequestMethod.POST)
     public
     @ResponseBody
     ResponseEntity addDraft(@RequestParam("information") String information,
@@ -123,7 +122,7 @@ public class DraftController {
     }
 
     @Transactional
-    @RequestMapping(value = "/delete/{strId}", method = RequestMethod.POST)
+    @RequestMapping(value = "/api//delete/{strId}", method = RequestMethod.POST)
     public
     @ResponseBody
     ResponseEntity deleteComponent(@PathVariable String strId) {

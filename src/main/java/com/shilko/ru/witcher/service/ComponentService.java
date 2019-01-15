@@ -39,12 +39,11 @@ public interface ComponentService {
     ResponseEntity<String> addCategoryComponent(String name, String information);
 
     ResponseEntity<String> editComponent(String name,
-                                        int price,
-                                        double weight,
-                                        String description,
-                                        long categoryId,
-                                        boolean isAlchemy,
-                                        MultipartFile imageFile);
+                                         int price,
+                                         double weight,
+                                         String description,
+                                         String category,
+                                         MultipartFile imageFile);
 
     ResponseEntity<String> editCategoryComponent(String name, String information);
 

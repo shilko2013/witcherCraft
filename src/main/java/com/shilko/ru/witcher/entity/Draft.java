@@ -140,4 +140,12 @@ public class Draft implements Serializable {
     public int hashCode() {
         return Objects.hash(id, thing, information, components);
     }
+
+    @Override
+    public String toString() {
+        return "Draft{" +
+                "id=" + id +
+                ", information='" + information + '\'' +
+                '}';
+    }
 }

@@ -107,4 +107,12 @@ public class DescriptionThing {
     public int hashCode() {
         return Objects.hash(id, description, thing);
     }
+
+    @Override
+    public String toString() {
+        return "DescriptionThing{" +
+                "id=" + id +
+                ", description='" + description + '\'' +
+                '}';
+    }
 }

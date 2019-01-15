@@ -1,6 +1,5 @@
 package com.shilko.ru.witcher.controller.api;
 
-import com.google.gson.Gson;
 import com.shilko.ru.witcher.entity.DescriptionThing;
 import com.shilko.ru.witcher.entity.Image;
 import com.shilko.ru.witcher.entity.Thing;
@@ -25,7 +24,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/api/thing")
+@RequestMapping("/thing/api")
 public class ThingController {
 
     @Autowired
@@ -48,7 +47,7 @@ public class ThingController {
             thing.getDescriptionThing().setThing(null);
             thing.getTypeThing().setThings(null);
         });
-        return ResponseEntity.ok(new Gson().toJson(things));
+        return ResponseEntity.ok(things);
     }
 
     @RequestMapping(value = "/{strId}", method = RequestMethod.GET)
@@ -73,7 +72,7 @@ public class ThingController {
         });
         thing.get().getDescriptionThing().setThing(null);
         thing.get().getTypeThing().setThings(null);
-        return ResponseEntity.ok(new Gson().toJson(thing.get()));
+        return ResponseEntity.ok((thing.get()));
     }
 
     @Transactional
@@ -102,7 +101,7 @@ public class ThingController {
     }
 
     @Transactional
-    @RequestMapping(value = "/add", method = RequestMethod.POST)
+    @RequestMapping(value = "/api/add", method = RequestMethod.POST)
     public
     @ResponseBody
     ResponseEntity addThing(@RequestParam("name") String name,
@@ -120,7 +119,7 @@ public class ThingController {
     }
 
     @Transactional
-    @RequestMapping(value = "/edit", method = RequestMethod.POST)
+    @RequestMapping(value = "/api/edit", method = RequestMethod.POST)
     public
     @ResponseBody
     ResponseEntity editThing(@RequestParam("name") String name,
@@ -136,7 +135,7 @@ public class ThingController {
     }
 
     @Transactional
-    @RequestMapping(value = "/addtype", method = RequestMethod.POST)
+    @RequestMapping(value = "/api/addtype", method = RequestMethod.POST)
     public
     @ResponseBody
     ResponseEntity addTypeThing(@RequestParam("name") String name,
@@ -145,7 +144,7 @@ public class ThingController {
     }
 
     @Transactional
-    @RequestMapping(value = "/edittype", method = RequestMethod.POST)
+    @RequestMapping(value = "/api/edittype", method = RequestMethod.POST)
     public
     @ResponseBody
     ResponseEntity editTypeThing(@RequestParam("name") String name,
@@ -154,7 +153,7 @@ public class ThingController {
     }
 
     @Transactional
-    @RequestMapping(value = "/deletetype/{strId}", method = RequestMethod.POST)
+    @RequestMapping(value = "/api/deletetype/{strId}", method = RequestMethod.POST)
     public
     @ResponseBody
     ResponseEntity deleteCategoryComponent(@PathVariable String strId) {
@@ -167,7 +166,7 @@ public class ThingController {
     }
 
     @Transactional
-    @RequestMapping(value = "/delete/{strId}", method = RequestMethod.POST)
+    @RequestMapping(value = "/api/delete/{strId}", method = RequestMethod.POST)
     public
     @ResponseBody
     ResponseEntity deleteComponent(@PathVariable String strId) {

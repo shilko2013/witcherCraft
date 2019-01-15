@@ -15,6 +15,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
@@ -142,27 +143,29 @@ public class ComponentServiceImpl implements ComponentService {
         return ResponseEntity.ok("Successfully added");
     }
 
+    @Transactional
     @Override
     public ResponseEntity<String> editComponent(String name,
                                                 int price,
                                                 double weight,
                                                 String description,
-                                                long categoryId,
-                                                boolean isAlchemy,
+                                                String category,
                                                 MultipartFile imageFile) {
         try {
             Component component = componentCrudRepository.findByName(name).get();
+            componentCrudRepository.save(component);
             DescriptionComponent descriptionComponent = descriptionComponentCrudRepository.findByComponent(component).get();
             component.setPrice(price);
             component.setWeight(weight);
             descriptionComponent.setDescription(description);
-            component.setCategory(categoryComponentCrudRepository.findById(categoryId).get());
-            component.setAlchemy(isAlchemy);
+            if (!categoryComponentCrudRepository.findByName(category).isPresent())
+                saveCategoryComponent(new CategoryComponent(category, ""));
+            component.setCategory(categoryComponentCrudRepository.findByName(category).get());
             Image oldImage = imageCrudRepository.findByComponent(component).get();
             Image image = new Image();
             String[] split;
             if (imageFile == null || imageFile.getSize() == 0)
-                image = null;
+                image = oldImage;
             else {
                 if (imageFile.getSize() > MAX_FILE_SIZE)
                     return ResponseEntity.badRequest().body("So big image file, maximum size is " + (MAX_FILE_SIZE >> 20) + "Mb");
@@ -181,10 +184,10 @@ public class ComponentServiceImpl implements ComponentService {
                     return ResponseEntity.badRequest().body("Illegal image file");
                 }
             }
-            oldImage.setType(image.getType());
-            oldImage.setPicture(image.getPicture());
+            /*oldImage.setType(image.getType());
+            oldImage.setPicture(image.getPicture());*/
             descriptionComponentCrudRepository.save(descriptionComponent);
-            if (image != null)
+            if (image != oldImage)
                 imageCrudRepository.save(image);
             componentCrudRepository.save(component);
         } catch (Exception e) {

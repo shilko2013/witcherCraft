@@ -130,4 +130,13 @@ public class TypeThing {
     public int hashCode() {
         return Objects.hash(id, name, information, things);
     }
+
+    @Override
+    public String toString() {
+        return "TypeThing{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", information='" + information + '\'' +
+                '}';
+    }
 }

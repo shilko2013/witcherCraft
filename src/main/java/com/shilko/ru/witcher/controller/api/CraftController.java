@@ -1,6 +1,5 @@
 package com.shilko.ru.witcher.controller.api;
 
-import com.google.gson.Gson;
 import com.shilko.ru.witcher.entity.Thing;
 import com.shilko.ru.witcher.service.CraftService;
 import com.sun.org.apache.regexp.internal.RE;
@@ -29,6 +28,6 @@ public class CraftController {
         } catch (Exception e) {
             return ResponseEntity.badRequest().body("Illegal id");
         }
-        return ResponseEntity.ok(new Gson().toJson(thing));
+        return ResponseEntity.ok(thing);
     }
 }
