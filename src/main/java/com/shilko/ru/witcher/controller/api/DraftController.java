@@ -22,7 +22,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("draft/api/")
+@RequestMapping("/draft")
 public class DraftController {
 
     @Autowired
@@ -38,6 +38,7 @@ public class DraftController {
         List<Draft> drafts = draftService.getAllDrafts(isAlchemy);
         drafts.forEach(draft -> {
             Thing thing = new Thing();
+            thing.setAlchemy(isAlchemy);
             thing.setId(draft.getThing().getId());
             thing.setName(draft.getThing().getName());
             draft.setThing(thing);
@@ -107,14 +108,16 @@ public class DraftController {
     }
 
     @Transactional
-    @RequestMapping(value = "/api//add", method = RequestMethod.POST)
+    @RequestMapping(value = "/api/add", method = RequestMethod.POST)
     public
     @ResponseBody
     ResponseEntity addDraft(@RequestParam("information") String information,
-                            @RequestParam("thingId") String thingId,
-                            @RequestParam("componentId") List<Long> componentId) {
+                            @RequestParam("thing") String thing,
+                            @RequestParam("components") List<String> components) {
+        if (components.isEmpty())
+            return ResponseEntity.badRequest().body("Components length might be more then 0");
         try {
-            draftService.saveDraft(information, thingId, componentId);
+            draftService.saveDraft(information, thing, components);
         } catch (Exception e) {
             return ResponseEntity.badRequest().body("Illegal set of arguments");
         }
@@ -122,13 +125,13 @@ public class DraftController {
     }
 
     @Transactional
-    @RequestMapping(value = "/api//delete/{strId}", method = RequestMethod.POST)
+    @RequestMapping(value = "/api/delete/{strId}", method = RequestMethod.POST)
     public
     @ResponseBody
     ResponseEntity deleteComponent(@PathVariable String strId) {
         try {
             draftService.deleteDraftById(Long.parseLong(strId));
-            return ResponseEntity.ok("Thing deleted");
+            return ResponseEntity.ok("Draft deleted");
         } catch (Exception e) {
             return ResponseEntity.badRequest().body("Illegal id");
         }

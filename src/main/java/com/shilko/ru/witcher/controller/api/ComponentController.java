@@ -99,12 +99,12 @@ public class ComponentController { //TODO edit & delete
                                 @RequestParam("price") int price,
                                 @RequestParam("weight") double weight,
                                 @RequestParam("description") String description,
-                                @RequestParam("categoryId") long categoryId,
+                                @RequestParam("category") String category,
                                 @RequestParam("isAlchemy") boolean isAlchemy,
                                 @RequestParam(value="image", required=false) MultipartFile imageFile) {
         if (componentService.getComponentByName(name).isPresent())
             return ResponseEntity.badRequest().body("This component already exists");
-        return componentService.addComponent(name, price, weight, description, categoryId, isAlchemy, imageFile);
+        return componentService.addComponent(name, price, weight, description, category, isAlchemy, imageFile);
     }
 
     @Transactional

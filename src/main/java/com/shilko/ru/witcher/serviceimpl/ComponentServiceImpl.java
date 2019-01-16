@@ -91,11 +91,13 @@ public class ComponentServiceImpl implements ComponentService {
                                                int price,
                                                double weight,
                                                String description,
-                                               long categoryId,
+                                               String category,
                                                boolean isAlchemy,
                                                MultipartFile imageFile) {
         DescriptionComponent descriptionComponent = new DescriptionComponent(description);
-        Optional<CategoryComponent> categoryComponent = getCategoryComponentById(categoryId);
+        if (!categoryComponentCrudRepository.findByName(category).isPresent())
+            saveCategoryComponent(new CategoryComponent(category, ""));
+        Optional<CategoryComponent> categoryComponent = categoryComponentCrudRepository.findByName(category);
         if (!categoryComponent.isPresent())
             return ResponseEntity.badRequest().body("Illegal category id");
         Image image = new Image();
@@ -143,7 +145,6 @@ public class ComponentServiceImpl implements ComponentService {
         return ResponseEntity.ok("Successfully added");
     }
 
-    @Transactional
     @Override
     public ResponseEntity<String> editComponent(String name,
                                                 int price,
@@ -161,7 +162,7 @@ public class ComponentServiceImpl implements ComponentService {
             if (!categoryComponentCrudRepository.findByName(category).isPresent())
                 saveCategoryComponent(new CategoryComponent(category, ""));
             component.setCategory(categoryComponentCrudRepository.findByName(category).get());
-            Image oldImage = imageCrudRepository.findByComponent(component).get();
+            Image oldImage = imageCrudRepository.findByComponent(component).orElse(null);
             Image image = new Image();
             String[] split;
             if (imageFile == null || imageFile.getSize() == 0)
@@ -219,9 +220,10 @@ public class ComponentServiceImpl implements ComponentService {
     @Override
     public void deleteComponent(Long id) {
         Optional<Component> component = componentCrudRepository.findById(id);
-        imageCrudRepository.delete(component.get().getImage());
-        descriptionComponentCrudRepository.delete(component.get().getDescriptionComponent());
         componentCrudRepository.delete(component.get());
+        if (component.get().getImage() != null)
+            imageCrudRepository.delete(component.get().getImage());
+        descriptionComponentCrudRepository.delete(component.get().getDescriptionComponent());
     }
 
 }

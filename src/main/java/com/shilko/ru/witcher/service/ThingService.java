@@ -15,7 +15,7 @@ public interface ThingService {
 
     Optional<TypeThing> getTypeThingById(Long id);
 
-    void saveThing(Thing thing, DescriptionThing descriptionThing, List<String> effectThings, List<String> effectNames, Image image);
+    void saveThing(Thing thing, DescriptionThing descriptionThing, List<String> effectThings, Image image);
 
     void saveTypeThing(TypeThing typeThing);
 
@@ -29,10 +29,9 @@ public interface ThingService {
                             int price,
                             double weight,
                             String description,
-                            long typeId,
+                            String type,
                             boolean isAlchemy,
                             List<String> effects,
-                            List<String> effectsNames,
                             MultipartFile imageFile);
 
     ResponseEntity addTypeThing(String name, String information);
@@ -41,10 +40,9 @@ public interface ThingService {
                             int price,
                             double weight,
                             String description,
-                            long typeId,
+                            String type,
                             boolean isAlchemy,
                             List<String> effects,
-                            List<String> effectsNames,
                             MultipartFile imageFile);
 
     ResponseEntity editTypeThing(String name, String information);

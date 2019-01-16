@@ -77,7 +77,7 @@ public class Component {
     @Fetch(value = FetchMode.SUBSELECT)
     private List<Draft> drafts;
 
-    @OneToOne(fetch = FetchType.EAGER)
+    @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinColumn(name = "image_id", nullable = true)
     private Image image;
 

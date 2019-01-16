@@ -59,18 +59,18 @@ public class ThingServiceImpl implements ThingService {
 
     @Transactional
     @Override
-    public void saveThing(Thing thing, DescriptionThing descriptionThing, List<String> effects, List<String> effectNames, Image image) {
-        List<EffectThing> effectThings = new ArrayList<>();
-        for (int i = 0; i < effects.size(); ++i)
-            effectThings.add(new EffectThing(effectNames.get(i), effects.get(i), null));
-        effectThings.forEach(effectThing -> effectThingCrudRepository.save(effectThing));
+    public void saveThing(Thing thing, DescriptionThing descriptionThing, List<String> effects, Image image) {
         if (image != null)
             imageCrudRepository.save(image);
         descriptionThingCrudRepository.save(descriptionThing);
         thing.setDescriptionThing(descriptionThing);
-        thing.setEffects(effectThings);
         thing.setImage(image);
+        thing.setEffects(null);
         thingCrudRepository.save(thing);
+        List<EffectThing> effectThings = new ArrayList<>();
+        for (int i = 0; i < effects.size(); ++i)
+            effectThings.add(new EffectThing(effects.get(i), "", thing));
+        effectThings.forEach(effectThing -> effectThingCrudRepository.save(effectThing));
     }
 
     @Override
@@ -98,15 +98,16 @@ public class ThingServiceImpl implements ThingService {
                                    int price,
                                    double weight,
                                    String description,
-                                   long typeId,
+                                   String type,
                                    boolean isAlchemy,
                                    List<String> effects,
-                                   List<String> effectsNames,
                                    MultipartFile imageFile) {
         DescriptionThing descriptionThing = new DescriptionThing(description);
-        Optional<TypeThing> typeThing = getTypeThingById(typeId);
-        if (!typeThing.isPresent())
-            return ResponseEntity.badRequest().body("Illegal category id");
+        TypeThing typeThing = getTypeThingByName(type).orElse(null);
+        if (typeThing == null) {
+            typeThing = new TypeThing(type, "");
+            typeThingCrudRepository.save(typeThing);
+        }
         Image image = new Image();
         String[] split;
         if (imageFile == null || imageFile.getSize() == 0)
@@ -129,9 +130,9 @@ public class ThingServiceImpl implements ThingService {
                 return ResponseEntity.badRequest().body("Illegal image file");
             }
         }
-        Thing thing = new Thing(name, price, weight, typeThing.get(), descriptionThing, isAlchemy, image);
+        Thing thing = new Thing(name, price, weight, typeThing, descriptionThing, isAlchemy, image);
         try {
-            saveThing(thing, descriptionThing, effects, effectsNames, image);
+            saveThing(thing, descriptionThing, effects, image);
         } catch (Exception e) {
             return ResponseEntity.badRequest().body("Illegal set of arguments");
         }
@@ -163,41 +164,42 @@ public class ThingServiceImpl implements ThingService {
     @Override
     public void deleteThing(Long id) {
         Optional<Thing> thing = thingCrudRepository.findById(id);
+        thingCrudRepository.deleteById(id);
+        if (thing.get().getImage() != null)
         imageCrudRepository.delete(thing.get().getImage());
-        thing.get().getDrafts().forEach(draftCrudRepository::delete);
-        thing.get().getEffects().forEach(effectThingCrudRepository::delete);
         descriptionThingCrudRepository.delete(thing.get().getDescriptionThing());
     }
 
     @Override
     public ResponseEntity editThing(String name,
-                             int price,
-                             double weight,
-                             String description,
-                             long typeId,
-                             boolean isAlchemy,
-                             List<String> effects,
-                             List<String> effectsNames,
-                             MultipartFile imageFile) {
+                                    int price,
+                                    double weight,
+                                    String description,
+                                    String type,
+                                    boolean isAlchemy,
+                                    List<String> effects,
+                                    MultipartFile imageFile) {
         try {
             Thing thing = thingCrudRepository.findByName(name).get();
+            Image oldImage = imageCrudRepository.findByThing(thing).orElse(null);
             thing.setPrice(price);
             thing.setWeight(weight);
             DescriptionThing descriptionThing = descriptionThingCrudRepository.findByThing(thing).get();
             descriptionThing.setDescription(description);
             descriptionThingCrudRepository.save(descriptionThing);
-            thing.setTypeThing(typeThingCrudRepository.findById(typeId).get());
+            if (!typeThingCrudRepository.findByName(type).isPresent())
+                typeThingCrudRepository.save(new TypeThing(type,""));
+            thing.setTypeThing(typeThingCrudRepository.findByName(type).get()); //!!! Exception!!!
             thing.setAlchemy(isAlchemy);
             effectThingCrudRepository.findAllByThing(thing).forEach(effectThingCrudRepository::delete);
             List<EffectThing> effectThings = new ArrayList<>();
             for (int i = 0; i < effects.size(); ++i)
-                effectThings.add(new EffectThing(effectsNames.get(i), effects.get(i), null));
-            effectThings.forEach(effectThing -> effectThingCrudRepository.save(effectThing));
+                effectThings.add(new EffectThing(effects.get(i), "", thing));
             thing.setEffects(effectThings);
             Image image = new Image();
             String[] split;
             if (imageFile == null || imageFile.getSize() == 0)
-                image = null;
+                image = oldImage;
             else {
                 if (imageFile.getSize() > MAX_FILE_SIZE)
                     return ResponseEntity.badRequest().body("So big image file, maximum size is " + (MAX_FILE_SIZE >> 20) + "Mb");
@@ -216,13 +218,14 @@ public class ThingServiceImpl implements ThingService {
                     return ResponseEntity.badRequest().body("Illegal image file");
                 }
             }
-            thing.getImage().setType(image.getType());
-            thing.getImage().setPicture(image.getPicture());
-            if (image != null)
+            /*thing.getImage().setType(image.getType());
+            thing.getImage().setPicture(image.getPicture());*/
+            thing.setImage(image);
+            if (image != oldImage)
                 imageCrudRepository.save(image);
-            thingCrudRepository.save(thing);
+            saveThing(thing,descriptionThing,effects,image);
         } catch (Exception e) {
-            return ResponseEntity.badRequest().body("Illegal set og arguments");
+            return ResponseEntity.badRequest().body("Illegal set of arguments");
         }
         return ResponseEntity.ok("Successfully edited");
     }

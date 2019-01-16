@@ -1,9 +1,6 @@
 package com.shilko.ru.witcher.controller.api;
 
-import com.shilko.ru.witcher.entity.DescriptionThing;
-import com.shilko.ru.witcher.entity.Image;
-import com.shilko.ru.witcher.entity.Thing;
-import com.shilko.ru.witcher.entity.TypeThing;
+import com.shilko.ru.witcher.entity.*;
 import com.shilko.ru.witcher.service.ThingService;
 import org.apache.commons.codec.binary.Base64;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,9 +19,10 @@ import java.lang.reflect.Array;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @RestController
-@RequestMapping("/thing/api")
+@RequestMapping("/thing")
 public class ThingController {
 
     @Autowired
@@ -43,7 +41,11 @@ public class ThingController {
         things.forEach(thing -> {
             thing.setImage(null);
             thing.getEffects().forEach(effectThing -> effectThing.setThing(null));
-            thing.setDrafts(null);
+            thing.setDrafts(thing.getDrafts().stream().map(draft -> {
+                Draft draft1 = new Draft();
+                draft1.setId(draft.getId());
+                return draft1;
+            }).collect(Collectors.toList()));
             thing.getDescriptionThing().setThing(null);
             thing.getTypeThing().setThings(null);
         });
@@ -108,14 +110,13 @@ public class ThingController {
                             @RequestParam("price") int price,
                             @RequestParam("weight") double weight,
                             @RequestParam("description") String description,
-                            @RequestParam("typeId") long typeId,
+                            @RequestParam("type") String type,
                             @RequestParam("isAlchemy") boolean isAlchemy,
                             @RequestParam("effects") List<String> effects,
-                            @RequestParam("effectsNames") List<String> effectsNames,
-                            @RequestParam("image") MultipartFile imageFile) {
+                            @RequestParam(value="image", required=false) MultipartFile imageFile) {
         if (thingService.getThingByName(name).isPresent())
             return ResponseEntity.badRequest().body("This thing already exists");
-        return thingService.addThing(name, price, weight, description, typeId, isAlchemy, effects, effectsNames, imageFile);
+        return thingService.addThing(name, price, weight, description, type, isAlchemy, effects, imageFile);
     }
 
     @Transactional
@@ -126,12 +127,11 @@ public class ThingController {
                             @RequestParam("price") int price,
                             @RequestParam("weight") double weight,
                             @RequestParam("description") String description,
-                            @RequestParam("typeId") long typeId,
+                            @RequestParam("type") String type,
                             @RequestParam("isAlchemy") boolean isAlchemy,
                             @RequestParam("effects") List<String> effects,
-                            @RequestParam("effectsNames") List<String> effectsNames,
-                            @RequestParam("image") MultipartFile imageFile) {
-        return thingService.editThing(name, price, weight, description, typeId, isAlchemy, effects, effectsNames, imageFile);
+                            @RequestParam(value="image", required=false) MultipartFile imageFile) {
+        return thingService.editThing(name, price, weight, description, type, isAlchemy, effects, imageFile);
     }
 
     @Transactional

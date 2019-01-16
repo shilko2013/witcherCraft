@@ -51,10 +51,10 @@ public class DraftServiceImpl implements DraftService {
 
     @Transactional
     @Override
-    public void saveDraft(String information, String thingId, List<Long> componentId) {
-        List<Component> components = new ArrayList<>();
-        componentId.forEach(component -> components.add(componentCrudRepository.findById(component).get()));
-        Draft draft = new Draft(thingCrudRepository.findById(Long.parseLong(thingId)).get(), information, components);
+    public void saveDraft(String information, String thing, List<String> components) {
+        List<Component> componentList = new ArrayList<>();
+        components.forEach(component -> componentList.add(componentCrudRepository.findByName(component).get()));
+        Draft draft = new Draft(thingCrudRepository.findByName(thing).get(), information, componentList);
         draftCrudRepository.save(draft);
     }
 

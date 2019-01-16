@@ -32,7 +32,7 @@ public interface ComponentService {
                                         int price,
                                         double weight,
                                         String description,
-                                        long categoryId,
+                                        String category,
                                         boolean isAlchemy,
                                         MultipartFile imageFile);
 

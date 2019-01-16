@@ -71,18 +71,18 @@ public class Thing implements Serializable {
     private DescriptionThing descriptionThing;
 
     @Column(nullable = false)
-    @OneToMany(mappedBy = "thing", fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "thing", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     private List<EffectThing> effects;
 
     @Column(nullable = false)
-    @OneToMany(mappedBy = "thing", fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "thing", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @Fetch(value = FetchMode.SUBSELECT)
     private List<Draft> drafts;
 
     @Column(nullable = false)
     private boolean isAlchemy;
 
-    @OneToOne(fetch = FetchType.EAGER)
+    @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinColumn(name = "image_id", nullable = true)
     private Image image;
 
