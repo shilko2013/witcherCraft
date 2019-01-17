@@ -6,15 +6,16 @@ import com.shilko.ru.witcher.service.CraftService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 @Service
 public class CraftServiceImpl implements CraftService {
 
     @Autowired
     private ThingCrudRepository thingCrudRepository;
 
-    @Override
-    public Thing getTreeByThingId(Long id) {
-        Thing thing = thingCrudRepository.findById(id).get();
+    private Thing prepareThing(Thing thing) {
         thing.getEffects().forEach(effectThing -> effectThing.setThing(null));
         thing.setImage(null);
         thing.getTypeThing().setThings(null);
@@ -28,5 +29,18 @@ public class CraftServiceImpl implements CraftService {
             });
         });
         return thing;
+    }
+
+    @Override
+    public Thing getTreeByThingId(Long id) {
+        Thing thing = thingCrudRepository.findById(id).get();
+        return prepareThing(thing);
+    }
+
+    @Override
+    public List<Thing> getAllThingsByIsAlchemy(boolean isAlchemy) {
+        return thingCrudRepository.findAllByIsAlchemy(isAlchemy).stream()
+                .map(this::prepareThing)
+                .collect(Collectors.toList());
     }
 }
