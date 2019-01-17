@@ -176,11 +176,11 @@ public class ThingServiceImpl implements ThingService {
                                     double weight,
                                     String description,
                                     String type,
-                                    boolean isAlchemy,
                                     List<String> effects,
                                     MultipartFile imageFile) {
         try {
             Thing thing = thingCrudRepository.findByName(name).get();
+            thing.getEffects().stream().map(EffectThing::getId).forEach(effectThingCrudRepository::deleteById);
             Image oldImage = imageCrudRepository.findByThing(thing).orElse(null);
             thing.setPrice(price);
             thing.setWeight(weight);
@@ -190,12 +190,10 @@ public class ThingServiceImpl implements ThingService {
             if (!typeThingCrudRepository.findByName(type).isPresent())
                 typeThingCrudRepository.save(new TypeThing(type,""));
             thing.setTypeThing(typeThingCrudRepository.findByName(type).get()); //!!! Exception!!!
-            thing.setAlchemy(isAlchemy);
-            effectThingCrudRepository.findAllByThing(thing).forEach(effectThingCrudRepository::delete);
-            List<EffectThing> effectThings = new ArrayList<>();
+            /*List<EffectThing> effectThings = new ArrayList<>();
             for (int i = 0; i < effects.size(); ++i)
                 effectThings.add(new EffectThing(effects.get(i), "", thing));
-            thing.setEffects(effectThings);
+            thing.setEffects(effectThings);*/
             Image image = new Image();
             String[] split;
             if (imageFile == null || imageFile.getSize() == 0)

@@ -108,4 +108,12 @@ public class DescriptionComponent {
     public int hashCode() {
         return Objects.hash(id, description, component);
     }
+
+    @Override
+    public String toString() {
+        return "DescriptionComponent{" +
+                "id=" + id +
+                ", description='" + description + '\'' +
+                '}';
+    }
 }

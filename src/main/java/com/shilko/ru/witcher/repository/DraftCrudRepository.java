@@ -3,6 +3,8 @@ package com.shilko.ru.witcher.repository;
 import com.shilko.ru.witcher.entity.Component;
 import com.shilko.ru.witcher.entity.Draft;
 import com.shilko.ru.witcher.entity.Thing;
+import org.springframework.data.jpa.repository.Modifying;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 
 import java.util.List;
@@ -20,6 +22,8 @@ public interface DraftCrudRepository extends CrudRepository<Draft, Long> {
     Draft save(Draft draft);
 
     @Override
+    @Modifying
+    @Query("delete from Draft d where d.id=?1")
     void deleteById(Long id);
 
     /**

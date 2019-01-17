@@ -41,7 +41,6 @@ public interface ThingService {
                             double weight,
                             String description,
                             String type,
-                            boolean isAlchemy,
                             List<String> effects,
                             MultipartFile imageFile);
 

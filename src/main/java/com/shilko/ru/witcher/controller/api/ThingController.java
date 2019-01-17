@@ -128,10 +128,9 @@ public class ThingController {
                             @RequestParam("weight") double weight,
                             @RequestParam("description") String description,
                             @RequestParam("type") String type,
-                            @RequestParam("isAlchemy") boolean isAlchemy,
                             @RequestParam("effects") List<String> effects,
                             @RequestParam(value="image", required=false) MultipartFile imageFile) {
-        return thingService.editThing(name, price, weight, description, type, isAlchemy, effects, imageFile);
+        return thingService.editThing(name, price, weight, description, type, effects, imageFile);
     }
 
     @Transactional

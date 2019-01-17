@@ -54,7 +54,11 @@ public class DraftServiceImpl implements DraftService {
     public void saveDraft(String information, String thing, List<String> components) {
         List<Component> componentList = new ArrayList<>();
         components.forEach(component -> componentList.add(componentCrudRepository.findByName(component).get()));
-        Draft draft = new Draft(thingCrudRepository.findByName(thing).get(), information, componentList);
+        Thing thing1 = thingCrudRepository.findByName(thing).get();
+        Draft draft = new Draft(thing1, information, componentList);
+        if ((thing1.isAlchemy() && componentList.stream().anyMatch(e-> !e.getAlchemy()))
+            || (!thing1.isAlchemy() && componentList.stream().anyMatch(Component::getAlchemy)))
+            throw new IllegalArgumentException();
         draftCrudRepository.save(draft);
     }
 
