@@ -74,6 +74,7 @@ public class AdminServiceImpl implements AdminService {
                 if (userDetails.getUsername().equals(user.get().getUsername())) {
                     for (SessionInformation information : sessionRegistry.getAllSessions(userDetails, true)) {
                         information.expireNow();
+                        sessionRegistry.removeSessionInformation(information.getSessionId());
                     }
                 }
             }
