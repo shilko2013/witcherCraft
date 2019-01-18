@@ -38,10 +38,10 @@ public class Image { //TODO edit double code
     @Column(nullable = false)
     private String picture;
 
-    @OneToOne(mappedBy = "image", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @OneToOne(mappedBy = "image", fetch = FetchType.EAGER, cascade = {CascadeType.MERGE, CascadeType.DETACH})
     private Component component;
 
-    @OneToOne(mappedBy = "image", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @OneToOne(mappedBy = "image", fetch = FetchType.EAGER, cascade = {CascadeType.MERGE, CascadeType.DETACH})
     private Thing thing;
 
     public Image() {

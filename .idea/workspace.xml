@@ -6,9 +6,11 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="678ca382-2f1f-4b50-a17d-25d8060134e3" name="Default Changelist" comment="">
+    <list default="true" id="678ca382-2f1f-4b50-a17d-25d8060134e3" name="Default Changelist" comment="addThing fixed.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/shilko/ru/witcher/serviceimpl/ThingServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/shilko/ru/witcher/serviceimpl/ThingServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/shilko/ru/witcher/entity/Image.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/shilko/ru/witcher/entity/Image.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/shilko/ru/witcher/serviceimpl/ComponentServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/shilko/ru/witcher/serviceimpl/ComponentServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/ApplicationConfigDatabase.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/ApplicationConfigDatabase.xml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -74,15 +76,19 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/shilko/ru/witcher/serviceimpl/ThingServiceImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="315">
-              <caret line="71" column="34" lean-forward="true" selection-start-line="71" selection-start-column="34" selection-end-line="71" selection-end-column="34" />
+            <state relative-caret-position="362">
+              <caret line="70" column="28" lean-forward="true" selection-start-line="70" selection-start-column="28" selection-end-line="70" selection-end-column="28" />
               <folding>
+                <element signature="e#2624#2625#0" expanded="true" />
                 <element signature="e#2679#2680#0" expanded="true" />
+                <element signature="e#2759#2760#0" expanded="true" />
                 <element signature="e#2822#2823#0" expanded="true" />
+                <element signature="e#2888#2889#0" expanded="true" />
                 <element signature="e#2943#2944#0" expanded="true" />
+                <element signature="e#3015#3016#0" expanded="true" />
                 <element signature="e#3074#3075#0" expanded="true" />
               </folding>
             </state>
@@ -107,11 +113,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/shilko/ru/witcher/serviceimpl/ComponentServiceImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="780">
-              <caret line="71" column="64" selection-start-line="71" selection-start-column="64" selection-end-line="71" selection-end-column="64" />
+            <state relative-caret-position="182">
+              <caret line="60" column="16" selection-start-line="60" selection-start-column="16" selection-end-line="60" selection-end-column="16" />
               <folding>
                 <element signature="e#2996#2997#0" expanded="true" />
                 <element signature="e#3055#3056#0" expanded="true" />
@@ -123,9 +129,57 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/shilko/ru/witcher/entity/Component.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="317">
+              <caret line="79" column="64" selection-start-line="79" selection-start-column="64" selection-end-line="79" selection-end-column="64" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/shilko/ru/witcher/entity/Image.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="270">
+              <caret line="43" column="109" selection-start-line="43" selection-start-column="109" selection-end-line="43" selection-end-column="109" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/ApplicationConfigDatabase.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="345">
+              <caret line="23" selection-start-line="23" selection-end-line="23" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/shilko/ru/witcher/controller/api/ComponentController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="413">
+              <caret line="106" column="35" selection-start-line="106" selection-start-column="35" selection-end-line="106" selection-end-column="35" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/shilko/ru/witcher/service/ComponentService.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="190">
+              <caret line="30" column="27" selection-start-line="30" selection-start-column="27" selection-end-line="30" selection-end-column="27" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/pom.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="275">
+            <state relative-caret-position="1965">
               <caret line="131" column="43" selection-start-line="131" selection-start-column="43" selection-end-line="131" selection-end-column="43" />
             </state>
           </provider>
@@ -187,14 +241,12 @@
         <option value="$PROJECT_DIR$/src/main/java/com/shilko/ru/witcher/service/ExternalResourceService.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/addtype.jsp" />
         <option value="$PROJECT_DIR$/src/main/java/com/shilko/ru/witcher/repository/ImageCrudRepository.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/shilko/ru/witcher/entity/Image.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/addthing.jsp" />
         <option value="$PROJECT_DIR$/src/main/java/com/shilko/ru/witcher/entity/EffectThing.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/adddraft.jsp" />
         <option value="$PROJECT_DIR$/src/main/java/com/shilko/ru/witcher/config/ApplicationConfigController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/shilko/ru/witcher/controller/IndexController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/shilko/ru/witcher/config/RestAuthenticationEntryPoint.java" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/ApplicationConfigDatabase.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/shilko/ru/witcher/config/CorsConfig.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/shilko/ru/witcher/config/CorsConfiguration.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/shilko/ru/witcher/config/MyCorsConfiguration.java" />
@@ -227,8 +279,10 @@
         <option value="$PROJECT_DIR$/src/main/java/com/shilko/ru/witcher/service/CraftService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/shilko/ru/witcher/serviceimpl/CraftServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/shilko/ru/witcher/controller/api/CraftController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/shilko/ru/witcher/serviceimpl/ComponentServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/shilko/ru/witcher/serviceimpl/ThingServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/ApplicationConfigDatabase.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/shilko/ru/witcher/serviceimpl/ComponentServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/shilko/ru/witcher/entity/Image.java" />
       </list>
     </option>
   </component>
@@ -312,8 +366,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -346,6 +398,34 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="witcher" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="witcherCraft" type="b2602c69:ProjectViewProjectNode" />
+              <item name="witcherCraft" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="witcher" type="462c0819:PsiDirectoryNode" />
+              <item name="controller" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="witcherCraft" type="b2602c69:ProjectViewProjectNode" />
+              <item name="witcherCraft" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="witcher" type="462c0819:PsiDirectoryNode" />
+              <item name="controller" type="462c0819:PsiDirectoryNode" />
+              <item name="api" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="witcherCraft" type="b2602c69:ProjectViewProjectNode" />
+              <item name="witcherCraft" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="witcher" type="462c0819:PsiDirectoryNode" />
+              <item name="entity" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="witcherCraft" type="b2602c69:ProjectViewProjectNode" />
@@ -390,6 +470,8 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -672,6 +754,8 @@
       <workItem from="1547733636612" duration="26000" />
       <workItem from="1547745198314" duration="4357000" />
       <workItem from="1547775936590" duration="1671000" />
+      <workItem from="1547779256929" duration="895000" />
+      <workItem from="1547781528240" duration="3032000" />
     </task>
     <task id="LOCAL-00009" summary="Version 0.0.6.0.1 Edits for new db on linux.">
       <created>1541236386104</created>
@@ -1052,12 +1136,12 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="403097000" />
+    <option name="totallyTimeSpent" value="407126000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="-1" width="1920" height="1054" extended-state="6" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.22168803" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.22702992" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -1068,8 +1152,8 @@
       <window_info id="Learn" order="8" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32792208" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49893278" visible="true" weight="0.3672806" />
-      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.4994664" weight="0.35135135" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49893278" weight="0.3672806" />
+      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.4994664" visible="true" weight="0.35102925" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -1093,7 +1177,7 @@
       <window_info anchor="right" id="Palette&#9;" order="7" />
       <window_info anchor="right" id="Theme Preview" order="8" />
       <window_info anchor="right" id="Bean Validation" order="9" weight="0.32995737" />
-      <window_info anchor="right" id="Maven" order="10" weight="0.32959402" />
+      <window_info anchor="right" id="Maven" order="10" visible="true" weight="0.32959402" />
     </layout>
     <layout-to-restore>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.18089648" />
@@ -1173,6 +1257,12 @@
           <properties />
           <option name="timeStamp" value="21" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/shilko/ru/witcher/serviceimpl/ComponentServiceImpl.java</url>
+          <line>61</line>
+          <properties />
+          <option name="timeStamp" value="24" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
     <watches-manager>
@@ -1251,13 +1341,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/shilko/ru/witcher/service/ComponentService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
-          <caret line="34" column="55" selection-start-line="34" selection-start-column="55" selection-end-line="34" selection-end-column="55" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/shilko/ru/witcher/config/AuthenticationSuccessHandler.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="135">
@@ -1321,20 +1404,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/shilko/ru/witcher/entity/Component.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1065">
-          <caret line="79" column="64" selection-start-line="79" selection-start-column="64" selection-end-line="79" selection-end-column="64" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/shilko/ru/witcher/entity/Image.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="30" column="44" selection-start-line="30" selection-start-column="44" selection-end-line="30" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/shilko/ru/witcher/repository/DescriptionComponentCrudRepository.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
@@ -1349,16 +1418,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/shilko/ru/witcher/controller/api/ComponentController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="813">
-          <caret line="161" column="20" selection-start-line="161" selection-start-column="20" selection-end-line="161" selection-end-column="20" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/shilko/ru/witcher/entity/DescriptionComponent.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="368">
@@ -1370,23 +1429,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="300">
           <caret line="49" selection-start-line="49" selection-end-line="49" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/shilko/ru/witcher/service/ThingService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="42" column="40" selection-start-line="42" selection-start-column="40" selection-end-line="42" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/shilko/ru/witcher/controller/api/ThingController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="182">
-          <caret line="132" selection-start-line="132" selection-end-line="132" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1477,9 +1519,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/ApplicationConfigDatabase.xml">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/shilko/ru/witcher/repository/DraftCrudRepository.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="270">
@@ -1524,6 +1563,23 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/shilko/ru/witcher/controller/api/ThingController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1485">
+          <caret line="118" column="32" selection-start-line="118" selection-start-column="32" selection-end-line="118" selection-end-column="32" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/shilko/ru/witcher/service/ThingService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="27" column="19" selection-start-line="27" selection-start-column="19" selection-end-line="27" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/shilko/ru/witcher/serviceimpl/DraftServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="690">
@@ -1538,35 +1594,77 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/shilko/ru/witcher/serviceimpl/ComponentServiceImpl.java">
+    <entry file="file://$PROJECT_DIR$/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="780">
-          <caret line="71" column="64" selection-start-line="71" selection-start-column="64" selection-end-line="71" selection-end-column="64" />
+        <state relative-caret-position="1965">
+          <caret line="131" column="43" selection-start-line="131" selection-start-column="43" selection-end-line="131" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/ApplicationConfigDatabase.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="23" selection-start-line="23" selection-end-line="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/shilko/ru/witcher/controller/api/ComponentController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="413">
+          <caret line="106" column="35" selection-start-line="106" selection-start-column="35" selection-end-line="106" selection-end-column="35" />
           <folding>
-            <element signature="e#2996#2997#0" expanded="true" />
-            <element signature="e#3055#3056#0" expanded="true" />
-            <element signature="e#3135#3136#0" expanded="true" />
-            <element signature="e#3198#3199#0" expanded="true" />
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/shilko/ru/witcher/service/ComponentService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="275">
-          <caret line="131" column="43" selection-start-line="131" selection-start-column="43" selection-end-line="131" selection-end-column="43" />
+        <state relative-caret-position="190">
+          <caret line="30" column="27" selection-start-line="30" selection-start-column="27" selection-end-line="30" selection-end-column="27" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/shilko/ru/witcher/serviceimpl/ThingServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="71" column="34" lean-forward="true" selection-start-line="71" selection-start-column="34" selection-end-line="71" selection-end-column="34" />
+        <state relative-caret-position="362">
+          <caret line="70" column="28" lean-forward="true" selection-start-line="70" selection-start-column="28" selection-end-line="70" selection-end-column="28" />
           <folding>
+            <element signature="e#2624#2625#0" expanded="true" />
             <element signature="e#2679#2680#0" expanded="true" />
+            <element signature="e#2759#2760#0" expanded="true" />
             <element signature="e#2822#2823#0" expanded="true" />
+            <element signature="e#2888#2889#0" expanded="true" />
             <element signature="e#2943#2944#0" expanded="true" />
+            <element signature="e#3015#3016#0" expanded="true" />
             <element signature="e#3074#3075#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/shilko/ru/witcher/entity/Component.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="317">
+          <caret line="79" column="64" selection-start-line="79" selection-start-column="64" selection-end-line="79" selection-end-column="64" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/shilko/ru/witcher/entity/Image.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="43" column="109" selection-start-line="43" selection-start-column="109" selection-end-line="43" selection-end-column="109" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/shilko/ru/witcher/serviceimpl/ComponentServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="182">
+          <caret line="60" column="16" selection-start-line="60" selection-start-column="16" selection-end-line="60" selection-end-column="16" />
+          <folding>
+            <element signature="e#2996#2997#0" expanded="true" />
+            <element signature="e#3055#3056#0" expanded="true" />
+            <element signature="e#3135#3136#0" expanded="true" />
+            <element signature="e#3198#3199#0" expanded="true" />
           </folding>
         </state>
       </provider>

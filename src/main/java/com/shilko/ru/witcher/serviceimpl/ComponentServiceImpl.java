@@ -57,9 +57,11 @@ public class ComponentServiceImpl implements ComponentService {
     }
 
     @Override
+    @Transactional
     public void saveComponent(Component component, Image image, DescriptionComponent descriptionComponent) {
         descriptionComponentCrudRepository.save(descriptionComponent);
         component.setDescriptionComponent(descriptionComponent);
+        component.setImage(null);
         componentCrudRepository.save(component);
         if (image != null) {
             image.setComponent(component);
@@ -123,7 +125,7 @@ public class ComponentServiceImpl implements ComponentService {
                 return ResponseEntity.badRequest().body("Illegal image file");
             }
         }
-        Component component = new Component(name, price, weight, descriptionComponent, categoryComponent.get(), isAlchemy, image);
+        Component component = new Component(name, price, weight, descriptionComponent, categoryComponent.get(), isAlchemy, null);
         try {
             saveComponent(component, image, descriptionComponent);
         } catch (Exception e) {
