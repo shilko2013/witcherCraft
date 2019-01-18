@@ -60,10 +60,11 @@ public class ComponentServiceImpl implements ComponentService {
     public void saveComponent(Component component, Image image, DescriptionComponent descriptionComponent) {
         descriptionComponentCrudRepository.save(descriptionComponent);
         component.setDescriptionComponent(descriptionComponent);
-        if (image != null)
-            imageCrudRepository.save(image);
-        component.setImage(image);
         componentCrudRepository.save(component);
+        if (image != null) {
+            image.setComponent(component);
+            imageCrudRepository.save(image);
+        }
     }
 
     @Override
