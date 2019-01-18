@@ -60,17 +60,18 @@ public class ThingServiceImpl implements ThingService {
     @Transactional
     @Override
     public void saveThing(Thing thing, DescriptionThing descriptionThing, List<String> effects, Image image) {
-        if (image != null)
-            imageCrudRepository.save(image);
         descriptionThingCrudRepository.save(descriptionThing);
         thing.setDescriptionThing(descriptionThing);
-        thing.setImage(image);
         thing.setEffects(null);
         thingCrudRepository.save(thing);
         List<EffectThing> effectThings = new ArrayList<>();
         for (int i = 0; i < effects.size(); ++i)
             effectThings.add(new EffectThing(effects.get(i), "", thing));
         effectThings.forEach(effectThing -> effectThingCrudRepository.save(effectThing));
+        if (image != null) {
+            image.setThing(thing);
+            imageCrudRepository.save(image);
+        }
     }
 
     @Override
